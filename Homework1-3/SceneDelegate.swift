@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Homework1-3
+//  Navigation
 //
-//  Created by qwerty on 11.02.2022.
+//  Created by Shom on 10.02.2022.
 //
 
 import UIKit
