@@ -1,9 +1,3 @@
-//
-//  ProfileViewController.swift
-//  Homework1-3
-//
-//  Created by qwerty on 19.02.2022.
-//
 
 import UIKit
 
