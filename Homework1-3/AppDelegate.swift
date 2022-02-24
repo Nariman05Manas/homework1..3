@@ -17,24 +17,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let tabBarController = UITabBarController()
         self.window?.rootViewController = tabBarController
         
+        tabBarController.tabBar.backgroundColor = .white
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.white
+        
         let feedViewController = FeedViewController()
-        feedViewController.view.backgroundColor = .systemTeal
+        feedViewController.view.backgroundColor = .systemMint
         let feedNavigationController = UINavigationController(rootViewController: feedViewController)
         feedNavigationController.tabBarItem = UITabBarItem(title: "NEWSFEED", image: UIImage(named: "news"), selectedImage: nil)
+        feedNavigationController.navigationBar.barTintColor = UIColor.white
+        feedNavigationController.navigationBar.standardAppearance = appearance;
+        feedNavigationController.navigationBar.scrollEdgeAppearance = feedNavigationController.navigationBar.standardAppearance
         
         let profileViewController = ProfileViewController()
-        profileViewController.view.backgroundColor = .clear
         let profileNavigationController = UINavigationController(rootViewController: profileViewController)
         profileNavigationController.tabBarItem = UITabBarItem(title: "PROFILE", image: UIImage(named: "profile"), selectedImage: nil)
+        profileViewController.view.backgroundColor = .lightGray
+        profileNavigationController.navigationBar.standardAppearance = appearance;
+        profileNavigationController.navigationBar.scrollEdgeAppearance = profileNavigationController.navigationBar.standardAppearance
         
         tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
-        
-        self.window?.rootViewController = tabBarController
+        tabBarController.tabBar.isHidden = false
+
         self.window?.makeKeyAndVisible()
         return true
     }
