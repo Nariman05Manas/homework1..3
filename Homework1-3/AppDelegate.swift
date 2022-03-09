@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
         tabBarController.tabBar.isHidden = false
-
+        
         self.window?.makeKeyAndVisible()
         return true
     }

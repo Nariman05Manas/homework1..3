@@ -45,6 +45,7 @@ class FeedViewController: UIViewController {
         stackView.alignment = .fill
         stackView.addArrangedSubview(firstButton)
         stackView.addArrangedSubview(twoButton)
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(stackView)
         
