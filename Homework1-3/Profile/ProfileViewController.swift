@@ -3,37 +3,41 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    let newButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Мой профиль"
+        
+        navigationController?.navigationBar.isHidden = false
+        
+        title = "мой профиль"
         let profileHeaderView = ProfileHeaderView()
         view.addSubview(profileHeaderView)
-        
         profileHeaderView.initialSubviews()
         
-        let titleButton = UIButton()
-        titleButton.translatesAutoresizingMaskIntoConstraints = false
-        titleButton.backgroundColor = .blue
-        titleButton.setTitle("Установить новый профиль", for: .normal)
-        titleButton.setTitleColor(.white, for: .highlighted)
-        titleButton.addTarget(self, action: #selector(setNewTitle), for: .touchUpInside)
+        self.view.backgroundColor = .lightGray
         
-        view.addSubview(titleButton)
+        newButton.toAutoLayout()
+        newButton.layer.cornerRadius = 5
+        newButton.backgroundColor = .systemBlue
+        newButton.setTitle("Установить статус", for: .normal)
+        newButton.addTarget(self, action: #selector(setTitle), for: .touchUpInside)
+        self.view.addSubview(newButton)
         
-        titleButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        titleButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        titleButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        titleButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-    }
-    @objc func setNewTitle() {
-        if title == "Профиль" {
-            title = "попробуй пройти"
-        } else {
-            title = "Профиль"
-        }
+        newButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        newButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        newButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        newButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
+    //MARK: Initial title
+    @objc func setTitle() {
+        if title == "Новый статус"{
+            title = "ты не пройдешь!"
+        } else {
+            title = "без статуса!"
+        }
+    }
 }
 
 
