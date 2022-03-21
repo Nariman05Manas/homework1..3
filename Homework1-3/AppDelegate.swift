@@ -1,7 +1,8 @@
 
 import UIKit
 
-@main
+
+y@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
@@ -27,15 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         feedNavigationController.navigationBar.standardAppearance = appearance;
         feedNavigationController.navigationBar.scrollEdgeAppearance = feedNavigationController.navigationBar.standardAppearance
         
-        let profileViewController = ProfileViewController()
-        let profileNavigationController = UINavigationController(rootViewController: profileViewController)
-        profileNavigationController.tabBarItem = UITabBarItem(title: "PROFILE", image: UIImage(named: "profile"), selectedImage: nil)
-        profileViewController.view.backgroundColor = .lightGray
-        profileNavigationController.navigationBar.standardAppearance = appearance;
-        profileNavigationController.navigationBar.scrollEdgeAppearance = profileNavigationController.navigationBar.standardAppearance
+        let logInViewController = LogInViewController()
+        let logInNavigationController = UINavigationController(rootViewController: logInViewController)
+        logInNavigationController.tabBarItem = UITabBarItem(title: "PROFILE", image: UIImage(named: "profile"), selectedImage: nil)
         
-        tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
+        tabBarController.viewControllers = [feedNavigationController, logInNavigationController]
         tabBarController.tabBar.isHidden = false
+        
+
         
         self.window?.makeKeyAndVisible()
         return true

@@ -22,21 +22,29 @@ class FeedViewController: UIViewController {
 
         self.navigationController?.addChild(postViewController)
         
-        let firstButton = UIButton()
-        firstButton.center = self.view.center
-        firstButton.backgroundColor = .magenta
-        firstButton.setTitle("ПУСК", for: .normal)
-        firstButton.setTitleColor(.black, for: .normal)
-        firstButton.addTarget(self, action: #selector(showNews), for: .touchUpInside)
-        self.view.addSubview(firstButton)
+        let firstButton: UIButton = {
+            let firstButton = UIButton()
+            firstButton.backgroundColor = .darkGray
+            firstButton.layer.cornerRadius = 15
+            firstButton.layer.borderWidth = 3
+            firstButton.layer.borderColor = UIColor.systemOrange.cgColor
+            firstButton.setTitle("press one", for: .normal)
+            firstButton.setTitleColor(.black, for: .normal)
+            firstButton.addTarget(self, action: #selector(showNews), for: .touchUpInside)
+            return firstButton
+        }()
         
-        let twoButton = UIButton()
-        twoButton.center = self.view.center
-        twoButton.backgroundColor = .red
-        twoButton.setTitle("ПУСК2", for: .normal)
-        twoButton.setTitleColor(.black, for: .normal)
-        twoButton.addTarget(self, action: #selector(showNews), for: .touchUpInside)
-        self.view.addSubview(twoButton)
+        let twoButton: UIButton = {
+            let twoButton = UIButton()
+            twoButton.backgroundColor = .white
+            twoButton.layer.borderWidth = 3
+            twoButton.layer.borderColor = UIColor.magenta.cgColor
+            twoButton.layer.cornerRadius = 15
+            twoButton.setTitle("press two", for: .normal)
+            twoButton.setTitleColor(.black, for: .normal)
+            twoButton.addTarget(self, action: #selector(showNews), for: .touchUpInside)
+            return twoButton
+        }()
         
         let stackView = UIStackView()
         stackView.axis = .vertical
