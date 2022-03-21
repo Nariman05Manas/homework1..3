@@ -2,127 +2,123 @@
 import UIKit
 
 
-class ProfileHeaderView: UIView {
-    private var statusText = ""
+class ProfileHeaderView: UITableViewHeaderFooterView {
     
-    let fullImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "gend"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.borderWidth = 3
-        imageView.layer.cornerRadius = 50
-        imageView.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
-        imageView.clipsToBounds = true
-        return imageView
-    }()
-    
-    let fullLabelName: UILabel = {
+    var userName: UILabel = {
         let userName = UILabel()
-        userName.translatesAutoresizingMaskIntoConstraints = false
-        userName.text = "Gendale"
-        userName.textAlignment = .left
+        userName.toAutoLayout()
+        userName.text = "GENDALE"
+        userName.textAlignment = .natural
         userName.textColor = .black
         userName.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return userName
     }()
     
-    let fullShowStatus: UIButton = {
-        let showStatus = UIButton()
-        showStatus.translatesAutoresizingMaskIntoConstraints = false
-        showStatus.layer.cornerRadius = 4
-        showStatus.layer.shadowOffset = CGSize(width: 4, height: 4)
-        showStatus.layer.shadowRadius = 4
-        showStatus.layer.shadowColor = UIColor.black.cgColor
-        showStatus.layer.shadowOpacity = 0.7
-        showStatus.layer.backgroundColor = UIColor.systemBlue.cgColor
-        showStatus.setTitle("Установить статус", for: .normal)
-        showStatus.setTitleColor(UIColor.white, for: .normal)
-        showStatus.addTarget(self, action: #selector(buttonShow), for: .touchUpInside)
-        
-        return showStatus
+    var avatar: UIImageView = {
+        let avatar = UIImageView(image: UIImage(named: "gend"))
+        avatar.toAutoLayout()
+        avatar.clipsToBounds = true
+        avatar.layer.cornerRadius = 50
+        avatar.layer.borderWidth = 3
+        avatar.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
+        return avatar
     }()
     
-    let fullStatus: UILabel = {
+    var status: UILabel = {
         let status = UILabel()
-        status.translatesAutoresizingMaskIntoConstraints = false
-        status.text = "ты не пройдешь"
+        status.toAutoLayout()
+        status.text = "ты не пройдешь!!!"
         status.textAlignment = .natural
-        status.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         status.textColor = .gray
+        status.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         status.isUserInteractionEnabled = true
-        
         return status
     }()
     
-    let fullStatusTextField: UITextField = {
-        let statusTextField = UITextField()
-        statusTextField.translatesAutoresizingMaskIntoConstraints = false
-        statusTextField.layer.cornerRadius = 12
-        statusTextField.layer.borderWidth = 1
-        statusTextField.layer.borderColor = UIColor.black.cgColor
-        statusTextField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        statusTextField.textColor = .black
-        statusTextField.backgroundColor = .white
-        statusTextField.addTarget(self, action: #selector(setStatus), for: .editingChanged)
-        
-        return statusTextField
+    var statusButton: UIButton = {
+        let statusButton = UIButton()
+        statusButton.toAutoLayout()
+        statusButton.backgroundColor = .blue
+        statusButton.layer.cornerRadius = 4
+        statusButton.layer.shadowColor = UIColor.black.cgColor
+        statusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
+        statusButton.layer.shadowOpacity = 0.7
+        statusButton.layer.shadowRadius = 4
+        statusButton.setTitle("Установить статус", for: .normal)
+        statusButton.setTitleColor(.white, for: .highlighted)
+        statusButton.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
+        return statusButton
     }()
     
-    func initialSubviews() {
-        self.addSubview(fullImageView)
-        self.addSubview(fullLabelName)
-        self.addSubview(fullShowStatus)
-        self.addSubview(fullStatus)
-        self.addSubview(fullStatusTextField)
-        
-        initialLayout()
+    var setStatusField: UITextField = {
+        let setStatusField = UITextField()
+        setStatusField.toAutoLayout()
+        setStatusField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        setStatusField.placeholder = "Ввести статус"
+        setStatusField.textColor = .black
+        setStatusField.backgroundColor = .white
+        setStatusField.textAlignment = .natural
+        setStatusField.layer.cornerRadius = 12
+        setStatusField.layer.borderWidth = 1
+        setStatusField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        setStatusField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: setStatusField.frame.height))
+        setStatusField.leftViewMode = .always
+        setStatusField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
+        return setStatusField
+    }()
+    
+    private var statusText = ""
+    static let identifire = "ProfileHeaderView"
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        contentView.addSubviews(userName, avatar, status, statusButton, setStatusField)
+        useConstraint()
     }
     
-    private func initialLayout() {
-        
-        self.translatesAutoresizingMaskIntoConstraints = false
-        
-        guard let superView = superview else { return }
-        
-        [
-            self.leadingAnchor.constraint(equalTo: superView.leadingAnchor),
-            self.trailingAnchor.constraint(equalTo: superView.trailingAnchor),
-            self.topAnchor.constraint(equalTo: superView.safeAreaLayoutGuide.topAnchor),
-            self.heightAnchor.constraint(equalToConstant: 220),
-            
-            fullImageView.widthAnchor.constraint(equalToConstant: 100),
-            fullImageView.heightAnchor.constraint(equalTo: fullImageView.widthAnchor),
-            fullImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            fullImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            
-            fullLabelName.leadingAnchor.constraint(equalTo: fullImageView.trailingAnchor, constant: 20),
-            fullLabelName.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
-            fullLabelName.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor, constant:  -16),
-            
-            fullStatus.leadingAnchor.constraint(equalTo: fullImageView.trailingAnchor, constant: 20),
-            fullStatus.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor, constant: -16),
-            fullStatus.bottomAnchor.constraint(equalTo: fullStatusTextField.topAnchor, constant: -5),
-            
-            fullShowStatus.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            fullShowStatus.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor, constant: -16),
-            fullShowStatus.topAnchor.constraint(equalTo: fullImageView.bottomAnchor, constant: 16),
-            fullShowStatus.heightAnchor.constraint(equalToConstant: 50),
-            
-            fullStatusTextField.bottomAnchor.constraint(equalTo: fullShowStatus.topAnchor, constant: -10),
-            fullStatusTextField.heightAnchor.constraint(equalToConstant: 40),
-            fullStatusTextField.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor, constant: -16),
-            fullStatusTextField.leadingAnchor.constraint(equalTo: fullImageView.trailingAnchor, constant: 20)
-        ]
-            .forEach { $0.isActive = true }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func setStatus(_ textField: UITextField) {
+    @objc func pressButton() {
+        //print(status.text) первая часть задания
+        status.text = statusText
+        statusText = ""
+        setStatusField.text = ""
+        setStatusField.resignFirstResponder()
+    }
+    
+    @objc func statusTextChanged(_ textField: UITextField) {
         if let text = textField.text {
             statusText = text
         }
     }
     
-    @objc func buttonShow() {
-        let newText = statusText
-        fullStatus.text = newText
+    private func useConstraint() {
+        
+         [avatar.widthAnchor.constraint(equalToConstant: 100),
+         avatar.heightAnchor.constraint(equalTo: avatar.widthAnchor),
+         avatar.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Const.leadingMargin),
+         avatar.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Const.indent),
+         
+         userName.leftAnchor.constraint(equalTo: avatar.rightAnchor, constant: 20),
+         userName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 27),
+         userName.rightAnchor.constraint(greaterThanOrEqualTo: contentView.rightAnchor, constant: Const.trailingMargin),
+         
+         status.leftAnchor.constraint(equalTo: avatar.rightAnchor, constant: 20),
+         status.rightAnchor.constraint(greaterThanOrEqualTo: contentView.rightAnchor, constant: Const.trailingMargin),
+         status.bottomAnchor.constraint(equalTo: setStatusField.topAnchor, constant: -6),
+         
+         statusButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
+         statusButton.rightAnchor.constraint(greaterThanOrEqualTo: contentView.rightAnchor, constant: Const.trailingMargin),
+         statusButton.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: Const.indent),
+         statusButton.heightAnchor.constraint(equalToConstant: 50),
+         
+         setStatusField.leftAnchor.constraint(equalTo: avatar.rightAnchor, constant: 20),
+         setStatusField.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -10),
+         setStatusField.rightAnchor.constraint(greaterThanOrEqualTo: contentView.rightAnchor, constant: Const.trailingMargin),
+         setStatusField.heightAnchor.constraint(equalToConstant: 40)].forEach({$0.isActive = true})
+        
     }
+    
 }
