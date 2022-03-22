@@ -164,6 +164,12 @@ class LogInViewController: UIViewController {
                                                object: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        
+    }
+
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
