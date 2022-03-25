@@ -2,7 +2,7 @@
 import UIKit
 
 
-y@main
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?

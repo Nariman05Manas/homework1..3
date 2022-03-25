@@ -64,6 +64,9 @@
 				4B147CA727C1422A00C6F8E5 /* ProfileViewController.swift */,
 				4BA0798D27D8A883008B4B24 /* LogInViewController.swift */,
 				4B8653F627DA4F920092D46D /* PostTableViewCell.swift */,
+				4B85745A27EA460300F339DA /* PhotosViewController.swift */,
+				4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */,
+				4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -96,9 +99,6 @@
 				4BADD23327B6FF4500977420 /* Assets.xcassets */,
 				4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */,
 				4BADD23827B6FF4500977420 /* Info.plist */,
-				4B85745A27EA460300F339DA /* PhotosViewController.swift */,
-				4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */,
-				4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */,
 			);
 			path = "Homework1-3";
 			sourceTree = "<group>";

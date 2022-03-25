@@ -7,7 +7,7 @@ class ProfileViewController: UIViewController {
     var posts = constPostArray
     
     
-    let tableView: UITableView = {
+    static var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.toAutoLayout()
         tableView.refreshControl = UIRefreshControl()
@@ -25,13 +25,13 @@ class ProfileViewController: UIViewController {
         
         
         view.backgroundColor = .white
-        view.addSubviews(tableView)
+        view.addSubviews(ProfileViewController.tableView)
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: "Профиль")
-        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postTableViewCell")
-        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "photosTableViewCell")
+        ProfileViewController.tableView.dataSource = self
+        ProfileViewController.tableView.delegate = self
+        ProfileViewController.tableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: "Профиль")
+        ProfileViewController.tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postTableViewCell")
+        ProfileViewController.tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "photosTableViewCell")
         
         initialLayout()
     }
@@ -39,10 +39,10 @@ class ProfileViewController: UIViewController {
     //MARK: Initial constraints
     
     func initialLayout() {
-        NSLayoutConstraint.activate([tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-                                     tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                                     tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                                     tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        NSLayoutConstraint.activate([ProfileViewController.tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                                     ProfileViewController.tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                                     ProfileViewController.tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                                     ProfileViewController.tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
                                     ])
     }
     
