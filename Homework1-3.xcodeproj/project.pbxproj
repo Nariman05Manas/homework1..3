@@ -90,12 +90,12 @@
 		4BADD22927B6FF4400977420 /* Homework1-3 */ = {
 			isa = PBXGroup;
 			children = (
-				4BF1194A27D8E173008237B9 /* Sourse.swift */,
 				4BF1194D27D8F059008237B9 /* Feed */,
 				4B147CA427C141CB00C6F8E5 /* Profile */,
 				4BADD22A27B6FF4400977420 /* AppDelegate.swift */,
 				4BADD22C27B6FF4400977420 /* SceneDelegate.swift */,
 				4BADD22E27B6FF4400977420 /* ViewController.swift */,
+				4BF1194A27D8E173008237B9 /* Sourse.swift */,
 				4BADD23327B6FF4500977420 /* Assets.xcassets */,
 				4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */,
 				4BADD23827B6FF4500977420 /* Info.plist */,
