@@ -6,8 +6,7 @@ class ProfileViewController: UIViewController {
     
     var posts = constPostArray
     
-    
-    static var tableView: UITableView = {
+    let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.toAutoLayout()
         tableView.refreshControl = UIRefreshControl()
@@ -19,39 +18,57 @@ class ProfileViewController: UIViewController {
         return tableView
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
-        
-        
         view.backgroundColor = .white
-        view.addSubviews(ProfileViewController.tableView)
         
-        ProfileViewController.tableView.dataSource = self
-        ProfileViewController.tableView.delegate = self
-        ProfileViewController.tableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: "Профиль")
-        ProfileViewController.tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postTableViewCell")
-        ProfileViewController.tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "photosTableViewCell")
+        //Debug and Realese color
+        
+#if DEBUG
+        tableView.backgroundColor = .purple
+#elseif release
+        tableView.backgroundColor = .white
+#endif
+        
+        view.addSubviews(tableView)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: "profile")
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postTableViewCell")
+        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "photosTableViewCell")
+        
+        
+        
+        
+        
+        
         
         initialLayout()
     }
     
     //MARK: Initial constraints
-    
     func initialLayout() {
-        NSLayoutConstraint.activate([ProfileViewController.tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-                                     ProfileViewController.tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                                     ProfileViewController.tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                                     ProfileViewController.tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        NSLayoutConstraint.activate([tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                                     tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                                     tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                                     tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
                                     ])
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
     }
     
+    
 }
 
+
+
+//MARK: Initial TableView Deegate and DataSource
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -77,7 +94,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "Профиль") as! ProfileHeaderView
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "profile") as! ProfileHeaderView
             return view
         } else {
             return nil

@@ -115,7 +115,6 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
                 self.foneView.isHidden = false
                 self.foneView.alpha = 0.7
                 self.avatar.isUserInteractionEnabled = false
-                ProfileViewController.tableView.isScrollEnabled = false
             },
             completion: { _ in
                 UIImageView.animate(withDuration: 0.3) {
@@ -141,7 +140,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
                     self.avatar.center = self.defaultAvatarPosicion!
                     self.foneView.alpha = 0.0
                     self.avatar.isUserInteractionEnabled = true
-                    ProfileViewController.tableView.isScrollEnabled = true
+                   
                 },
                                     completion: { _ in
                     self.foneView.isHidden = true
@@ -154,7 +153,6 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         
     }
     @objc func pressButton() {
-        //print(status.text) первая часть задания
         status.text = statusText
         statusText = ""
         setStatusField.text = ""
