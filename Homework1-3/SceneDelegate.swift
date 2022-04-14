@@ -1,9 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Homework1-3
-//
-//  Created by qwerty on 11.02.2022.
-//
 
 import UIKit
 
