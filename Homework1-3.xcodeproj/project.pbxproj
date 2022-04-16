@@ -52,6 +52,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4B03E788280B725300B6D873 /* Homework1-3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Homework1-3.app"; path = "/Users/qwerty/Desktop/МОИ д:з/homework1..3/build/Debug-iphoneos/Homework1-3.app"; sourceTree = "<absolute>"; };
+		4B03E789280B725300B6D873 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StorageService.framework; path = "/Users/qwerty/Desktop/МОИ д:з/homework1..3/build/Debug-iphoneos/StorageService.framework"; sourceTree = "<absolute>"; };
 		4B147CA527C141FD00C6F8E5 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		4B147CA727C1422A00C6F8E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4B85745A27EA460300F339DA /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
@@ -59,10 +61,8 @@
 		4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		4B8653F627DA4F920092D46D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4BA0798D27D8A883008B4B24 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		4BA53B8F2808D5430057F954 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StorageService.framework; path = "/Users/qwerty/Desktop/МОИ д:з/homework1..3/build/Debug-iphoneos/StorageService.framework"; sourceTree = "<absolute>"; };
 		4BA53B912808D5430057F954 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		4BA53B922808D5430057F954 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
-		4BA53B992808D5430057F954 /* Homework1-3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Homework1-3.app"; path = "/Users/qwerty/Desktop/МОИ д:з/homework1..3/build/Debug-iphoneos/Homework1-3.app"; sourceTree = "<absolute>"; };
 		4BA53B9D2808D5BB0057F954 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		4BADD22A27B6FF4400977420 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BADD23327B6FF4500977420 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,7 +183,6 @@
 				B9B2F5D8BE55ED9246F64785 /* Pods-StorageService.debug.xcconfig */,
 				9DD318DACE21178077927A0B /* Pods-StorageService.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -217,7 +216,7 @@
 			);
 			name = StorageService;
 			productName = StorageService;
-			productReference = 4BA53B8F2808D5430057F954 /* StorageService.framework */;
+			productReference = 4B03E789280B725300B6D873 /* StorageService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4BADD22627B6FF4400977420 /* Homework1-3 */ = {
@@ -238,7 +237,7 @@
 			);
 			name = "Homework1-3";
 			productName = "Homework1-3";
-			productReference = 4BA53B992808D5430057F954 /* Homework1-3.app */;
+			productReference = 4B03E788280B725300B6D873 /* Homework1-3.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
