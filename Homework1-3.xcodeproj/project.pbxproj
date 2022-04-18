@@ -7,26 +7,79 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B147CA627C141FD00C6F8E5 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B147CA527C141FD00C6F8E5 /* ProfileHeaderView.swift */; };
+		4B147CA827C1422A00C6F8E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B147CA727C1422A00C6F8E5 /* ProfileViewController.swift */; };
+		4B85745B27EA460300F339DA /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745A27EA460300F339DA /* PhotosViewController.swift */; };
+		4B85745D27EA464200F339DA /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */; };
+		4B85745F27EA467100F339DA /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */; };
+		4B8653F727DA4F920092D46D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8653F627DA4F920092D46D /* PostTableViewCell.swift */; };
+		4BA0798E27D8A883008B4B24 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA0798D27D8A883008B4B24 /* LogInViewController.swift */; };
+		4BA53B932808D5430057F954 /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 4BA53B922808D5430057F954 /* StorageService.docc */; };
+		4BA53B942808D5430057F954 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BA53B912808D5430057F954 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BA53B9E2808D5BB0057F954 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA53B9D2808D5BB0057F954 /* Posts.swift */; };
 		4BADD22B27B6FF4400977420 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD22A27B6FF4400977420 /* AppDelegate.swift */; };
-		4BADD22D27B6FF4400977420 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD22C27B6FF4400977420 /* SceneDelegate.swift */; };
-		4BADD22F27B6FF4400977420 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD22E27B6FF4400977420 /* ViewController.swift */; };
-		4BADD23227B6FF4400977420 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23027B6FF4400977420 /* Main.storyboard */; };
 		4BADD23427B6FF4500977420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23327B6FF4500977420 /* Assets.xcassets */; };
 		4BADD23727B6FF4500977420 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */; };
+		4BADD23F27B7046500977420 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD23E27B7046500977420 /* FeedViewController.swift */; };
+		4BADD24327B705ED00977420 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD24227B705ED00977420 /* InfoViewController.swift */; };
+		4BADD24527B7060D00977420 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD24427B7060D00977420 /* PostViewController.swift */; };
+		4BF1194B27D8E173008237B9 /* Sourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1194A27D8E173008237B9 /* Sourse.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4BA53B952808D5430057F954 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BADD21F27B6FF4400977420 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BA53B8E2808D5430057F954;
+			remoteInfo = StorageService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4BA4CEFC2808712200B11ACE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		4BADD22727B6FF4400977420 /* Homework1-3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework1-3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B147CA527C141FD00C6F8E5 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		4B147CA727C1422A00C6F8E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4B85745A27EA460300F339DA /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
+		4B8653F627DA4F920092D46D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		4BA0798D27D8A883008B4B24 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		4BA53B8F2808D5430057F954 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StorageService.framework; path = "/Users/qwerty/Desktop/МОИ д:з/homework1..3/build/Debug-iphoneos/StorageService.framework"; sourceTree = "<absolute>"; };
+		4BA53B912808D5430057F954 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
+		4BA53B922808D5430057F954 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
+		4BA53B992808D5430057F954 /* Homework1-3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Homework1-3.app"; path = "/Users/qwerty/Desktop/МОИ д:з/homework1..3/build/Debug-iphoneos/Homework1-3.app"; sourceTree = "<absolute>"; };
+		4BA53B9D2808D5BB0057F954 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		4BADD22A27B6FF4400977420 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4BADD22C27B6FF4400977420 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4BADD22E27B6FF4400977420 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4BADD23127B6FF4400977420 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4BADD23327B6FF4500977420 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BADD23627B6FF4500977420 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BADD23827B6FF4500977420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BADD23E27B7046500977420 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		4BADD24227B705ED00977420 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		4BADD24427B7060D00977420 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		4BF1194A27D8E173008237B9 /* Sourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sourse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4BA53B8C2808D5430057F954 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BADD22427B6FF4400977420 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,29 +90,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B147CA427C141CB00C6F8E5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4B147CA527C141FD00C6F8E5 /* ProfileHeaderView.swift */,
+				4B147CA727C1422A00C6F8E5 /* ProfileViewController.swift */,
+				4BA0798D27D8A883008B4B24 /* LogInViewController.swift */,
+				4B8653F627DA4F920092D46D /* PostTableViewCell.swift */,
+				4B85745A27EA460300F339DA /* PhotosViewController.swift */,
+				4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */,
+				4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		4B8EE5682808C64B0001A666 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4BADD22A27B6FF4400977420 /* AppDelegate.swift */,
+				4BF1194A27D8E173008237B9 /* Sourse.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		4BA53B902808D5430057F954 /* StorageService */ = {
+			isa = PBXGroup;
+			children = (
+				4BA53B9D2808D5BB0057F954 /* Posts.swift */,
+				4BA53B912808D5430057F954 /* StorageService.h */,
+				4BA53B922808D5430057F954 /* StorageService.docc */,
+			);
+			path = StorageService;
+			sourceTree = "<group>";
+		};
 		4BADD21E27B6FF4400977420 = {
 			isa = PBXGroup;
 			children = (
 				4BADD22927B6FF4400977420 /* Homework1-3 */,
-				4BADD22827B6FF4400977420 /* Products */,
+				4BA53B902808D5430057F954 /* StorageService */,
 			);
-			sourceTree = "<group>";
-		};
-		4BADD22827B6FF4400977420 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4BADD22727B6FF4400977420 /* Homework1-3.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		4BADD22927B6FF4400977420 /* Homework1-3 */ = {
 			isa = PBXGroup;
 			children = (
-				4BADD22A27B6FF4400977420 /* AppDelegate.swift */,
-				4BADD22C27B6FF4400977420 /* SceneDelegate.swift */,
-				4BADD22E27B6FF4400977420 /* ViewController.swift */,
-				4BADD23027B6FF4400977420 /* Main.storyboard */,
+				4B8EE5682808C64B0001A666 /* Main */,
+				4BF1194D27D8F059008237B9 /* Feed */,
+				4B147CA427C141CB00C6F8E5 /* Profile */,
 				4BADD23327B6FF4500977420 /* Assets.xcassets */,
 				4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */,
 				4BADD23827B6FF4500977420 /* Info.plist */,
@@ -67,9 +144,48 @@
 			path = "Homework1-3";
 			sourceTree = "<group>";
 		};
+		4BF1194D27D8F059008237B9 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				4BADD24427B7060D00977420 /* PostViewController.swift */,
+				4BADD24227B705ED00977420 /* InfoViewController.swift */,
+				4BADD23E27B7046500977420 /* FeedViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		4BA53B8A2808D5430057F954 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA53B942808D5430057F954 /* StorageService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		4BA53B8E2808D5430057F954 /* StorageService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BA53B9A2808D5430057F954 /* Build configuration list for PBXNativeTarget "StorageService" */;
+			buildPhases = (
+				4BA53B8A2808D5430057F954 /* Headers */,
+				4BA53B8B2808D5430057F954 /* Sources */,
+				4BA53B8C2808D5430057F954 /* Frameworks */,
+				4BA53B8D2808D5430057F954 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StorageService;
+			productName = StorageService;
+			productReference = 4BA53B8F2808D5430057F954 /* StorageService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		4BADD22627B6FF4400977420 /* Homework1-3 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BADD23B27B6FF4500977420 /* Build configuration list for PBXNativeTarget "Homework1-3" */;
@@ -77,14 +193,16 @@
 				4BADD22327B6FF4400977420 /* Sources */,
 				4BADD22427B6FF4400977420 /* Frameworks */,
 				4BADD22527B6FF4400977420 /* Resources */,
+				4BA4CEFC2808712200B11ACE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4BA53B962808D5430057F954 /* PBXTargetDependency */,
 			);
 			name = "Homework1-3";
 			productName = "Homework1-3";
-			productReference = 4BADD22727B6FF4400977420 /* Homework1-3.app */;
+			productReference = 4BA53B992808D5430057F954 /* Homework1-3.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -94,9 +212,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					4BA53B8E2808D5430057F954 = {
+						CreatedOnToolsVersion = 13.3;
+					};
 					4BADD22627B6FF4400977420 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -111,50 +232,75 @@
 				Base,
 			);
 			mainGroup = 4BADD21E27B6FF4400977420;
-			productRefGroup = 4BADD22827B6FF4400977420 /* Products */;
+			productRefGroup = 4BADD21E27B6FF4400977420;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				4BADD22627B6FF4400977420 /* Homework1-3 */,
+				4BA53B8E2808D5430057F954 /* StorageService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4BA53B8D2808D5430057F954 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BADD22527B6FF4400977420 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4BADD23727B6FF4500977420 /* LaunchScreen.storyboard in Resources */,
 				4BADD23427B6FF4500977420 /* Assets.xcassets in Resources */,
-				4BADD23227B6FF4400977420 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4BA53B8B2808D5430057F954 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA53B932808D5430057F954 /* StorageService.docc in Sources */,
+				4BA53B9E2808D5BB0057F954 /* Posts.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BADD22327B6FF4400977420 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BADD22F27B6FF4400977420 /* ViewController.swift in Sources */,
+				4B8653F727DA4F920092D46D /* PostTableViewCell.swift in Sources */,
 				4BADD22B27B6FF4400977420 /* AppDelegate.swift in Sources */,
-				4BADD22D27B6FF4400977420 /* SceneDelegate.swift in Sources */,
+				4BA0798E27D8A883008B4B24 /* LogInViewController.swift in Sources */,
+				4B85745D27EA464200F339DA /* PhotosCollectionViewCell.swift in Sources */,
+				4BADD24527B7060D00977420 /* PostViewController.swift in Sources */,
+				4BADD23F27B7046500977420 /* FeedViewController.swift in Sources */,
+				4BF1194B27D8E173008237B9 /* Sourse.swift in Sources */,
+				4B85745F27EA467100F339DA /* PhotosTableViewCell.swift in Sources */,
+				4BADD24327B705ED00977420 /* InfoViewController.swift in Sources */,
+				4B147CA827C1422A00C6F8E5 /* ProfileViewController.swift in Sources */,
+				4B85745B27EA460300F339DA /* PhotosViewController.swift in Sources */,
+				4B147CA627C141FD00C6F8E5 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		4BADD23027B6FF4400977420 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4BADD23127B6FF4400977420 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		4BA53B962808D5430057F954 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BA53B8E2808D5430057F954 /* StorageService */;
+			targetProxy = 4BA53B952808D5430057F954 /* PBXContainerItemProxy */;
 		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
 		4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -166,6 +312,70 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4BA53B9B2808D5430057F954 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ios-18Nariman.StorageService";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4BA53B9C2808D5430057F954 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ios-18Nariman.StorageService";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		4BADD23927B6FF4500977420 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -285,8 +495,10 @@
 		4BADD23C27B6FF4500977420 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YYBC2YP9HG;
@@ -294,9 +506,9 @@
 				INFOPLIST_FILE = "Homework1-3/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +516,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ios-18Nariman.Homework1-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -313,8 +526,10 @@
 		4BADD23D27B6FF4500977420 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YYBC2YP9HG;
@@ -322,9 +537,9 @@
 				INFOPLIST_FILE = "Homework1-3/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,6 +547,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ios-18Nariman.Homework1-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -341,6 +557,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4BA53B9A2808D5430057F954 /* Build configuration list for PBXNativeTarget "StorageService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BA53B9B2808D5430057F954 /* Debug */,
+				4BA53B9C2808D5430057F954 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4BADD22227B6FF4400977420 /* Build configuration list for PBXProject "Homework1-3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
