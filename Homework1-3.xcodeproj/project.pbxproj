@@ -14,6 +14,7 @@
 		4B85745D27EA464200F339DA /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */; };
 		4B85745F27EA467100F339DA /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */; };
 		4B8653F727DA4F920092D46D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8653F627DA4F920092D46D /* PostTableViewCell.swift */; };
+		4B88F60C280D9F70009350C1 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 4B88F60B280D9F70009350C1 /* iOSIntPackage */; };
 		4BA0798E27D8A883008B4B24 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA0798D27D8A883008B4B24 /* LogInViewController.swift */; };
 		4BA53B932808D5430057F954 /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 4BA53B922808D5430057F954 /* StorageService.docc */; };
 		4BA53B942808D5430057F954 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BA53B912808D5430057F954 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,14 +53,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4B03E788280B725300B6D873 /* Homework1-3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Homework1-3.app"; path = "/Users/qwerty/Desktop/МОИ д:з/homework1..3/build/Debug-iphoneos/Homework1-3.app"; sourceTree = "<absolute>"; };
-		4B03E789280B725300B6D873 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StorageService.framework; path = "/Users/qwerty/Desktop/МОИ д:з/homework1..3/build/Debug-iphoneos/StorageService.framework"; sourceTree = "<absolute>"; };
 		4B147CA527C141FD00C6F8E5 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		4B147CA727C1422A00C6F8E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4B85745A27EA460300F339DA /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		4B8653F627DA4F920092D46D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		4B88F608280D9F01009350C1 /* Homework1-3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework1-3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B88F609280D9F01009350C1 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA0798D27D8A883008B4B24 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4BA53B912808D5430057F954 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		4BA53B922808D5430057F954 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3B98BEBC7C8A281662725C1 /* Pods_Homework1_3.framework in Frameworks */,
+				4B88F60C280D9F70009350C1 /* iOSIntPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +151,8 @@
 				4BA53B902808D5430057F954 /* StorageService */,
 				D5A0E14DF59264C8097B8089 /* Pods */,
 				18CD5D1AE9867BD4C3BF6F39 /* Frameworks */,
+				4B88F608280D9F01009350C1 /* Homework1-3.app */,
+				4B88F609280D9F01009350C1 /* StorageService.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,7 +220,7 @@
 			);
 			name = StorageService;
 			productName = StorageService;
-			productReference = 4B03E789280B725300B6D873 /* StorageService.framework */;
+			productReference = 4B88F609280D9F01009350C1 /* StorageService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4BADD22627B6FF4400977420 /* Homework1-3 */ = {
@@ -236,8 +240,11 @@
 				4BA53B962808D5430057F954 /* PBXTargetDependency */,
 			);
 			name = "Homework1-3";
+			packageProductDependencies = (
+				4B88F60B280D9F70009350C1 /* iOSIntPackage */,
+			);
 			productName = "Homework1-3";
-			productReference = 4B03E788280B725300B6D873 /* Homework1-3.app */;
+			productReference = 4B88F608280D9F01009350C1 /* Homework1-3.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -267,6 +274,9 @@
 				Base,
 			);
 			mainGroup = 4BADD21E27B6FF4400977420;
+			packageReferences = (
+				4B88F60A280D9F70009350C1 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+			);
 			productRefGroup = 4BADD21E27B6FF4400977420;
 			projectDirPath = "";
 			projectRoot = "";
@@ -688,6 +698,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4B88F60A280D9F70009350C1 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4B88F60B280D9F70009350C1 /* iOSIntPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B88F60A280D9F70009350C1 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
+			productName = iOSIntPackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4BADD21F27B6FF4400977420 /* Project object */;
 }
