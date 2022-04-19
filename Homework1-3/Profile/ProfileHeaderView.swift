@@ -57,7 +57,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         showStatus.layer.shadowColor = UIColor.black.cgColor
         showStatus.layer.shadowOpacity = 0.7
         showStatus.layer.backgroundColor = UIColor.systemBlue.cgColor
-        showStatus.setTitle("Show status", for: .normal)
+        showStatus.setTitle("Ведите статус", for: .normal)
         showStatus.setTitleColor(UIColor.white, for: .normal)
         showStatus.addTarget(self, action: #selector(buttonShow), for: .touchUpInside)
         return showStatus

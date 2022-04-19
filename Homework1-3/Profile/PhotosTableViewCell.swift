@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PhotosTableViewCell: UITableViewCell {
     
-
+    
+    let imageProcessorMain = ImageProcessor()
+    
+    
     let title: UILabel = {
         let title = UILabel()
         title.text = "Моя галерея"
@@ -40,16 +44,19 @@ class PhotosTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubviews(title, nextButtonImage, stackView)
         
-
+        
+        let filterArray = [ColorFilter.tonal, ColorFilter.colorInvert, ColorFilter.posterize, ColorFilter.sepia(intensity: 3)]
+        
         for i in 0...3 {
-            let myPhotos = UIImageView(image: UIImage(named: photosGaleryArray[i]))
-            myPhotos.toAutoLayout()
-            myPhotos.layer.cornerRadius = 6
-            myPhotos.clipsToBounds = true
-            stackView.addArrangedSubview(myPhotos)
+            imageProcessorMain.processImage(sourceImage: UIImage(named: photosGaleryArray[i])!, filter: filterArray[i]) { image in
+                let myPhotos = UIImageView(image: image)
+                myPhotos.toAutoLayout()
+                myPhotos.layer.cornerRadius = 6
+                myPhotos.clipsToBounds = true
+                stackView.addArrangedSubview(myPhotos)
+            }
         }
         
-
         NSLayoutConstraint.activate([title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
                                      title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
                                      
@@ -63,7 +70,7 @@ class PhotosTableViewCell: UITableViewCell {
                                      stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
                                      stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 12),
                                     ])
-
+        
         stackView.arrangedSubviews.forEach(
             {
                 [$0.widthAnchor.constraint(greaterThanOrEqualToConstant: (stackView.frame.width - 16) / 4),

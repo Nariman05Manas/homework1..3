@@ -54,6 +54,8 @@ class PostTableViewCell: UITableViewCell {
         return viewsView
     }()
     
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -89,6 +91,7 @@ class PostTableViewCell: UITableViewCell {
         viewsView.text = "Views: \(post.views)"
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -108,3 +111,4 @@ class PostTableViewCell: UITableViewCell {
         super.prepareForReuse()
     }
 }
+
