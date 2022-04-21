@@ -77,8 +77,8 @@ class LogInViewController: UIViewController {
         return stackView
     }()
     
-    var logInButton: UIButton = {
-        let logInButton = UIButton()
+   lazy var logInButton: UIButton = {
+       let logInButton = UIButton()
         
         
         if let pixelImage = UIImage(named: "blue_pixel") {

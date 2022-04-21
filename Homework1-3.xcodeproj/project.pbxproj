@@ -255,7 +255,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					4BA53B8E2808D5430057F954 = {
 						CreatedOnToolsVersion = 13.3;
@@ -425,7 +425,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B9B2F5D8BE55ED9246F64785 /* Pods-StorageService.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -458,7 +458,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9DD318DACE21178077927A0B /* Pods-StorageService.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
