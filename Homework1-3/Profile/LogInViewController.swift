@@ -9,7 +9,8 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
-    let scrollView: UIScrollView = {
+  
+   let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
         scrollView.isScrollEnabled = true
@@ -77,10 +78,10 @@ class LogInViewController: UIViewController {
         return stackView
     }()
     
-   lazy var logInButton: UIButton = {
-       let logInButton = UIButton()
+    lazy var logInButton: UIButton = {
+        let logInButton = UIButton()
         
-        
+  
         if let pixelImage = UIImage(named: "blue_pixel") {
             logInButton.setBackgroundImage(pixelImage.imageWithAlpha(alpha: 1), for: .normal)
             logInButton.setBackgroundImage(pixelImage.imageWithAlpha(alpha: 0.8), for: .selected)
@@ -102,26 +103,37 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+  
         navigationController?.navigationBar.isHidden = true
         
-        self.view.backgroundColor = .white
-        self.view.addSubview(scrollView)
+
+        view.backgroundColor = .white
+        view.addSubview(scrollView)
         
-        scrollView.addSubview(contentView)
+  
+        scrollView.addSubviews(contentView)
         scrollView.contentSize = CGSize(width: view.frame.width, height: max(view.frame.width, view.frame.height))
         
+
         contentView.addSubviews(logoImageView, stackView, logInButton)
         
+  
         stackView.addArrangedSubview(userNameTextField)
         stackView.addArrangedSubview(passwordTextField)
         
+  
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
         
+        initialLayout()
+        
+    }
+    
+ func initialLayout() {
         NSLayoutConstraint.activate([scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                                      scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                                      scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                                     scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+                                     scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 150),
                                      
                                      contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
                                      contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
@@ -148,6 +160,19 @@ class LogInViewController: UIViewController {
                                     ])
     }
     
+    //MARK: Navigation segue
+    @objc func goToProfileVC() {
+        var userData: UserService
+        userData = CurrentUserService()
+        
+#if DEBUG
+        userData = TestUserService()
+#endif
+        
+        navigationController?.pushViewController(ProfileViewController(userData: userData, userName: userNameTextField.text ?? "Not found!"), animated: true)
+    }
+    
+   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerKeyboardNotifications()
@@ -168,8 +193,6 @@ class LogInViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         
     }
-    
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
@@ -179,7 +202,7 @@ class LogInViewController: UIViewController {
         let userInfo: NSDictionary = notification.userInfo! as NSDictionary
         let keyboardInfo = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue
         let keyboardSize = keyboardInfo.cgRectValue.size
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height + 150, right: 0)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
@@ -187,10 +210,6 @@ class LogInViewController: UIViewController {
     @objc func keyboardWillHide(notification: NSNotification) {
         scrollView.contentInset = .zero
         scrollView.scrollIndicatorInsets = .zero
-    }
-    
-    @objc func goToProfileVC() {
-        navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
 }
 
