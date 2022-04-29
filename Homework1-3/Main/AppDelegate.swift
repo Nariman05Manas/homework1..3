@@ -12,12 +12,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
         self.window?.rootViewController = tabBarController
         
+        let myInspector = Factory.shared.myFactory()
+        
+    
         tabBarController.tabBar.backgroundColor = .white
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor.white
         
+        
+        // VievComtrollers
         let feedViewController = FeedViewController()
         feedViewController.view.backgroundColor = .systemMint
         let feedNavigationController = UINavigationController(rootViewController: feedViewController)
@@ -29,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let logInViewController = LogInViewController()
         let logInNavigationController = UINavigationController(rootViewController: logInViewController)
         logInNavigationController.tabBarItem = UITabBarItem(title: "PROFILE", image: UIImage(named: "profile"), selectedImage: nil)
+        
+        logInViewController.delegate = myInspector
         
         tabBarController.viewControllers = [feedNavigationController, logInNavigationController]
         tabBarController.tabBar.isHidden = false

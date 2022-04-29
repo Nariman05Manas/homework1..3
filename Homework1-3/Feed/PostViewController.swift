@@ -27,7 +27,7 @@ class PostViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "ВХОД", style: .plain, target: self, action: #selector(addTapped))
         
     }
-    
+    //метод
     @objc func addTapped() {
         present(infoViewController, animated: true, completion: nil)
         

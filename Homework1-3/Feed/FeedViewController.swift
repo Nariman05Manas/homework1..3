@@ -65,7 +65,7 @@ class FeedViewController: UIViewController {
         NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
     
-    
+    //метод
     @objc func showNews() {
         postViewController.title = post.title
         self.navigationController?.pushViewController(postViewController, animated: true)
