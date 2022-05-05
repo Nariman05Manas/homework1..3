@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4BADD22627B6FF4400977420"
-               BuildableName = "Homework.app"
+               BuildableName = "Homework1-3.app"
                BlueprintName = "Homework1-3"
                ReferencedContainer = "container:Homework1-3.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4BADD22627B6FF4400977420"
-            BuildableName = "Homework.app"
+            BuildableName = "Homework1-3.app"
             BlueprintName = "Homework1-3"
             ReferencedContainer = "container:Homework1-3.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4BADD22627B6FF4400977420"
-            BuildableName = "Homework.app"
+            BuildableName = "Homework1-3.app"
             BlueprintName = "Homework1-3"
             ReferencedContainer = "container:Homework1-3.xcodeproj">
          </BuildableReference>

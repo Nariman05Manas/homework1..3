@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PhotosViewController: UIViewController {
-
+    
     lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
@@ -25,6 +26,8 @@ class PhotosViewController: UIViewController {
         return collectionView
     }()
     
+    let filterArray = [ColorFilter.tonal, ColorFilter.colorInvert, ColorFilter.posterize, ColorFilter.sepia(intensity: 3)]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,10 +37,10 @@ class PhotosViewController: UIViewController {
         collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: "photosCollectionViewCell")
         
         initialLayout()
-       
+        
     }
     
-
+    
     func initialLayout() {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

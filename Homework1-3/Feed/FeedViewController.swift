@@ -19,7 +19,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
         self.navigationController?.addChild(postViewController)
         
         let firstButton: UIButton = {

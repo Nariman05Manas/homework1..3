@@ -7,7 +7,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let tabBarController = UITabBarController()
@@ -34,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController.viewControllers = [feedNavigationController, logInNavigationController]
         tabBarController.tabBar.isHidden = false
         
-
+        
         
         self.window?.makeKeyAndVisible()
         return true

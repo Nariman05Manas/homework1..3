@@ -168,7 +168,7 @@ class LogInViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         
     }
-
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
