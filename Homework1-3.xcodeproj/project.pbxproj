@@ -14,7 +14,7 @@
 		4B85745D27EA464200F339DA /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */; };
 		4B85745F27EA467100F339DA /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */; };
 		4B8653F727DA4F920092D46D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8653F627DA4F920092D46D /* PostTableViewCell.swift */; };
-		4B88F60C280D9F70009350C1 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 4B88F60B280D9F70009350C1 /* iOSIntPackage */; };
+		4B88F60C280D9F70009350C1 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 4B88F60B280D9F70009350C1 /* iOSIntPackage */; settings = {ATTRIBUTES = (Required, ); }; };
 		4BA0798E27D8A883008B4B24 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA0798D27D8A883008B4B24 /* LogInViewController.swift */; };
 		4BA2BF142812958C00D2C055 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA2BF132812958C00D2C055 /* User.swift */; };
 		4BA53B932808D5430057F954 /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 4BA53B922808D5430057F954 /* StorageService.docc */; };
@@ -712,7 +712,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
 			requirement = {
-				branch = main;
+				branch = imagepublisher;
 				kind = branch;
 			};
 		};
