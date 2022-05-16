@@ -7,17 +7,42 @@
 
 import Foundation
 
-protocol LoginFactory {
-    func myFactory() -> LoginInspector
+protocol LoginViewControllerDelegate: AnyObject {
+    
+    func checkPassword(login: String, password: String) -> Bool
 }
 
-class Factory: LoginFactory {
+class LoginInspector: LoginViewControllerDelegate  {
     
-    static let shared = Factory()
-    
-    func myFactory() -> LoginInspector {
-        let inspector = LoginInspector()
-        return inspector
+    func checkPassword(login: String, password: String) -> Bool {
+        Checker.shared.checkUserData(checkLogin: login.hash, checkPassword: password.hash)
     }
     
+}
+
+class Checker {
+    
+    static let shared: Checker = {
+       Checker()
+    }()
+    
+    private let login = "user".hash
+    private let pswd = "1234".hash
+    
+    private init() {}
+    
+    public func checkUserData(checkLogin: Int, checkPassword: Int) -> Bool {
+        checkLogin == login && checkPassword == pswd
+    }
+    
+}
+
+protocol LoginFactory {
+    func creatLoginInspector() -> LoginViewControllerDelegate
+}
+
+class MyLoginFactory: LoginFactory {
+    func creatLoginInspector() -> LoginViewControllerDelegate {
+        LoginInspector()
+    }
 }

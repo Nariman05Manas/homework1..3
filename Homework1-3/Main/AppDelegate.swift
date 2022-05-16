@@ -8,41 +8,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+                
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        
         let tabBarController = UITabBarController()
-        self.window?.rootViewController = tabBarController
-        
-        let myInspector = Factory.shared.myFactory()
-        
-    
         tabBarController.tabBar.backgroundColor = .white
         
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.white
-        
-        
-        // VievComtrollers
-        let feedViewController = FeedViewController()
-        feedViewController.view.backgroundColor = .systemMint
-        let feedNavigationController = UINavigationController(rootViewController: feedViewController)
-        feedNavigationController.tabBarItem = UITabBarItem(title: "NEWSFEED", image: UIImage(named: "news"), selectedImage: nil)
-        feedNavigationController.navigationBar.barTintColor = UIColor.white
-        feedNavigationController.navigationBar.standardAppearance = appearance;
-        feedNavigationController.navigationBar.scrollEdgeAppearance = feedNavigationController.navigationBar.standardAppearance
-        
         let logInViewController = LogInViewController()
-        let logInNavigationController = UINavigationController(rootViewController: logInViewController)
-        logInNavigationController.tabBarItem = UITabBarItem(title: "PROFILE", image: UIImage(named: "profile"), selectedImage: nil)
+        logInViewController.view.backgroundColor = .white
         
-        logInViewController.delegate = myInspector
+        let loginFactory = MyLoginFactory()
+        logInViewController.delegate = loginFactory.creatLoginInspector()
         
-        tabBarController.viewControllers = [feedNavigationController, logInNavigationController]
-        tabBarController.tabBar.isHidden = false
-        
-        
-        
+        let loginNavigationController = UINavigationController(rootViewController: logInViewController)
+        tabBarController.viewControllers = [loginNavigationController]
+ 
+        self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
+        
         return true
     }
     
