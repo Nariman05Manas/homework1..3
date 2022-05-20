@@ -14,12 +14,13 @@
 		4B85745D27EA464200F339DA /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */; };
 		4B85745F27EA467100F339DA /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */; };
 		4B8653F727DA4F920092D46D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8653F627DA4F920092D46D /* PostTableViewCell.swift */; };
-		4B88F60C280D9F70009350C1 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 4B88F60B280D9F70009350C1 /* iOSIntPackage */; };
+		4B88F60C280D9F70009350C1 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 4B88F60B280D9F70009350C1 /* iOSIntPackage */; settings = {ATTRIBUTES = (Required, ); }; };
 		4BA0798E27D8A883008B4B24 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA0798D27D8A883008B4B24 /* LogInViewController.swift */; };
 		4BA2BF142812958C00D2C055 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA2BF132812958C00D2C055 /* User.swift */; };
 		4BA53B932808D5430057F954 /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 4BA53B922808D5430057F954 /* StorageService.docc */; };
 		4BA53B942808D5430057F954 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BA53B912808D5430057F954 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4BA53B9E2808D5BB0057F954 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA53B9D2808D5BB0057F954 /* Posts.swift */; };
+		4BA78958281C02C2001B191A /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA78957281C02C2001B191A /* Factory.swift */; };
 		4BADD22B27B6FF4400977420 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD22A27B6FF4400977420 /* AppDelegate.swift */; };
 		4BADD23427B6FF4500977420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23327B6FF4500977420 /* Assets.xcassets */; };
 		4BADD23727B6FF4500977420 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */; };
@@ -67,6 +68,7 @@
 		4BA53B912808D5430057F954 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		4BA53B922808D5430057F954 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
 		4BA53B9D2808D5BB0057F954 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
+		4BA78957281C02C2001B191A /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		4BADD22A27B6FF4400977420 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BADD23327B6FF4500977420 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BADD23627B6FF4500977420 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		4B147CA427C141CB00C6F8E5 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				4BA78957281C02C2001B191A /* Factory.swift */,
 				4BA2BF132812958C00D2C055 /* User.swift */,
 				4B147CA527C141FD00C6F8E5 /* ProfileHeaderView.swift */,
 				4B147CA727C1422A00C6F8E5 /* ProfileViewController.swift */,
@@ -393,6 +396,7 @@
 				4BA0798E27D8A883008B4B24 /* LogInViewController.swift in Sources */,
 				4B85745D27EA464200F339DA /* PhotosCollectionViewCell.swift in Sources */,
 				4BADD24527B7060D00977420 /* PostViewController.swift in Sources */,
+				4BA78958281C02C2001B191A /* Factory.swift in Sources */,
 				4BADD23F27B7046500977420 /* FeedViewController.swift in Sources */,
 				4BF1194B27D8E173008237B9 /* Sourse.swift in Sources */,
 				4B85745F27EA467100F339DA /* PhotosTableViewCell.swift in Sources */,
@@ -542,7 +546,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -597,7 +601,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -708,7 +712,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
 			requirement = {
-				branch = main;
+				branch = imagepublisher;
 				kind = branch;
 			};
 		};

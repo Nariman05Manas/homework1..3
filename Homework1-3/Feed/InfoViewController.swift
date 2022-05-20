@@ -2,7 +2,7 @@
 import UIKit
 
 class InfoViewController: UIViewController {
-    
+    // инициализизация
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,7 +17,7 @@ class InfoViewController: UIViewController {
         self.view.addSubview(secondButton)
         
     }
-    
+    //метод
     @objc func showAlert() {
         
         let alert = UIAlertController(title: "ВНИМАНИЕ!", message: "ГОТОВЫ ПЕРЕЙТИ НА СТРАНИЦУ", preferredStyle: UIAlertController.Style.alert)

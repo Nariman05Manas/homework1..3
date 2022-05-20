@@ -7,10 +7,12 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate {
     
-  
-   let scrollView: UIScrollView = {
+    var delegate: LoginViewControllerDelegate?
+    
+    
+    let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
         scrollView.isScrollEnabled = true
@@ -43,6 +45,7 @@ class LogInViewController: UIViewController {
         userNameTextField.leftViewMode = .always
         userNameTextField.autocapitalizationType = .none
         userNameTextField.layer.borderColor = UIColor.lightGray.cgColor
+        userNameTextField.returnKeyType = .done
         
         return userNameTextField
     }()
@@ -59,6 +62,7 @@ class LogInViewController: UIViewController {
         passwordTextField.autocapitalizationType = .none
         passwordTextField.layer.borderWidth = 0.5
         passwordTextField.layer.borderColor = UIColor.lightGray.cgColor
+        passwordTextField.returnKeyType = .done
         passwordTextField.isSecureTextEntry = true
         
         return passwordTextField
@@ -81,7 +85,7 @@ class LogInViewController: UIViewController {
     lazy var logInButton: UIButton = {
         let logInButton = UIButton()
         
-  
+        
         if let pixelImage = UIImage(named: "blue_pixel") {
             logInButton.setBackgroundImage(pixelImage.imageWithAlpha(alpha: 1), for: .normal)
             logInButton.setBackgroundImage(pixelImage.imageWithAlpha(alpha: 0.8), for: .selected)
@@ -103,33 +107,37 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-  
+        
         navigationController?.navigationBar.isHidden = true
         
-
+        
         view.backgroundColor = .white
         view.addSubview(scrollView)
         
-  
+        
         scrollView.addSubviews(contentView)
         scrollView.contentSize = CGSize(width: view.frame.width, height: max(view.frame.width, view.frame.height))
         
-
+        
         contentView.addSubviews(logoImageView, stackView, logInButton)
         
-  
+        
         stackView.addArrangedSubview(userNameTextField)
         stackView.addArrangedSubview(passwordTextField)
         
-  
+        
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
         
         initialLayout()
         
+        userNameTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        
     }
     
- func initialLayout() {
+    func initialLayout() {
         NSLayoutConstraint.activate([scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                                      scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                                      scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -161,7 +169,7 @@ class LogInViewController: UIViewController {
     }
     
     //MARK: Navigation segue
-    @objc func goToProfileVC() {
+    @objc private func goToProfileVC() {
         var userData: UserService
         userData = CurrentUserService()
         
@@ -169,10 +177,17 @@ class LogInViewController: UIViewController {
         userData = TestUserService()
 #endif
         
-        navigationController?.pushViewController(ProfileViewController(userData: userData, userName: userNameTextField.text ?? "Not found!"), animated: true)
+        let profileVC = ProfileViewController(userData: userData, userName: userNameTextField.text!)
+        if delegate?.checker(logTF: userNameTextField.text!, passTF: passwordTextField.text!) == true {
+            navigationController?.pushViewController(profileVC, animated: true)
+            
+        } else {
+            print("error")
+            print("\(userNameTextField.text!), \(passwordTextField.text!)")
+        }
     }
     
-   
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerKeyboardNotifications()
@@ -220,5 +235,10 @@ extension UIImage {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

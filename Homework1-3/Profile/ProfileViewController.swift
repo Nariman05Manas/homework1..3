@@ -53,12 +53,6 @@ class ProfileViewController: UIViewController {
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postTableViewCell")
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "photosTableViewCell")
         
-        
-        
-        
-        
-        
-        
         initialLayout()
     }
     
