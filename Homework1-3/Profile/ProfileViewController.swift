@@ -6,6 +6,19 @@ class ProfileViewController: UIViewController {
     
     var posts = constPostArray
     
+    private let userData: UserService
+    private let userName: String
+    
+    init(userData: UserService, userName: String) {
+        self.userData = userData
+        self.userName = userName
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.toAutoLayout()
@@ -27,7 +40,7 @@ class ProfileViewController: UIViewController {
         //Debug and Realese color
         
 #if DEBUG
-        tableView.backgroundColor = .purple
+        tableView.backgroundColor = .cyan
 #elseif release
         tableView.backgroundColor = .white
 #endif
@@ -49,7 +62,7 @@ class ProfileViewController: UIViewController {
         initialLayout()
     }
     
-    //MARK: Initial constraints
+    //Инициализация констрентов
     func initialLayout() {
         NSLayoutConstraint.activate([tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                                      tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -68,7 +81,7 @@ class ProfileViewController: UIViewController {
 
 
 
-//MARK: Initial TableView Deegate and DataSource
+//TableView Deegate and DataSource
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -95,6 +108,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "profile") as! ProfileHeaderView
+            if let user = userData.userSetup(userName) {
+                view.setupUserData(user: user)
+            }
             return view
         } else {
             return nil
@@ -115,3 +131,4 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+

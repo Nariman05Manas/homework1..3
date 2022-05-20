@@ -49,7 +49,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         return userName
     }()
     
-    let showStatus: UIButton = {
+    lazy var showStatus: UIButton = {
         let showStatus = UIButton()
         showStatus.layer.cornerRadius = 4
         showStatus.layer.shadowOffset = CGSize(width: 4, height: 4)
@@ -73,7 +73,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         return status
     }()
     
-    let statusTextField: UITextField = {
+    lazy var statusTextField: UITextField = {
         let statusTextField = UITextField()
         statusTextField.layer.cornerRadius = 12
         statusTextField.layer.borderWidth = 1
@@ -95,6 +95,12 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func setupUserData(user: User) {
+        userName.text = user.name
+        imageAvatar.image = user.avatar
+        status.text = user.status
     }
     
     
