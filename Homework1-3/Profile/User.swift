@@ -35,7 +35,7 @@ class CurrentUserService: UserService {
         return nil
     }
 }
-//Класс тест для дебага
+//Класс тест для дебага.
 class TestUserService: UserService {
     let testUser = User(name: "I'M GOLUM", avatar: UIImage(named: "фото6"), status: "Моя прелесть")
     
