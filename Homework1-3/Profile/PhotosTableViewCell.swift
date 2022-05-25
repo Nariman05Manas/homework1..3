@@ -10,6 +10,8 @@ import iOSIntPackage
 
 class PhotosTableViewCell: UITableViewCell {
     
+    static let identifire = "PhotosTableViewCell"
+    
     
     let imageProcessorMain = ImageProcessor()
     
@@ -45,17 +47,25 @@ class PhotosTableViewCell: UITableViewCell {
         contentView.addSubviews(title, nextButtonImage, stackView)
         
         
-        let filterArray = [ColorFilter.tonal, ColorFilter.colorInvert, ColorFilter.posterize, ColorFilter.sepia(intensity: 3)]
         
         for i in 0...3 {
-            imageProcessorMain.processImage(sourceImage: UIImage(named: photosGaleryArray[i])!, filter: filterArray[i]) { image in
-                let myPhotos = UIImageView(image: image)
-                myPhotos.toAutoLayout()
-                myPhotos.layer.cornerRadius = 6
-                myPhotos.clipsToBounds = true
-                stackView.addArrangedSubview(myPhotos)
-            }
+            
+            let myPhotos = UIImageView(image: photosGaleryArray[i])
+            myPhotos.toAutoLayout()
+            myPhotos.layer.cornerRadius = 6
+            myPhotos.clipsToBounds = true
+            stackView.addArrangedSubview(myPhotos)
         }
+        
+        initialLayout()
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func initialLayout(){
         
         NSLayoutConstraint.activate([title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
                                      title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
@@ -78,20 +88,10 @@ class PhotosTableViewCell: UITableViewCell {
             })
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
     
     override func prepareForReuse() {
         super.prepareForReuse()
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
 }

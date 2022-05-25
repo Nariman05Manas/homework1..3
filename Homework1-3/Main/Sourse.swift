@@ -14,8 +14,11 @@ let constPostArray = [Posts(author: "Gendale", description: "Местный ст
                       Posts(author: "Моя братва", description: "Все в сборе", image: "gend2", likes: 556577, views: 4546565),
                       Posts(author: "Левый чел", description: "Какой то левый чел", image: "gend3", likes: 666, views: 777)]
 //массив фото
-let photosGaleryArray = ["фото1", "фото2", "фото3", "фото4", "фото5", "фото6", "фото7", "фото8", "фото9", "фото10", "фото11", "фото12", "фото13"]
+let photosGaleryArray = [UIImage(named:"фото1")!, UIImage(named:"фото2")!, UIImage(named:"фото3")!, UIImage(named:"фото4")!, UIImage(named:"фото5")!, UIImage(named:"фото6")!, UIImage(named:"фото8")!, UIImage(named:"фото9")!, UIImage(named:"фото10")!,UIImage(named:"фото11")!, UIImage(named:"фото12")!, UIImage(named:"фото13")!]
 // констреинт
+
+
+
 struct Const {
     static let leadingMargin: CGFloat = 16
     static let trailingMargin: CGFloat = -16

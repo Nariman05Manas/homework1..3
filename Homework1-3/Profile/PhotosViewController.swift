@@ -10,6 +10,8 @@ import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     
+    let imagePublisherFacade = ImagePublisherFacade()
+    
     lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
@@ -26,7 +28,13 @@ class PhotosViewController: UIViewController {
         return collectionView
     }()
     
-    let filterArray = [ColorFilter.tonal, ColorFilter.colorInvert, ColorFilter.posterize, ColorFilter.sepia(intensity: 3)]
+    var contentPhotoData: [UIImage] = [] {
+        didSet{
+            if contentPhotoData.count == photosGaleryArray.count {
+                imagePublisherFacade.removeSubscription(for: self)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +43,15 @@ class PhotosViewController: UIViewController {
         title = "Фото Галерея"
         view.addSubviews(collectionView)
         collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: "photosCollectionViewCell")
-        
         initialLayout()
+        imagePublisherFacade.subscribe(self)
+        imagePublisherFacade.addImagesWithTimer(time: 0.3, repeat: photosGaleryArray.count*10, userImages: photosGaleryArray)
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        print("Tab Bar Connect")
     }
     
     
@@ -50,22 +64,13 @@ class PhotosViewController: UIViewController {
         ])
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-        print("Tab Bar Connect")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-        print("Tab Bar Disconnect")
-    }
 }
+
+
 
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photosGaleryArray.count
+        return contentPhotoData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -77,4 +82,21 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: (collectionView.frame.width - 40) / 3, height: (collectionView.frame.width - 40) / 3)
     }
+}
+extension PhotosViewController: ImageLibrarySubscriber {
+    
+    func receive(images: [UIImage]) {
+        
+        images.forEach({ image in
+            if contentPhotoData.contains(where: {image == $0}) {
+                return
+            }
+            else {
+                contentPhotoData.append(image)
+            }
+        })
+        collectionView.reloadData()
+        
+    }
+    
 }
