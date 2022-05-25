@@ -10,6 +10,7 @@ import UIKit
 class LogInViewController: UIViewController, UITextFieldDelegate  {
     
     var delegate: LoginViewControllerDelegate?
+    var callback: (_ authenticationData: (userService: UserService, name: String)) -> Void
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -121,7 +122,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
         }
         
     }
-        
+    
+    init(callback: @escaping (_ authenticationData: (userService: UserService, name: String)) -> Void) {
+        self.callback = callback
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -210,7 +220,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
     
     @objc func keyboardWillHide(notification: NSNotification) {
         
-      
+        
         scrollView.contentInset.bottom = .zero
         scrollView.verticalScrollIndicatorInsets = .zero
     }
@@ -234,31 +244,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
 #else
         userService = CurrentUserService()
 #endif
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.white
-        
-        let profileViewController = ProfileViewController(userService: userService, name: userName.text ?? "")
-        let feedViewController = FeedViewController()
-        
-        feedViewController.view.backgroundColor = UIColor.white
-        let feedNavigationController = UINavigationController(rootViewController: feedViewController)
-        
-        feedNavigationController.tabBarItem = UITabBarItem(title: "ЛЕНТА", image: UIImage(named: "news"), tag: 0)
-        feedNavigationController.navigationBar.titleTextAttributes = [ .foregroundColor: UIColor.black]
-        feedNavigationController.navigationBar.barTintColor = UIColor.white
-        feedNavigationController.navigationBar.standardAppearance = appearance;
-        feedNavigationController.navigationBar.scrollEdgeAppearance = feedNavigationController.navigationBar.standardAppearance
+        callback((userService: userService, name: userName.text ?? ""))
        
-        let profileNavigationController = UINavigationController(rootViewController: profileViewController)
-        profileNavigationController.tabBarItem = UITabBarItem(title: "ПРОФИЛЬ", image: UIImage(named: "profile"), tag: 0)
-        profileNavigationController.navigationBar.titleTextAttributes = [ .foregroundColor: UIColor.black]
-        profileNavigationController.navigationBar.barTintColor = UIColor.white
-        profileNavigationController.navigationBar.standardAppearance = appearance;
-        profileNavigationController.navigationBar.scrollEdgeAppearance = profileNavigationController.navigationBar.standardAppearance
-       
-        navigationController?.tabBarController!.viewControllers = [feedNavigationController, profileNavigationController]
         
     }
     

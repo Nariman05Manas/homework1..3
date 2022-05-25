@@ -10,9 +10,11 @@ struct PostMain {
 class PostViewController: UIViewController {
     
     var post: PostMain
+    let coordinator: FeedCoordinator
     
-    init(post: PostMain) {
+    init(coordinator:FeedCoordinator,post:PostMain) {
         self.post = post
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -43,8 +45,6 @@ class PostViewController: UIViewController {
     }
     
     @objc func showInfo() {
-        let infoViewController = InfoViewController(title: post.info)
-        present(infoViewController, animated: true, completion: nil)
+        coordinator.showInfoPost(info: post.info)
     }
-    
 }
