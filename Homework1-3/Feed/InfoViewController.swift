@@ -2,38 +2,81 @@
 import UIKit
 
 class InfoViewController: UIViewController {
-    // инициализизация
+    
+    lazy var button: CustomButton = {
+        let button = CustomButton(vc: self,
+                                  text: "Нажмите",
+                                  backgroundColor: UIColor.red,
+                                  backgroundImage: nil,
+                                  tag: nil,
+                                  shadow: false,
+                                  tapAction: showAlert)
+        button.frame = CGRect(x: UIScreen.main.bounds.width/2-50, y: UIScreen.main.bounds.height/2-25, width: 100, height: 50)
+        button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.accessibilityIgnoresInvertColors = true
+        
+        
+        return button
+    }()
+    
+    lazy var textLabel: UILabel = {
+        let label = UILabel()
+        label.toAutoLayout()
+        label.textAlignment = .center
+        label.textColor = .white
+        label.lineBreakMode = .byTruncatingMiddle
+        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        return label
+    }()
+    
+    let showAlert = {(vc: UIViewController, sender: CustomButton) in
+        
+        let alertController = UIAlertController(title: "ВНИМАНИЕ!!!", message: "УВЕРЕННЫ?", preferredStyle: .alert)
+        
+        let yesAction = UIAlertAction(title: "УВЕРЕН", style: .default) { (action) -> Void in
+            print("ПОТВЕРДИЛ")
+        }
+        
+        let noAction = UIAlertAction(title: "НЕ УВЕРЕН", style: .default) { (action) -> Void in
+            print("ДО СВИДАНИЯ")
+        }
+        
+        alertController.addAction(yesAction)
+        alertController.addAction(noAction)
+        
+        vc.present(alertController, animated: true, completion: nil)
+    }
+    
+    init(title: String) {
+        super.init(nibName: nil, bundle: nil)
+        textLabel.text = title
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
+        view.toAutoLayout()
+        view.backgroundColor = UIColor.black
         
-        let secondButton = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 60))
-        secondButton.center = self.view.center
-        secondButton.backgroundColor = .magenta
-        secondButton.setTitle("УВЕДОМЛЕНИЕ", for: .normal)
-        secondButton.setTitleColor(.black, for: .normal)
-        secondButton.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
-        self.view.addSubview(secondButton)
-        
-    }
-    //метод
-    @objc func showAlert() {
-        
-        let alert = UIAlertController(title: "ВНИМАНИЕ!", message: "ГОТОВЫ ПЕРЕЙТИ НА СТРАНИЦУ", preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "Да", style: UIAlertAction.Style.default, handler: { _ in
-            print("БЕЗУСЛОВНО ГОТОВ!")
-        }))
-        alert.addAction(UIAlertAction(title: "Нет",
-                                      style: UIAlertAction.Style.destructive,
-                                      handler: {(_: UIAlertAction!) in
-            print("НЕТ НЕ ГОТОВ!")
-        }))
-        self.present(alert, animated: true, completion: nil)
+        view.addSubviews(textLabel, button)
+        useConstraint()
         
     }
     
-    
+    func useConstraint() {
+        NSLayoutConstraint.activate([textLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Const.smallSize),
+                                     textLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -Const.smallSize),
+                                     textLabel.heightAnchor.constraint(equalToConstant: 60),
+                                     textLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -60),
+                                     button.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 30),
+                                     button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                     button.widthAnchor.constraint(equalToConstant: Const.bigSize)])
+    }
     
 }

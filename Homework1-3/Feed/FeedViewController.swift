@@ -3,72 +3,132 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    var post = Post(title: "Newsline")
+    let model: FeedModel = FeedModel()
     
-    let postViewController: PostViewController
+    lazy var stackView: UIStackView = {
+        
+        let stack = UIStackView()
+        stack.toAutoLayout()
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        stack.spacing = 10
+        stack.alignment = .fill
+        stack.backgroundColor = .clear
+        return stack
+    }()
     
-    init() {
-        postViewController = PostViewController()
-        super.init(nibName: nil, bundle: nil)
-    }
+    lazy var questionsStackView: UIStackView = {
+        
+        let stack = UIStackView()
+        stack.toAutoLayout()
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        stack.spacing = 10
+        stack.alignment = .fill
+        stack.backgroundColor = .clear
+        return stack
+    }()
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    lazy var firstButton: CustomButton = {
+        let button = CustomButton(vc: self,
+                                  text: "",
+                                  backgroundColor: .clear,
+                                  backgroundImage: UIImage(named: "gend2"),
+                                  tag: 0,
+                                  shadow: true) {
+            (vc: UIViewController, sender: CustomButton) in
+            self.showPost(sender: sender)
+            
+        }
+        
+        button.layer.cornerRadius = 4
+        return button
+    }()
+    
+    lazy var secondButton: UIButton = {
+        let button =  CustomButton(vc: self,
+                                   text: "",
+                                   backgroundColor: .clear,
+                                   backgroundImage: UIImage(named: "gend1"),
+                                   tag: 1,
+                                   shadow: true) {
+            (vc: UIViewController, sender: CustomButton) in
+            self.showPost(sender: sender)
+            
+        }
+        button.layer.cornerRadius = 4
+        
+        return button
+    }()
+    
+    lazy var answerTextField: UITextField = {
+        let textField = UITextField()
+        textField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        textField.placeholder = "Зеленый"
+        textField.textColor = .black
+        textField.backgroundColor = .white
+        textField.textAlignment = .natural
+        textField.layer.cornerRadius = 15
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 15))
+        textField.leftViewMode = .always
+        return textField
+    }()
+    
+   
+    
+    lazy var answerButton: CustomButton = {
+        let button = CustomButton(vc: self,
+                                  text: "Проверить текст",
+                                  backgroundColor: .blue,
+                                  backgroundImage: nil,
+                                  tag: 0,
+                                  shadow: true) {
+            (vc:UIViewController, sender: CustomButton) in
+            if self.model.check(word: self.answerTextField.text!) {
+                sender.notification = {sender.textFieldArray.forEach({$0.textColor = UIColor.green})}
+            }
+            else {
+                sender.notification = {sender.textFieldArray.forEach({$0.textColor = UIColor.red})}
+            }
+        }
+        
+        button.layer.cornerRadius = 4
+        button.addTextField(textField: answerTextField)
+        return button
+    }()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "News"
         
-        self.navigationController?.addChild(postViewController)
-        
-        let firstButton: UIButton = {
-            let firstButton = UIButton()
-            firstButton.backgroundColor = .darkGray
-            firstButton.layer.cornerRadius = 15
-            firstButton.layer.borderWidth = 3
-            firstButton.layer.borderColor = UIColor.systemOrange.cgColor
-            firstButton.setTitle("press one", for: .normal)
-            firstButton.setTitleColor(.black, for: .normal)
-            firstButton.addTarget(self, action: #selector(showNews), for: .touchUpInside)
-            return firstButton
-        }()
-        
-        let twoButton: UIButton = {
-            let twoButton = UIButton()
-            twoButton.backgroundColor = .white
-            twoButton.layer.borderWidth = 3
-            twoButton.layer.borderColor = UIColor.magenta.cgColor
-            twoButton.layer.cornerRadius = 15
-            twoButton.setTitle("press two", for: .normal)
-            twoButton.setTitleColor(.black, for: .normal)
-            twoButton.addTarget(self, action: #selector(showNews), for: .touchUpInside)
-            return twoButton
-        }()
-        
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.distribution = .fillEqually
-        stackView.alignment = .fill
+        questionsStackView.addArrangedSubview(answerTextField)
+        questionsStackView.addArrangedSubview(answerButton)
         stackView.addArrangedSubview(firstButton)
-        stackView.addArrangedSubview(twoButton)
+        stackView.addArrangedSubview(secondButton)
+        stackView.addArrangedSubview(questionsStackView)
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(stackView)
+        view.addSubview(stackView)
+        useConstraint()
         
-        let horizontalConstraint = stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        let verticalConstraint = stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        let widthConstraint = stackView.widthAnchor.constraint(equalToConstant: 150)
-        let heightConstraint = stackView.heightAnchor.constraint(equalToConstant: 150)
-        
-        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
     
-    //метод
-    @objc func showNews() {
-        postViewController.title = post.title
+    func useConstraint() {
+        NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                                     stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: Const.trailingMargin),
+                                     stackView.heightAnchor.constraint(equalToConstant: view.bounds.height / 1.5)])
+    }
+    func showPost(sender: UIButton) {
+        let postViewController = PostViewController(post:PostMain(title: sender.title(for: .normal)!,
+                                                                  image: sender.image(for: .normal)!,
+                                                                  info: infoArray[sender.tag]))
         self.navigationController?.pushViewController(postViewController, animated: true)
     }
     
+    
 }
+

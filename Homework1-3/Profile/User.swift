@@ -7,14 +7,10 @@
 
 import UIKit
 
-protocol UserService {
-    func userSetup(_ name: String) -> User?
-}
-
 class User {
-    var name: String
-    var avatar: UIImage?
-    var status: String
+    let name: String
+    let avatar: UIImage?
+    let status: String
     
     init(name: String, avatar: UIImage?, status: String) {
         self.name = name
@@ -23,17 +19,23 @@ class User {
     }
 }
 
+protocol UserService {
+    func getUser(name: String) -> User?
+}
+
 class CurrentUserService: UserService {
-    let currentUser: User? = nil
     
-    func userSetup(_ name: String) -> User? {
-        if let myNameUser = currentUser {
-            if name == myNameUser.name {
-                return currentUser
+    private let user: User? = nil
+    
+    func getUser(name: String) -> User? {
+        if let activeUser = user {
+            if name == activeUser.name {
+                return user
             }
         }
         return nil
     }
+
 }
 //Класс тест для дебага.
 class TestUserService: UserService {
@@ -48,30 +50,20 @@ class TestUserService: UserService {
     
 }
 
-class Checker {
+class TestUserService: UserService {
     
-    static let shared = Checker()
+    private let user: User
     
-    private init() {}
-    
-    private let userLogin = "user"
-    private let userPassword = "12345"
-    
-    func checkLogPass(log: String, pass: String) -> Bool {
-        guard log == userLogin && pass == userPassword else { return false }
-        return true
+    init() {
+        self.user = User(name: "Голум", avatar: UIImage(named: "gend"), status: "моя прелесть")
     }
-}
-
-protocol LoginViewControllerDelegate {
-    func checker(logTF: String, passTF: String) -> Bool
-}
-
-// login ispector class
-
-class LoginInspector: LoginViewControllerDelegate {
-    func checker(logTF: String, passTF: String) -> Bool {
-        return Checker.shared.checkLogPass(log: logTF, pass: passTF)
+    
+    func getUser(name: String) -> User? {
+        
+        if name == user.name {
+            return user
+        }
+        return nil
     }
     
 }
