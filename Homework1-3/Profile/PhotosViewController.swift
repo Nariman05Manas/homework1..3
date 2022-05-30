@@ -28,75 +28,82 @@ class PhotosViewController: UIViewController {
         return collectionView
     }()
     
-    var contentPhotoData: [UIImage] = [] {
-        didSet{
-            if contentPhotoData.count == photosGaleryArray.count {
-                imagePublisherFacade.removeSubscription(for: self)
-            }
-        }
-    }
+    var contentPhotoDataArray: [UIImage] = []
+    var timerCount = 0.0
+    var timer: Timer? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Фото галлерея"
+        view.backgroundColor = .white
+        view.addSubview(collectionView)
+        collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: PhotosCollectionViewCell.identifire)
+        useConstraint()
         
-        view.backgroundColor = .lightGray
-        title = "Фото Галерея"
-        view.addSubviews(collectionView)
-        collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: "photosCollectionViewCell")
-        initialLayout()
-        imagePublisherFacade.subscribe(self)
-        imagePublisherFacade.addImagesWithTimer(time: 0.3, repeat: photosGaleryArray.count*10, userImages: photosGaleryArray)
+        let imageProcessor = ImageProcessor()
+        imageProcessor.processImagesOnThread(sourceImages: photosGaleryArray, filter: .sepia(intensity: 0.5), qos: .default) {cgImages in
+            let images = cgImages.map({UIImage(cgImage: $0!)})
+            self.contentPhotoDataArray.removeAll()
+            images.forEach({self.contentPhotoDataArray.append($0)})
+            DispatchQueue.main.async{
+                self.collectionView.reloadData()
+            }
+        }
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
         
     }
+    //Фукц вычесления времени
+    @objc func updateTimer() {
+        timerCount += 0.01
+        if contentPhotoDataArray.count > 0 {
+            print("\(self.timerCount) секунд")
+            timer!.invalidate()
+            
+            /*----------------------------------------------------------------------------------------------
+             время исполнения для каждого вызова метода processImagesOnThread с разной комбинацией параметров
+             .userInteractive - 1.1700000000000008 сек
+             .utility - 0.9200000000000006 сек
+             .background - 1.330000000000001 сек
+             .userInitiated - 0.8000000000000005 сек
+             .default - 0.9300000000000006 сек
+             ------------------------------------------------------------------------------------------------
+             */
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        print("Tab Bar Connect")
     }
     
-    
-    func initialLayout() {
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+    func useConstraint() {
+        NSLayoutConstraint.activate([collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                                     collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                                     collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                                     collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)])
     }
     
 }
 
-
-
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return contentPhotoData.count
+        contentPhotoDataArray.count
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photosCollectionViewCell", for: indexPath) as! PhotosCollectionViewCell
-        cell.initialImages(photosGaleryArray[indexPath.item])
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.identifire, for: indexPath) as? PhotosCollectionViewCell else { return UICollectionViewCell() }
+        cell.initialImages(contentPhotoDataArray[indexPath.item])
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: (collectionView.frame.width - 40) / 3, height: (collectionView.frame.width - 40) / 3)
     }
 }
-extension PhotosViewController: ImageLibrarySubscriber {
-    
-    func receive(images: [UIImage]) {
-        
-        images.forEach({ image in
-            if contentPhotoData.contains(where: {image == $0}) {
-                return
-            }
-            else {
-                contentPhotoData.append(image)
-            }
-        })
-        collectionView.reloadData()
-        
-    }
-    
-}
+
+
