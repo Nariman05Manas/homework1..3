@@ -10,19 +10,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
                 
         self.window = UIWindow(frame: UIScreen.main.bounds)
+       
+        let rootCoordinator = UITabBarCoordinator()
+        let tabBarController = rootCoordinator.startApp(authenticationData: nil)
         
-        let tabBarController = UITabBarController()
-        tabBarController.tabBar.backgroundColor = .white
-        
-        let logInViewController = LogInViewController()
-        logInViewController.view.backgroundColor = .white
-        
-        let loginFactory = MyLoginFactory()
-        logInViewController.delegate = loginFactory.creatLoginInspector()
-        
-        let loginNavigationController = UINavigationController(rootViewController: logInViewController)
-        tabBarController.viewControllers = [loginNavigationController]
- 
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
         

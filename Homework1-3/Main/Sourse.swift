@@ -43,4 +43,3 @@ public extension UIView {
     
 }
 
-var infoArray = [""]

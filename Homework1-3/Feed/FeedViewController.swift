@@ -3,7 +3,6 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    let model: FeedModel = FeedModel()
     
     lazy var stackView: UIStackView = {
         
@@ -45,6 +44,8 @@ class FeedViewController: UIViewController {
         return button
     }()
     
+    
+    
     lazy var secondButton: UIButton = {
         let button =  CustomButton(vc: self,
                                    text: "",
@@ -60,6 +61,8 @@ class FeedViewController: UIViewController {
         
         return button
     }()
+    
+    
     
     lazy var answerTextField: UITextField = {
         let textField = UITextField()
@@ -98,7 +101,19 @@ class FeedViewController: UIViewController {
         button.addTextField(textField: answerTextField)
         return button
     }()
+
+    var coordinator:FeedCoordinator
+    var model: FeedModel
     
+    init(coordinator: FeedCoordinator, model: FeedModel) {
+        self.model = model
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     override func viewDidLoad() {
@@ -122,13 +137,9 @@ class FeedViewController: UIViewController {
                                      stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: Const.trailingMargin),
                                      stackView.heightAnchor.constraint(equalToConstant: view.bounds.height / 1.5)])
     }
-    func showPost(sender: UIButton) {
-        let postViewController = PostViewController(post:PostMain(title: sender.title(for: .normal)!,
-                                                                  image: sender.image(for: .normal)!,
-                                                                  info: infoArray[sender.tag]))
-        self.navigationController?.pushViewController(postViewController, animated: true)
+    func showPost(sender: CustomButton) {
+        model.getPost(sender: sender)
+        
     }
-    
-    
 }
 
