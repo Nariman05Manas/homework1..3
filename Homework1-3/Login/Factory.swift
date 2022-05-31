@@ -26,7 +26,7 @@ class Checker {
        Checker()
     }()
     
-    private let login = "user".hash
+    private let login = "Gendale".hash
     private let pswd = "1234".hash
     
     private init() {}
