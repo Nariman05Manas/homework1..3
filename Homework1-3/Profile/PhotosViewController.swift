@@ -40,7 +40,9 @@ class PhotosViewController: UIViewController {
         collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: PhotosCollectionViewCell.identifire)
         useConstraint()
         
-        let imageProcessor = ImageProcessor()
+        
+       
+      let imageProcessor = ImageProcessor()
         imageProcessor.processImagesOnThread(sourceImages: photosGaleryArray, filter: .sepia(intensity: 0.5), qos: .default) {cgImages in
             let images = cgImages.map({UIImage(cgImage: $0!)})
             self.contentPhotoDataArray.removeAll()
@@ -62,11 +64,11 @@ class PhotosViewController: UIViewController {
             
             /*----------------------------------------------------------------------------------------------
              время исполнения для каждого вызова метода processImagesOnThread с разной комбинацией параметров
-             .userInteractive - 1.1700000000000008 сек
-             .utility - 0.9200000000000006 сек
-             .background - 1.330000000000001 сек
-             .userInitiated - 0.8000000000000005 сек
-             .default - 0.9300000000000006 сек
+             .userInteractive - 1.17 сек
+             .utility - 0.92 сек
+             .background - 1.33 сек
+             .userInitiated - 0.8 сек
+             .default - 0.9
              ------------------------------------------------------------------------------------------------
              */
         }
