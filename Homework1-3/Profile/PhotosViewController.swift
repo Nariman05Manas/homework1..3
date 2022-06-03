@@ -43,7 +43,7 @@ class PhotosViewController: UIViewController {
         
        
       let imageProcessor = ImageProcessor()
-        imageProcessor.processImagesOnThread(sourceImages: photosGaleryArray, filter: .sepia(intensity: 0.5), qos: .default) {cgImages in
+        imageProcessor.processImagesOnThread(sourceImages: photosGaleryArray, filter: .sepia(intensity: 0.5), qos: .utility) {cgImages in
             let images = cgImages.map({UIImage(cgImage: $0!)})
             self.contentPhotoDataArray.removeAll()
             images.forEach({self.contentPhotoDataArray.append($0)})
