@@ -21,6 +21,7 @@
 		4B85745F27EA467100F339DA /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */; };
 		4B8653F727DA4F920092D46D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8653F627DA4F920092D46D /* PostTableViewCell.swift */; };
 		4B88F60C280D9F70009350C1 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 4B88F60B280D9F70009350C1 /* iOSIntPackage */; settings = {ATTRIBUTES = (Required, ); }; };
+		4B8ED57C284A5640008CB095 /* BuyFullVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8ED57B284A5640008CB095 /* BuyFullVersion.swift */; };
 		4B97D9F928465734006C5550 /* BrutHack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B97D9F828465734006C5550 /* BrutHack.swift */; };
 		4B9B9DA7283280E8004D0882 /* ButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9B9DA6283280E8004D0882 /* ButtonElement.swift */; };
 		4BA0798E27D8A883008B4B24 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA0798D27D8A883008B4B24 /* LogInViewController.swift */; };
@@ -77,6 +78,7 @@
 		4B8653F627DA4F920092D46D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4B88F608280D9F01009350C1 /* Homework1-3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework1-3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B88F609280D9F01009350C1 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B8ED57B284A5640008CB095 /* BuyFullVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyFullVersion.swift; sourceTree = "<group>"; };
 		4B97D9F828465734006C5550 /* BrutHack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrutHack.swift; sourceTree = "<group>"; };
 		4B9B9DA6283280E8004D0882 /* ButtonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonElement.swift; sourceTree = "<group>"; };
 		4BA0798D27D8A883008B4B24 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				4BADD22A27B6FF4400977420 /* AppDelegate.swift */,
 				4BF1194A27D8E173008237B9 /* Sourse.swift */,
 				4B9B9DA6283280E8004D0882 /* ButtonElement.swift */,
+				4B8ED57B284A5640008CB095 /* BuyFullVersion.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				4B85745D27EA464200F339DA /* PhotosCollectionViewCell.swift in Sources */,
 				4B448D04283EDAC600530DA4 /* FeedCoordinator.swift in Sources */,
 				4BADD24527B7060D00977420 /* PostViewController.swift in Sources */,
+				4B8ED57C284A5640008CB095 /* BuyFullVersion.swift in Sources */,
 				4BA78958281C02C2001B191A /* Factory.swift in Sources */,
 				4BADD23F27B7046500977420 /* FeedViewController.swift in Sources */,
 				4B97D9F928465734006C5550 /* BrutHack.swift in Sources */,

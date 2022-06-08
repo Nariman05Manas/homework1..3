@@ -28,4 +28,9 @@ class FeedCoordinator: VCCoordinator {
         navigationController!.present(infoViewController, animated: true, completion: nil)
     }
     
+    func showBuyVersion() {
+        let subscription = BuyFullVersion()
+        navigationController?.present(subscription, animated: true)
+    }
+    
 }

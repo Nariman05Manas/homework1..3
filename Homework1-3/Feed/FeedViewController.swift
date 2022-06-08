@@ -63,7 +63,6 @@ class FeedViewController: UIViewController {
     }()
     
     
-    
     lazy var answerTextField: UITextField = {
         let textField = UITextField()
         textField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
@@ -102,8 +101,25 @@ class FeedViewController: UIViewController {
         return button
     }()
     
+    lazy var timerTextView: UILabel = {
+        let textView = UILabel()
+        textView.toAutoLayout()
+        textView.textColor = .systemGray
+        textView.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        textView.numberOfLines = 0
+        textView.textAlignment = .center
+        return textView
+    }()
+    
     var coordinator:FeedCoordinator
     var model: FeedModel
+    var timer: Timer?
+    
+    var timerSecond: Int = 10 {
+        didSet {
+            timerTextView.text = "Переход на страницу для покупки полной версии через: \(timerSecond) сек."
+        }
+    }
     
     init(coordinator: FeedCoordinator, model: FeedModel) {
         self.model = model
@@ -125,6 +141,7 @@ class FeedViewController: UIViewController {
         questionsStackView.addArrangedSubview(answerButton)
         stackView.addArrangedSubview(firstButton)
         stackView.addArrangedSubview(secondButton)
+        stackView.addArrangedSubview(timerTextView)
         stackView.addArrangedSubview(questionsStackView)
         
         view.addSubview(stackView)
@@ -132,11 +149,33 @@ class FeedViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.timerSecond = 7
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [self] timer in
+            timerSecond -= 1
+            if timerSecond == 0 {
+                coordinator.showBuyVersion()
+                timer.invalidate()
+                timerTextView.text = "Спасибо за внимание!"
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let timer = self.timer, timer.isValid {
+            timer.invalidate()
+        }
+    }
+    
+    
+    
     func useConstraint() {
         NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                                      stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Const.leadingMargin),
                                      stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Const.trailingMargin),
-                                     stackView.heightAnchor.constraint(equalToConstant: view.bounds.height / 1.4)
+                                     stackView.heightAnchor.constraint(equalToConstant: view.bounds.height / 1.3)
                                     ])
     }
     func showPost(sender: CustomButton) {
