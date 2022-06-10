@@ -9,7 +9,7 @@ import Foundation
 
 class FeedModel {
     
-    var infoArray = ["знакомьтесь это моя банда","моя прелесть"]
+    var infoArray = ["знакомьтесь это моя банда","моя прелесть!"]
     
     weak var coordinator: FeedCoordinator?
     
