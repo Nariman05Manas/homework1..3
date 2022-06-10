@@ -164,9 +164,7 @@ class FeedViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if let timer = self.timer, timer.isValid {
-            timer.invalidate()
-        }
+        timer?.invalidate()
     }
     
     

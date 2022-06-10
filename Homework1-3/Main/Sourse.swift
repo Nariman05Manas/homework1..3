@@ -8,6 +8,14 @@
 import UIKit
 import StorageService
 
+
+enum AppError: Error {
+     case unauthorized
+     case notFound
+     case badData
+     case internalServer
+ }
+
 //пост массив
 let constPostArray = [Posts(author: "Gendale", description: "Местный сторож", image: "gend", likes: 11098, views: 2997645),
                       Posts(author: "Голум)))", description: "Моя прелесть", image: "gend1", likes:23343, views: 4646),
