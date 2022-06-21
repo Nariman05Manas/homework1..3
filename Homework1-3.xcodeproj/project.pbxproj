@@ -47,6 +47,7 @@
 		4BADD24327B705ED00977420 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD24227B705ED00977420 /* InfoViewController.swift */; };
 		4BADD24527B7060D00977420 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD24427B7060D00977420 /* PostViewController.swift */; };
 		4BF1194B27D8E173008237B9 /* Sourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1194A27D8E173008237B9 /* Sourse.swift */; };
+		4BF5C27B286247C1003F7AEA /* NetworkConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5C27A286247C1003F7AEA /* NetworkConnect.swift */; };
 		A3B98BEBC7C8A281662725C1 /* Pods_Homework1_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DE4EE9FC6C8171786E6128 /* Pods_Homework1_3.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		4BADD24227B705ED00977420 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4BADD24427B7060D00977420 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4BF1194A27D8E173008237B9 /* Sourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sourse.swift; sourceTree = "<group>"; };
+		4BF5C27A286247C1003F7AEA /* NetworkConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnect.swift; sourceTree = "<group>"; };
 		52B740EF22A1FC2880670751 /* Pods-Homework1-3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework1-3.debug.xcconfig"; path = "Target Support Files/Pods-Homework1-3/Pods-Homework1-3.debug.xcconfig"; sourceTree = "<group>"; };
 		7908ED53FF63E2C520527CC8 /* Pods_StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD318DACE21178077927A0B /* Pods-StorageService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageService.release.xcconfig"; path = "Target Support Files/Pods-StorageService/Pods-StorageService.release.xcconfig"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 		4BADD22927B6FF4400977420 /* Homework1-3 */ = {
 			isa = PBXGroup;
 			children = (
+				4BF5C27928624794003F7AEA /* Network */,
 				4B9111E32860D5E5001AB088 /* AudioMediaContent */,
 				4B97D9FB284662EC006C5550 /* Login */,
 				4B448D0F283EE9C100530DA4 /* Root */,
@@ -288,6 +291,14 @@
 				4B448D05283EDB1900530DA4 /* FeedModel.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		4BF5C27928624794003F7AEA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4BF5C27A286247C1003F7AEA /* NetworkConnect.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		D5A0E14DF59264C8097B8089 /* Pods */ = {
@@ -519,6 +530,7 @@
 				4B85745F27EA467100F339DA /* PhotosTableViewCell.swift in Sources */,
 				4B9111E62860D655001AB088 /* VideoPlayer.swift in Sources */,
 				4BADD24327B705ED00977420 /* InfoViewController.swift in Sources */,
+				4BF5C27B286247C1003F7AEA /* NetworkConnect.swift in Sources */,
 				4B9111EA2860D68C001AB088 /* VideoContentCell.swift in Sources */,
 				4B147CA827C1422A00C6F8E5 /* ProfileViewController.swift in Sources */,
 				4B85745B27EA460300F339DA /* PhotosViewController.swift in Sources */,
