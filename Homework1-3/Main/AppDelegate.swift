@@ -1,5 +1,6 @@
 
 import UIKit
+import AVFAudio
 
 
 @main
@@ -13,6 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         let rootCoordinator = UITabBarCoordinator()
         let tabBarController = rootCoordinator.startApp(authenticationData: nil)
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playback, mode: .moviePlayback)
+        }
+        catch {
+            print("Setting category to AVAudioSessionCategoryPlayback failed.")
+        }
         
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
