@@ -41,8 +41,8 @@ class PhotosViewController: UIViewController {
         useConstraint()
         
         
-       
-      let imageProcessor = ImageProcessor()
+        
+        let imageProcessor = ImageProcessor()
         imageProcessor.processImagesOnThread(sourceImages: photosGaleryArray, filter: .sepia(intensity: 0.5), qos: .utility) {cgImages in
             let images = cgImages.map({UIImage(cgImage: $0!)})
             self.contentPhotoDataArray.removeAll()
@@ -97,7 +97,11 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.identifire, for: indexPath) as? PhotosCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.identifire, for: indexPath) as? PhotosCollectionViewCell
+        else {
+            preconditionFailure("Ошибка загрузки профиля!")
+            return UICollectionViewCell()
+        }
         cell.initialImages(contentPhotoDataArray[indexPath.item])
         return cell
         

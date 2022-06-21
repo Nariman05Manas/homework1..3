@@ -89,7 +89,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
     
     lazy var hackPasswordBtn: CustomButton = {
         let logIn = CustomButton(vc: self,
-                                 text: "Подбор пароля",
+                                 text: "Подобрать пароль",
                                  backgroundColor: nil,
                                  backgroundImage: nil,
                                  tag: nil,
@@ -128,32 +128,70 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
     }()
     
     let loginAction =  {(vc: LogInViewController) in
+       
+        let userName = vc.userName.text ?? ""
+        let password = vc.password.text ?? ""
         
-        if let loginInspector = vc.delegate {
-            if loginInspector.checkPassword(login: vc.userName.text ?? "", password: vc.password.text ?? "") {
-                vc.logined()
-            }
-            else {
-                let alertController = UIAlertController(title: "Ошибка авторизации!", message: "Не верный логин или пароль", preferredStyle: .alert)
-                let action = UIAlertAction(title: "ок", style: .default, handler: nil)
-                alertController.addAction(action)
-                vc.present(alertController, animated: true, completion: nil)
+        DispatchQueue.global().async {
+            vc.authorization(loginInspector: vc.delegate,
+                             userName: userName,
+                             password: password) { result in
+                switch result {
+                case .success(true) :
+                    DispatchQueue.main.async {
+                        vc.logined()
+                    }
+                case .success(false):
+                    DispatchQueue.main.async {
+                        let alertController = UIAlertController(title: "Ошибка авторизации!", message: "убедитесь что пароль и логин верный!", preferredStyle: .alert)
+                        let action = UIAlertAction(title: "ок", style: .default, handler: nil)
+                        alertController.addAction(action)
+                        vc.present(alertController, animated: true, completion: nil)
+                    }
+                    
+                case .failure(.unauthorized):
+                    DispatchQueue.main.async {
+                        let alertController = UIAlertController(title: "Ошибка авторизации!", message: "Не верный логин или пароль!", preferredStyle: .alert)
+                        let action = UIAlertAction(title: "ок", style: .default, handler: nil)
+                        alertController.addAction(action)
+                        vc.present(alertController, animated: true, completion: nil)
+                    }
+                default:
+                    DispatchQueue.main.async {
+                        let alertController = UIAlertController(title: "Ошибка авторизации!", message: "Перезапустите приложение", preferredStyle: .alert)
+                        let action = UIAlertAction(title: "ок", style: .default, handler: nil)
+                        alertController.addAction(action)
+                        vc.present(alertController, animated: true) { fatalError() }
+                        
+                    }
+                }
             }
         }
-        else
-        {
-            let alertController = UIAlertController(title: "Ошибка авторизации!", message: "Перезапустите приложение", preferredStyle: .alert)
-            let action = UIAlertAction(title: "ок", style: .default, handler: nil)
-            alertController.addAction(action)
-            vc.present(alertController, animated: true, completion: nil)
+    }
+    
+    func authorization(loginInspector: LoginViewControllerDelegate?,
+                       userName: String,
+                       password: String ,
+                       comletion: (Result<Bool, AppError>) -> Void) {
+        if let loginInspector = loginInspector {
+            if loginInspector.checkPassword(login: userName, password: password) {
+                comletion(.success(true))
+            } else {
+                if loginInspector.counter == 0 {
+                    comletion(.failure(.badData))
+                } else {
+                    comletion(.failure(.unauthorized))
+                }
+            }
+        }  else {
+            comletion(.failure(.badData))
         }
-        
     }
     var queue: DispatchQueue? = nil
     let hackPassword = {(vc: LogInViewController) in
         
         if let newQueue = vc.queue {
-            let alertController = UIAlertController(title: "Подбор пароля прошла не удачно!", message: "В процессе", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Подбор пароля прошла не удачно!", message: "В процессе!", preferredStyle: .alert)
             let action = UIAlertAction(title: "ок", style: .default, handler: nil)
             alertController.addAction(action)
             vc.present(alertController, animated: true, completion: nil)
@@ -165,13 +203,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
             vc.indicator.isHidden = false
             vc.indicator.startAnimating()
             vc.queue!.async {
-                let hackMachin = BrutForceHack(login: login, loginInspector: vc.delegate!) { password in                    DispatchQueue.main.async {
-                    vc.password.text = password
-                    vc.password.isSecureTextEntry = false
-                    vc.indicator.isHidden = true
-                    vc.indicator.stopAnimating()
-                    vc.queue = nil
-                }
+                let hackMachin = BrutForceHack(login: login, loginInspector: vc.delegate!) { password in
+                    DispatchQueue.main.async {
+                        vc.password.text = password
+                        vc.password.isSecureTextEntry = false
+                        vc.indicator.isHidden = true
+                        vc.indicator.stopAnimating()
+                        vc.queue = nil
+                    }
                 }
                 hackMachin.bruteForce()
             }
@@ -209,7 +248,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
 #elseif DEBUG
         userName.text = "Gendale"
 #endif
-        
+                
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -263,12 +302,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
                                      logIn.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Const.leadingMargin),
                                      logIn.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Const.trailingMargin),
                                      logIn.heightAnchor.constraint(equalToConstant: Const.size),
-                                     
+                                    
                                      hackPasswordBtn.topAnchor.constraint(equalTo: logIn.bottomAnchor, constant: Const.indent),
                                      hackPasswordBtn.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Const.leadingMargin),
                                      hackPasswordBtn.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Const.trailingMargin),
                                      hackPasswordBtn.heightAnchor.constraint(equalToConstant: Const.size),
-                                     
+                                    
                                      indicator.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
                                      indicator.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Const.leadingMargin),
                                      indicator.trailingAnchor.constraint(equalTo: stackView.leadingAnchor),
@@ -278,7 +317,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardRectangle = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            //scrollView.contentOffset.y = keyboardRectangle.height - (scrollView.frame.height - logIn.frame.minY) + Const.indent
             scrollView.contentInset.bottom = keyboardRectangle.height
             scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardRectangle.height, right: 0)
         }
@@ -286,7 +324,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
     
     @objc func keyboardWillHide(notification: NSNotification) {
         
-        //scrollView.contentOffset = CGPoint(x: 0, y: 0)
         scrollView.contentInset.bottom = .zero
         scrollView.verticalScrollIndicatorInsets = .zero
     }
