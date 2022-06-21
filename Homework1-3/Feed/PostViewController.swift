@@ -1,16 +1,20 @@
 
 import UIKit
 
-struct Post {
+struct PostMain {
     var title: String
+    var image: UIImage
+    var info: String
 }
 
 class PostViewController: UIViewController {
     
-    var infoViewController: InfoViewController
+    var post: PostMain
+    let coordinator: FeedCoordinator
     
-    init() {
-        infoViewController = InfoViewController()
+    init(coordinator:FeedCoordinator,post:PostMain) {
+        self.post = post
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -18,20 +22,29 @@ class PostViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
+        let infoBarButtonItem = UIBarButtonItem(title: "ИНФО", style: .plain, target: self, action: #selector(showInfo))
+        self.navigationItem.rightBarButtonItem  = infoBarButtonItem
         
-        view.backgroundColor = .systemMint
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "ВХОД", style: .plain, target: self, action: #selector(addTapped))
+        view.backgroundColor = UIColor.lightGray
+        
+        title = post.title
+        
+        let image = UIImageView(image: post.image)
+        image.toAutoLayout()
+        image.contentMode = .scaleAspectFit
+        
+        view.addSubview(image)
+        
+        NSLayoutConstraint.activate([image.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                     image.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
         
     }
     
-    @objc func addTapped() {
-        present(infoViewController, animated: true, completion: nil)
-        
+    @objc func showInfo() {
+        coordinator.showInfoPost(info: post.info)
     }
-    
-    
 }
