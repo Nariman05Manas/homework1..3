@@ -9,6 +9,8 @@ import UIKit
 
 class PhotosCollectionViewCell: UICollectionViewCell {
     
+    static let identifire = "PhotosCollectionViewCell"
+    
     let photo: UIImageView = {
         let photo = UIImageView()
         photo.toAutoLayout()
@@ -20,7 +22,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(photo)
         
         initialLayout()
-     
+        
     }
     
     func initialLayout() {
@@ -36,7 +38,9 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initialImages(_ name: String) {
-        photo.image = UIImage(named: name)
+    func initialImages(_ image: UIImage) {
+        photo.image = image
+        
     }
 }
+

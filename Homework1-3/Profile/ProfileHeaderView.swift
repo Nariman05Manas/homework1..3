@@ -1,12 +1,11 @@
 
 import UIKit
-
+import SnapKit
 
 class ProfileHeaderView: UITableViewHeaderFooterView {
     
-    var userName: UILabel = {
+    lazy var userName: UILabel = {
         let userName = UILabel()
-        userName.toAutoLayout()
         userName.text = "GENDALE"
         userName.textAlignment = .natural
         userName.textColor = .black
@@ -14,23 +13,22 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         return userName
     }()
     
-   lazy var avatar: UIImageView = {
-        let avatar = UIImageView(image: UIImage(named: "gend"))
-        avatar.toAutoLayout()
+    lazy var avatar: UIImageView = {
+        let avatar = UIImageView()
         avatar.clipsToBounds = true
+        avatar.image = UIImage(named: "gend")
         avatar.layer.cornerRadius = 50
         avatar.layer.borderWidth = 3
         avatar.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
-       let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.openAvatar))
-       avatar.addGestureRecognizer(recognizer)
-       avatar.isUserInteractionEnabled = true
-       return avatar
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.openAvatar))
+        avatar.addGestureRecognizer(recognizer)
+        avatar.isUserInteractionEnabled = true
+        return avatar
     }()
     
-    var status: UILabel = {
+    lazy var status: UILabel = {
         let status = UILabel()
-        status.toAutoLayout()
-        status.text = "ты не пройдешь!!!"
+        status.text = "ты не пройдешь !"
         status.textAlignment = .natural
         status.textColor = .gray
         status.font = UIFont.systemFont(ofSize: 14, weight: .regular)
@@ -38,9 +36,8 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         return status
     }()
     
-    var statusButton: UIButton = {
+    lazy var statusButton: UIButton = {
         let statusButton = UIButton()
-        statusButton.toAutoLayout()
         statusButton.backgroundColor = .blue
         statusButton.layer.cornerRadius = 4
         statusButton.layer.shadowColor = UIColor.black.cgColor
@@ -53,9 +50,8 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         return statusButton
     }()
     
-    var setStatusField: UITextField = {
+    lazy var setStatusField: UITextField = {
         let setStatusField = UITextField()
-        setStatusField.toAutoLayout()
         setStatusField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         setStatusField.placeholder = "Ввести статус"
         setStatusField.textColor = .black
@@ -69,28 +65,27 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         setStatusField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
         return setStatusField
     }()
+    
     lazy var foneView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-        view.toAutoLayout()
         view.backgroundColor = .darkGray
         view.isHidden = true
         view.alpha = 0
         return view
     }()
     
-    var closeButton: UIButton = {
-             let button = UIButton()
-             button.isHidden = true
-             button.toAutoLayout()
-             button.imageView?.contentMode = .scaleAspectFit
-             button.backgroundColor = .darkGray
-             button.setImage(UIImage(systemName: "xmark"), for: .normal)
-             button.addTarget(self, action: #selector(closeAvatar), for: .touchUpInside)
-             return button
-         }()
+    lazy var closeButton: UIButton = {
+        let button = UIButton()
+        button.isHidden = true
+        button.imageView?.contentMode = .scaleAspectFit
+        button.backgroundColor = .darkGray
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.addTarget(self, action: #selector(closeAvatar), for: .touchUpInside)
+        return button
+    }()
     
-    private var defaultAvatarPosicion: CGPoint?
     private var statusText = ""
+    private var defaultAvatarPosicion: CGPoint?
     static let identifire = "ProfileHeaderView"
     
     override init(reuseIdentifier: String?) {
@@ -103,6 +98,64 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func initUserData(user: User) {
+        userName.text = user.name
+        avatar.image = user.avatar
+        status.text = user.status
+    }
+    
+    @objc func pressButton() {
+        
+        status.text = statusText
+        statusText = ""
+        setStatusField.text = ""
+        setStatusField.resignFirstResponder()
+    }
+    
+    @objc func statusTextChanged(_ textField: UITextField) {
+        if let text = textField.text {
+            statusText = text
+        }
+    }
+    
+    private func useConstraint() {
+    
+        avatar.snp.makeConstraints { (make) -> Void in
+            make.top.equalToSuperview().offset(Const.indent)
+            make.leading.equalToSuperview().offset(Const.leadingMargin)
+            make.height.width.equalTo(Const.bigSize)
+        }
+        
+        closeButton.snp.makeConstraints { (make) -> Void in
+            make.top.trailing.equalToSuperview().inset(Const.indent)
+        }
+
+        userName.snp.makeConstraints { (make) -> Void in
+            make.top.equalToSuperview().inset(27)
+            make.leading.equalTo(avatar.snp.trailing).offset(Const.smallSize)
+            make.trailing.equalToSuperview().offset(Const.trailingMargin)
+        }
+
+        status.snp.makeConstraints { (make) -> Void in
+            make.leading.equalTo(avatar.snp.trailing).offset(Const.smallSize)
+            make.bottom.equalTo(setStatusField.snp.top).offset(-12)
+        }
+
+        statusButton.snp.makeConstraints { (make) -> Void in
+            make.leading.trailing.equalToSuperview().inset(Const.leadingMargin)
+            make.top.equalTo(avatar.snp.bottom).offset(Const.indent)
+            make.height.equalTo(Const.size)
+        }
+
+        setStatusField.snp.makeConstraints { (make) -> Void in
+            make.leading.equalTo(avatar.snp.trailing).offset(Const.smallSize)
+            make.bottom.equalTo(statusButton.snp.top).inset(-10)
+            make.trailing.equalToSuperview().offset(Const.trailingMargin)
+            make.height.equalTo(40)
+        }
+        
+    }
+ 
     @objc func openAvatar() {
         UIImageView.animate(
             withDuration: 0.5,
@@ -115,7 +168,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
                 self.foneView.isHidden = false
                 self.foneView.alpha = 0.7
                 self.avatar.isUserInteractionEnabled = false
-                ProfileViewController.tableView.isScrollEnabled = false
+              
             },
             completion: { _ in
                 UIImageView.animate(withDuration: 0.3) {
@@ -141,7 +194,6 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
                     self.avatar.center = self.defaultAvatarPosicion!
                     self.foneView.alpha = 0.0
                     self.avatar.isUserInteractionEnabled = true
-                    ProfileViewController.tableView.isScrollEnabled = true
                 },
                                     completion: { _ in
                     self.foneView.isHidden = true
@@ -151,46 +203,6 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     }
     
     @objc func doNothing() {
-        
-    }
-    @objc func pressButton() {
-        //print(status.text) первая часть задания
-        status.text = statusText
-        statusText = ""
-        setStatusField.text = ""
-        setStatusField.resignFirstResponder()
-    }
-    
-    @objc func statusTextChanged(_ textField: UITextField) {
-        if let text = textField.text {
-            statusText = text
-        }
-    }
-    
-    private func useConstraint() {
-        
-         [avatar.widthAnchor.constraint(equalToConstant: 100),
-         avatar.heightAnchor.constraint(equalTo: avatar.widthAnchor),
-         avatar.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Const.leadingMargin),
-         avatar.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Const.indent),
-         
-         userName.leftAnchor.constraint(equalTo: avatar.rightAnchor, constant: 20),
-         userName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 27),
-         userName.rightAnchor.constraint(greaterThanOrEqualTo: contentView.rightAnchor, constant: Const.trailingMargin),
-         
-         status.leftAnchor.constraint(equalTo: avatar.rightAnchor, constant: 20),
-         status.rightAnchor.constraint(greaterThanOrEqualTo: contentView.rightAnchor, constant: Const.trailingMargin),
-         status.bottomAnchor.constraint(equalTo: setStatusField.topAnchor, constant: -6),
-         
-         statusButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
-         statusButton.rightAnchor.constraint(greaterThanOrEqualTo: contentView.rightAnchor, constant: Const.trailingMargin),
-         statusButton.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: Const.indent),
-         statusButton.heightAnchor.constraint(equalToConstant: 50),
-         
-         setStatusField.leftAnchor.constraint(equalTo: avatar.rightAnchor, constant: 20),
-         setStatusField.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -10),
-         setStatusField.rightAnchor.constraint(greaterThanOrEqualTo: contentView.rightAnchor, constant: Const.trailingMargin),
-         setStatusField.heightAnchor.constraint(equalToConstant: 40)].forEach({$0.isActive = true})
         
     }
     

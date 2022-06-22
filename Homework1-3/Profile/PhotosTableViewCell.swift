@@ -6,10 +6,16 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PhotosTableViewCell: UITableViewCell {
     
-
+    static let identifire = "PhotosTableViewCell"
+    
+    
+    let imageProcessorMain = ImageProcessor()
+    
+    
     let title: UILabel = {
         let title = UILabel()
         title.text = "Моя галерея"
@@ -40,16 +46,27 @@ class PhotosTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubviews(title, nextButtonImage, stackView)
         
-
+        
+        
         for i in 0...3 {
-            let myPhotos = UIImageView(image: UIImage(named: photosGaleryArray[i]))
+            
+            let myPhotos = UIImageView(image: photosGaleryArray[i])
             myPhotos.toAutoLayout()
             myPhotos.layer.cornerRadius = 6
             myPhotos.clipsToBounds = true
             stackView.addArrangedSubview(myPhotos)
         }
         
-
+        initialLayout()
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func initialLayout(){
+        
         NSLayoutConstraint.activate([title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
                                      title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
                                      
@@ -63,7 +80,7 @@ class PhotosTableViewCell: UITableViewCell {
                                      stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
                                      stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 12),
                                     ])
-
+        
         stackView.arrangedSubviews.forEach(
             {
                 [$0.widthAnchor.constraint(greaterThanOrEqualToConstant: (stackView.frame.width - 16) / 4),
@@ -71,20 +88,10 @@ class PhotosTableViewCell: UITableViewCell {
             })
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
     
     override func prepareForReuse() {
         super.prepareForReuse()
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
 }
