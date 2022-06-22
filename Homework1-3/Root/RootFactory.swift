@@ -13,6 +13,8 @@ final class RootFactory {
     enum State {
         case feed
         case profile
+        case player
+        case video
     }
     
     var state: State
@@ -55,8 +57,34 @@ final class RootFactory {
                 
                 return profileNavigationController
             }
+        case .player:
             
-            return nil
+            let playerViewController = MusicPlayer(coordinator: coordinator as! AudioPlayerCordinator)
+            let playerNavigationController = UINavigationController(rootViewController: playerViewController)
+            
+            playerNavigationController.tabBarItem = UITabBarItem(title: "Музыка", image: UIImage(named: "music"), selectedImage: UIImage(named: "SelectedMusic"))
+            playerNavigationController.navigationBar.titleTextAttributes = [ .foregroundColor: UIColor.black]
+            playerNavigationController.navigationBar.barTintColor = UIColor.white
+            playerNavigationController.navigationBar.standardAppearance = appearance;
+            playerNavigationController.navigationBar.scrollEdgeAppearance = playerNavigationController.navigationBar.standardAppearance
+            
+            return playerNavigationController
+            
+        case .video:
+            
+            let videoPlayerViewController = VideoPlayer(coordinator: coordinator as! VideoPlayerCoordinator)
+            let videoPlayerNavigationController = UINavigationController(rootViewController: videoPlayerViewController)
+            
+            videoPlayerNavigationController.tabBarItem = UITabBarItem(title: "Видео", image: UIImage(named: "music"), selectedImage: UIImage(named: "SelectedMusic"))
+            videoPlayerNavigationController.navigationBar.titleTextAttributes = [ .foregroundColor: UIColor.black]
+            videoPlayerNavigationController.navigationBar.barTintColor = UIColor.white
+            videoPlayerNavigationController.navigationBar.standardAppearance = appearance;
+            videoPlayerNavigationController.navigationBar.scrollEdgeAppearance = videoPlayerNavigationController.navigationBar.standardAppearance
+            
+            return videoPlayerNavigationController
+            
+            
         }
+        return nil
     }
 }
