@@ -64,7 +64,7 @@ class InfoViewController: UIViewController {
         
         if let residentUrl = residentUrl {
             residentUrl.forEach { url in
-                NetworkService.URLSessionDataTask(postInfo: url, type: .resident) { title, people in
+                NetworkService.urlSessionDataTask(postInfo: url, type: .resident) { title, people in
                     self.residents.append(title)
                     DispatchQueue.main.async {
                         self.residentsTable.reloadData()

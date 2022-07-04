@@ -46,7 +46,7 @@ class PostViewController: UIViewController {
     }
     
     @objc func showInfo() {
-        NetworkService.URLSessionDataTask(postInfo: post.info, type: post.postType) { title, people in
+        NetworkService.urlSessionDataTask(postInfo: post.info, type: post.postType) { title, people in
             DispatchQueue.main.async {
                 self.coordinator.showInfo(title, people: people)
             }
