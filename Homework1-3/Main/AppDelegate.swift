@@ -23,12 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Setting category to AVAudioSessionCategoryPlayback failed.")
         }
         // NetworkSetng
-        let appConfiguration = NetworkConfiguration.allCases.randomElement()
+        //let appConfiguration = NetworkConfiguration.allCases.randomElement()
         
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
         
-        NetworkService.startNetwork(url: appConfiguration?.rawValue ?? "Error cases!Сheck the data!")
+        //NetworkService.startNetwork(url: appConfiguration?.rawValue ?? "Error cases!Сheck the data!")
         
         return true
     }

@@ -1,18 +1,19 @@
+//
+//  PostViewController.swift
+//  Homework1-3
+//
+//  Created by qwerty on 01.07.2022.
+//
 
+import Foundation
 import UIKit
 
-struct PostMain {
-    var title: String
-    var image: UIImage
-    var info: String
-}
-
 class PostViewController: UIViewController {
-    
-    var post: PostMain
+
+    var post: FeedPost
     let coordinator: FeedCoordinator
     
-    init(coordinator:FeedCoordinator,post:PostMain) {
+    init(coordinator: FeedCoordinator, post: FeedPost) {
         self.post = post
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -26,9 +27,9 @@ class PostViewController: UIViewController {
         
         super.viewDidLoad()
         
-        let infoBarButtonItem = UIBarButtonItem(title: "ИНФО", style: .plain, target: self, action: #selector(showInfo))
+        let infoBarButtonItem = UIBarButtonItem(title: "Информация", style: .plain, target: self, action: #selector(showInfo))
         self.navigationItem.rightBarButtonItem  = infoBarButtonItem
-        
+      
         view.backgroundColor = UIColor.lightGray
         
         title = post.title
@@ -36,15 +37,19 @@ class PostViewController: UIViewController {
         let image = UIImageView(image: post.image)
         image.toAutoLayout()
         image.contentMode = .scaleAspectFit
-        
+       
         view.addSubview(image)
-        
+       
         NSLayoutConstraint.activate([image.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      image.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
         
     }
     
     @objc func showInfo() {
-        coordinator.showInfoPost(info: post.info)
+        NetworkService.URLSessionDataTask(postInfo: post.info, type: post.postType) { title, people in
+            DispatchQueue.main.async {
+                self.coordinator.showInfo(title, people: people)
+            }
+        }
     }
 }
