@@ -93,6 +93,7 @@
 		4B8653F627DA4F920092D46D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4B88F608280D9F01009350C1 /* Homework1-3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework1-3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B88F609280D9F01009350C1 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B8A96162874552D0059C175 /* GoogleService-Info-9.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-9.plist"; sourceTree = "<group>"; };
 		4B8C5E7E286F3825005C7AB1 /* infoTableVievCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoTableVievCell.swift; sourceTree = "<group>"; };
 		4B8C5E80286F3953005C7AB1 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B8C5E82286F3C3B005C7AB1 /* InfoVievController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVievController.swift; sourceTree = "<group>"; };
@@ -222,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				4B9111E52860D655001AB088 /* VideoPlayer.swift */,
-				4B9111E72860D66F001AB088 /* VideoCoordinator.swift */,
 				4B9111E92860D68C001AB088 /* VideoContentCell.swift */,
 			);
 			path = VideoPlayer;
@@ -265,6 +265,8 @@
 		4BADD22927B6FF4400977420 /* Homework1-3 */ = {
 			isa = PBXGroup;
 			children = (
+				4B8A96162874552D0059C175 /* GoogleService-Info-9.plist */,
+				4B9111E72860D66F001AB088 /* VideoCoordinator.swift */,
 				4BF5C27928624794003F7AEA /* Network */,
 				4B9111E32860D5E5001AB088 /* AudioMediaContent */,
 				4B97D9FB284662EC006C5550 /* Login */,

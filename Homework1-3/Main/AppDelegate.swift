@@ -9,8 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        FirebaseApp.configure()
+        //FirebaseApp.configure()
         
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -23,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try audioSession.setCategory(.playback, mode: .moviePlayback)
         }
         catch {
-            print("Setting category to AVAudioSessionCategoryPlayback failed.")
+            print("error AVplayer")
         }
         // NetworkSetng
         //let appConfiguration = NetworkConfiguration.allCases.randomElement()
