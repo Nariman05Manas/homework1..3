@@ -47,7 +47,10 @@ class TabBarController: UITabBarController {
             do {
                 let feedCoordinator = FeedCoordinator()
                 let feedNavigationController = try feedCoordinator.Start()
-                let profileCoordinator = ProfileCoordinator(data: authenticationData!)
+                let profileCoordinator = ProfileCoordinator(data: authenticationData!){
+                    self.authenticationData = nil
+                    self.activView = .autorization
+                }
                 let profileNavigationController = try profileCoordinator.Start()
                 let playerCoordinator = AudioPlayerCordinator()
                 let playerNavigationController = try playerCoordinator.Start()
@@ -55,7 +58,7 @@ class TabBarController: UITabBarController {
                 let videoPlayerNavigationController = try videoPlayerCoordinator.Start()
                 if let feedNavC = feedNavigationController, let profileNavC = profileNavigationController, let playerNavC = playerNavigationController, let videoNavC = videoPlayerNavigationController {
                     self.viewControllers = [feedNavC, profileNavC, playerNavC, videoNavC]
-            }
+                }
             } catch {
                 preconditionFailure("Ошибка!")
             }
@@ -88,7 +91,10 @@ class TabBarController: UITabBarController {
             do {
                 let feedCoordinator = FeedCoordinator()
                 let feedNavigationController = try feedCoordinator.Start()
-                let profileCoordinator = ProfileCoordinator(data: authenticationData!)
+                let profileCoordinator = ProfileCoordinator(data: authenticationData!){
+                    self.authenticationData = nil
+                    self.activView = .autorization
+                }
                 let profileNavigationController = try profileCoordinator.Start()
                 let playerCoordinator = AudioPlayerCordinator()
                 let playerNavigationController = try playerCoordinator.Start()

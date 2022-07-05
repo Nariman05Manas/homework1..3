@@ -15,6 +15,9 @@
 		4B448D0A283EE39F00530DA4 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B448D09283EE39F00530DA4 /* RootCoordinator.swift */; };
 		4B448D0C283EE3E200530DA4 /* RootFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B448D0B283EE3E200530DA4 /* RootFactory.swift */; };
 		4B448D0E283EE41700530DA4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B448D0D283EE41700530DA4 /* TabBarController.swift */; };
+		4B6681F82873CEB60088EE94 /* LoginCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6681F72873CEB60088EE94 /* LoginCheck.swift */; };
+		4B6681FA2873CF800088EE94 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6681F92873CF7F0088EE94 /* Factory.swift */; };
+		4B6681FC2873CFC70088EE94 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6681FB2873CFC70088EE94 /* LoginInspector.swift */; };
 		4B85745B27EA460300F339DA /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745A27EA460300F339DA /* PhotosViewController.swift */; };
 		4B85745D27EA464200F339DA /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */; };
 		4B85745F27EA467100F339DA /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */; };
@@ -34,14 +37,12 @@
 		4B9111E62860D655001AB088 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9111E52860D655001AB088 /* VideoPlayer.swift */; };
 		4B9111E82860D66F001AB088 /* VideoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9111E72860D66F001AB088 /* VideoCoordinator.swift */; };
 		4B9111EA2860D68C001AB088 /* VideoContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9111E92860D68C001AB088 /* VideoContentCell.swift */; };
-		4B97D9F928465734006C5550 /* BrutHack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B97D9F828465734006C5550 /* BrutHack.swift */; };
 		4B9B9DA7283280E8004D0882 /* ButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9B9DA6283280E8004D0882 /* ButtonElement.swift */; };
 		4BA0798E27D8A883008B4B24 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA0798D27D8A883008B4B24 /* LogInViewController.swift */; };
 		4BA2BF142812958C00D2C055 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA2BF132812958C00D2C055 /* User.swift */; };
 		4BA53B932808D5430057F954 /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 4BA53B922808D5430057F954 /* StorageService.docc */; };
 		4BA53B942808D5430057F954 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BA53B912808D5430057F954 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4BA53B9E2808D5BB0057F954 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA53B9D2808D5BB0057F954 /* Posts.swift */; };
-		4BA78958281C02C2001B191A /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA78957281C02C2001B191A /* Factory.swift */; };
 		4BADD22B27B6FF4400977420 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD22A27B6FF4400977420 /* AppDelegate.swift */; };
 		4BADD23427B6FF4500977420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23327B6FF4500977420 /* Assets.xcassets */; };
 		4BADD23727B6FF4500977420 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */; };
@@ -83,6 +84,9 @@
 		4B448D09283EE39F00530DA4 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		4B448D0B283EE3E200530DA4 /* RootFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFactory.swift; sourceTree = "<group>"; };
 		4B448D0D283EE41700530DA4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4B6681F72873CEB60088EE94 /* LoginCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheck.swift; sourceTree = "<group>"; };
+		4B6681F92873CF7F0088EE94 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		4B6681FB2873CFC70088EE94 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		4B85745A27EA460300F339DA /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
@@ -93,7 +97,6 @@
 		4B8C5E80286F3953005C7AB1 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B8C5E82286F3C3B005C7AB1 /* InfoVievController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVievController.swift; sourceTree = "<group>"; };
 		4B8C5E86286F3F10005C7AB1 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		4B8F61522873AB0900820959 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 		4B9111D22860BAFB001AB088 /* music1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music1.mp3; sourceTree = "<group>"; };
 		4B9111D62860BB06001AB088 /* music2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music2.mp3; sourceTree = "<group>"; };
 		4B9111D82860BB0C001AB088 /* music3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music3.mp3; sourceTree = "<group>"; };
@@ -104,14 +107,12 @@
 		4B9111E52860D655001AB088 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		4B9111E72860D66F001AB088 /* VideoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCoordinator.swift; sourceTree = "<group>"; };
 		4B9111E92860D68C001AB088 /* VideoContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentCell.swift; sourceTree = "<group>"; };
-		4B97D9F828465734006C5550 /* BrutHack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrutHack.swift; sourceTree = "<group>"; };
 		4B9B9DA6283280E8004D0882 /* ButtonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonElement.swift; sourceTree = "<group>"; };
 		4BA0798D27D8A883008B4B24 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4BA2BF132812958C00D2C055 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4BA53B912808D5430057F954 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		4BA53B922808D5430057F954 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
 		4BA53B9D2808D5BB0057F954 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
-		4BA78957281C02C2001B191A /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		4BADD22A27B6FF4400977420 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BADD23327B6FF4500977420 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BADD23627B6FF4500977420 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -155,6 +156,7 @@
 		4B147CA427C141CB00C6F8E5 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */,
 				4B147CA527C141FD00C6F8E5 /* ProfileHeaderView.swift */,
 				4B147CA727C1422A00C6F8E5 /* ProfileViewController.swift */,
 				4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */,
@@ -230,9 +232,10 @@
 			isa = PBXGroup;
 			children = (
 				4BA0798D27D8A883008B4B24 /* LogInViewController.swift */,
-				4BA78957281C02C2001B191A /* Factory.swift */,
 				4BA2BF132812958C00D2C055 /* User.swift */,
-				4B97D9F828465734006C5550 /* BrutHack.swift */,
+				4B6681F72873CEB60088EE94 /* LoginCheck.swift */,
+				4B6681F92873CF7F0088EE94 /* Factory.swift */,
+				4B6681FB2873CFC70088EE94 /* LoginInspector.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -270,9 +273,7 @@
 				4BF1194D27D8F059008237B9 /* Feed */,
 				4B147CA427C141CB00C6F8E5 /* Profile */,
 				4BADD23327B6FF4500977420 /* Assets.xcassets */,
-				4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */,
 				4BADD23827B6FF4500977420 /* Info.plist */,
-				4B8F61522873AB0900820959 /* GoogleService-Info-2.plist */,
 			);
 			path = "Homework1-3";
 			sourceTree = "<group>";
@@ -495,11 +496,12 @@
 				4B9B9DA7283280E8004D0882 /* ButtonElement.swift in Sources */,
 				4BA0798E27D8A883008B4B24 /* LogInViewController.swift in Sources */,
 				4B85745D27EA464200F339DA /* PhotosCollectionViewCell.swift in Sources */,
+				4B6681FC2873CFC70088EE94 /* LoginInspector.swift in Sources */,
 				4B448D04283EDAC600530DA4 /* FeedCoordinator.swift in Sources */,
-				4BA78958281C02C2001B191A /* Factory.swift in Sources */,
 				4BADD23F27B7046500977420 /* FeedViewController.swift in Sources */,
-				4B97D9F928465734006C5550 /* BrutHack.swift in Sources */,
+				4B6681F82873CEB60088EE94 /* LoginCheck.swift in Sources */,
 				4BF1194B27D8E173008237B9 /* Sourse.swift in Sources */,
+				4B6681FA2873CF800088EE94 /* Factory.swift in Sources */,
 				4B85745F27EA467100F339DA /* PhotosTableViewCell.swift in Sources */,
 				4B9111E62860D655001AB088 /* VideoPlayer.swift in Sources */,
 				4B8C5E83286F3C3B005C7AB1 /* InfoVievController.swift in Sources */,

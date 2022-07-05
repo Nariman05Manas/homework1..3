@@ -24,16 +24,18 @@ protocol UserService {
 }
 
 class CurrentUserService: UserService {
+   
+    private let user: User
     
-    private let user: User? = nil
+    init(name: String, avatar: String, status: String) {
+        self.user = User(name: name, avatar: UIImage(named: avatar), status: status)
+    }
     
     func getUser(name: String) -> User? {
-        if let activeUser = user {
-            if name == activeUser.name {
-                return user
-            }
+        if name == user.name {
+            return user
         }
-        return nil
+       return nil
     }
     
 }
@@ -42,8 +44,8 @@ class TestUserService: UserService {
     
     private let user: User
     
-    init() {
-        self.user = User(name: "Голум", avatar: UIImage(named: "gend"), status: "моя прелесть")
+    init(name: String, avatar: String, status: String) {
+        self.user = User(name: "Голум", avatar: UIImage(named: "gend"), status: "Моя прелесть")
     }
     
     func getUser(name: String) -> User? {
@@ -55,3 +57,5 @@ class TestUserService: UserService {
     }
     
 }
+
+
