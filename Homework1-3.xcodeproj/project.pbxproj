@@ -18,6 +18,7 @@
 		4B6681F82873CEB60088EE94 /* LoginCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6681F72873CEB60088EE94 /* LoginCheck.swift */; };
 		4B6681FA2873CF800088EE94 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6681F92873CF7F0088EE94 /* Factory.swift */; };
 		4B6681FC2873CFC70088EE94 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6681FB2873CFC70088EE94 /* LoginInspector.swift */; };
+		4B7A4ABD2874D78A004B8FA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B7A4ABC2874D78A004B8FA2 /* GoogleService-Info.plist */; };
 		4B85745B27EA460300F339DA /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745A27EA460300F339DA /* PhotosViewController.swift */; };
 		4B85745D27EA464200F339DA /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */; };
 		4B85745F27EA467100F339DA /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */; };
@@ -87,13 +88,13 @@
 		4B6681F72873CEB60088EE94 /* LoginCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheck.swift; sourceTree = "<group>"; };
 		4B6681F92873CF7F0088EE94 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		4B6681FB2873CFC70088EE94 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
+		4B7A4ABC2874D78A004B8FA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4B85745A27EA460300F339DA /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B85745E27EA467100F339DA /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		4B8653F627DA4F920092D46D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4B88F608280D9F01009350C1 /* Homework1-3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework1-3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B88F609280D9F01009350C1 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B8A96162874552D0059C175 /* GoogleService-Info-9.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-9.plist"; sourceTree = "<group>"; };
 		4B8C5E7E286F3825005C7AB1 /* infoTableVievCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoTableVievCell.swift; sourceTree = "<group>"; };
 		4B8C5E80286F3953005C7AB1 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B8C5E82286F3C3B005C7AB1 /* InfoVievController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVievController.swift; sourceTree = "<group>"; };
@@ -157,7 +158,6 @@
 		4B147CA427C141CB00C6F8E5 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */,
 				4B147CA527C141FD00C6F8E5 /* ProfileHeaderView.swift */,
 				4B147CA727C1422A00C6F8E5 /* ProfileViewController.swift */,
 				4B85745C27EA464200F339DA /* PhotosCollectionViewCell.swift */,
@@ -181,7 +181,6 @@
 		4B8EE5682808C64B0001A666 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4BADD22A27B6FF4400977420 /* AppDelegate.swift */,
 				4BF1194A27D8E173008237B9 /* Sourse.swift */,
 				4B9B9DA6283280E8004D0882 /* ButtonElement.swift */,
 			);
@@ -265,7 +264,6 @@
 		4BADD22927B6FF4400977420 /* Homework1-3 */ = {
 			isa = PBXGroup;
 			children = (
-				4B8A96162874552D0059C175 /* GoogleService-Info-9.plist */,
 				4B9111E72860D66F001AB088 /* VideoCoordinator.swift */,
 				4BF5C27928624794003F7AEA /* Network */,
 				4B9111E32860D5E5001AB088 /* AudioMediaContent */,
@@ -275,6 +273,9 @@
 				4BF1194D27D8F059008237B9 /* Feed */,
 				4B147CA427C141CB00C6F8E5 /* Profile */,
 				4BADD23327B6FF4500977420 /* Assets.xcassets */,
+				4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */,
+				4B7A4ABC2874D78A004B8FA2 /* GoogleService-Info.plist */,
+				4BADD22A27B6FF4400977420 /* AppDelegate.swift */,
 				4BADD23827B6FF4500977420 /* Info.plist */,
 			);
 			path = "Homework1-3";
@@ -421,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B9111D92860BB0C001AB088 /* music3.mp3 in Resources */,
+				4B7A4ABD2874D78A004B8FA2 /* GoogleService-Info.plist in Resources */,
 				4BADD23727B6FF4500977420 /* LaunchScreen.storyboard in Resources */,
 				4B9111D32860BAFB001AB088 /* music1.mp3 in Resources */,
 				4BADD23427B6FF4500977420 /* Assets.xcassets in Resources */,

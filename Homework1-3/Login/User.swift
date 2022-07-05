@@ -45,7 +45,7 @@ class TestUserService: UserService {
     private let user: User
     
     init(name: String, avatar: String, status: String) {
-        self.user = User(name: "Голум", avatar: UIImage(named: "gend"), status: "Моя прелесть")
+        self.user = User(name: name, avatar: UIImage(named: avatar), status: status)
     }
     
     func getUser(name: String) -> User? {
