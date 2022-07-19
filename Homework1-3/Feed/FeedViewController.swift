@@ -2,7 +2,7 @@
 import UIKit
 
 class FeedViewController: UIViewController {
-        
+    
     var coordinator: FeedCoordinator
     var model: FeedModel
     
@@ -44,7 +44,7 @@ class FeedViewController: UIViewController {
         useConstraint()
     }
     
-        
+    
     func useConstraint() {
         NSLayoutConstraint.activate([collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                                      collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -66,7 +66,7 @@ extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelega
         return cell
     }
     
- 
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         contentPostData.count
     }

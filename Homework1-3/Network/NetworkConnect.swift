@@ -16,7 +16,7 @@ enum AppConfiguration: String {
 
 struct NetworkService {
     
-    static func URLSessionDataTask(postInfo: String, type: PostType, callback: @escaping (_ title: String, _ people: [String]?)->Void) {
+    static func urlSessionDataTask(postInfo: String, type: PostType, callback: @escaping (_ title: String, _ people: [String]?)->Void) {
         
         if let url = URL(string: postInfo) {
             let urlRequest = URLRequest(url: url)
