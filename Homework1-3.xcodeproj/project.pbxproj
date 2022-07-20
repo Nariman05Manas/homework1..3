@@ -48,6 +48,7 @@
 		4BADD23427B6FF4500977420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23327B6FF4500977420 /* Assets.xcassets */; };
 		4BADD23727B6FF4500977420 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */; };
 		4BADD23F27B7046500977420 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD23E27B7046500977420 /* FeedViewController.swift */; };
+		4BAE3E6528889D010061DCA8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4BAE3E6428889D010061DCA8 /* Realm */; };
 		4BF1194B27D8E173008237B9 /* Sourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1194A27D8E173008237B9 /* Sourse.swift */; };
 		4BF5C27B286247C1003F7AEA /* NetworkConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5C27A286247C1003F7AEA /* NetworkConnect.swift */; };
 		A3B98BEBC7C8A281662725C1 /* Pods_Homework1_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DE4EE9FC6C8171786E6128 /* Pods_Homework1_3.framework */; };
@@ -139,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BAE3E6528889D010061DCA8 /* Realm in Frameworks */,
 				A3B98BEBC7C8A281662725C1 /* Pods_Homework1_3.framework in Frameworks */,
 				4B88F60C280D9F70009350C1 /* iOSIntPackage in Frameworks */,
 			);
@@ -364,6 +366,7 @@
 			name = "Homework1-3";
 			packageProductDependencies = (
 				4B88F60B280D9F70009350C1 /* iOSIntPackage */,
+				4BAE3E6428889D010061DCA8 /* Realm */,
 			);
 			productName = "Homework1-3";
 			productReference = 4B88F608280D9F01009350C1 /* Homework1-3.app */;
@@ -398,6 +401,7 @@
 			mainGroup = 4BADD21E27B6FF4400977420;
 			packageReferences = (
 				4B88F60A280D9F70009350C1 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				4BAE3E6328889D010061DCA8 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 4BADD21E27B6FF4400977420;
 			projectDirPath = "";
@@ -836,6 +840,14 @@
 				version = 3.2.3;
 			};
 		};
+		4BAE3E6328889D010061DCA8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 10.27.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -843,6 +855,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4B88F60A280D9F70009350C1 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
 			productName = iOSIntPackage;
+		};
+		4BAE3E6428889D010061DCA8 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BAE3E6328889D010061DCA8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
