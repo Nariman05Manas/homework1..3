@@ -7,8 +7,7 @@ target 'Homework1-3' do
   # Pods for Homework1-3
         pod 'Firebase/Core'
 	pod 'Firebase/Auth'
-        pod 'Firebase/Database'
-	pod 'SnapKit', '~> 5.0.0'
+        pod 'SnapKit', '~> 5.0.0'
 
 
 end
