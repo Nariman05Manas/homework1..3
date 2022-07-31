@@ -5,15 +5,14 @@
 //  Created by qwerty on 01.07.2022.
 //
 
-import Foundation
 import UIKit
 
 class PostViewController: UIViewController {
-
-    var post: FeedPost
-    let coordinator: FeedCoordinator
     
-    init(coordinator: FeedCoordinator, post: FeedPost) {
+    var post: FeedPost
+    var coordinator: VCCoordinator
+    
+    init(coordinator: VCCoordinator, post: FeedPost) {
         self.post = post
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -27,9 +26,9 @@ class PostViewController: UIViewController {
         
         super.viewDidLoad()
         
-        let infoBarButtonItem = UIBarButtonItem(title: "Информация", style: .plain, target: self, action: #selector(showInfo))
+        let infoBarButtonItem = UIBarButtonItem(title: "Инфо", style: .plain, target: self, action: #selector(showInfo))
         self.navigationItem.rightBarButtonItem  = infoBarButtonItem
-      
+        
         view.backgroundColor = UIColor.lightGray
         
         title = post.title
@@ -37,9 +36,9 @@ class PostViewController: UIViewController {
         let image = UIImageView(image: post.image)
         image.toAutoLayout()
         image.contentMode = .scaleAspectFit
-       
+        
         view.addSubview(image)
-       
+        
         NSLayoutConstraint.activate([image.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      image.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
         
@@ -48,8 +47,15 @@ class PostViewController: UIViewController {
     @objc func showInfo() {
         NetworkService.urlSessionDataTask(postInfo: post.info, type: post.postType) { title, people in
             DispatchQueue.main.async {
-                self.coordinator.showInfo(title, people: people)
+                guard let coordinator = self.coordinator as? FeedCoordinator else {
+                    let coordinator = self.coordinator as? FavoriteCoordinator
+                    coordinator?.showInfo(title, people: people)
+                    return
+                }
+                coordinator.showInfo(title, people: people)
             }
         }
+        
     }
+    
 }

@@ -10,7 +10,7 @@ import UIKit
 class LogInViewController: UIViewController, UITextFieldDelegate  {
     
     var delegate: LoginViewControllerDelegate?
-    var callback: (_ authenticationData: (userService: UserService, name: String)) -> Void
+    var handleLogin: (_ authenticationData: (userService: UserService, name: String)) -> Void
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -133,7 +133,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
     var queue: DispatchQueue? = nil
     
     init(callback: @escaping (_ authenticationData: (userService: UserService, name: String)) -> Void) {
-        self.callback = callback
+        self.handleLogin = callback
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -257,7 +257,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
     
     func logined() {
         let userService = CurrentUserService(name: userName.text ?? "", avatar: "gend", status: "ты не пройдешь!")
-        callback((userService: userService, name: userName.text ?? ""))
+        handleLogin((userService: userService, name: userName.text ?? ""))
     }
     
     @objc func signIn() {
