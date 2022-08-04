@@ -75,9 +75,9 @@ class PostCollectionViewCell: UICollectionViewCell {
         photo.image = post.image
         self.isFavorite = isFavorite
         if isFavorite {
-            like.text = "❤️"
+            like.text = "👍"
         } else {
-            like.text = "🖤"
+            like.text = "👎"
         }
     }
     

@@ -176,14 +176,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
                                                 #selector(keyboardWillHide),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
-    if let delegate = delegate {
-                     let data = delegate.checkUserToDataBase { [weak self] user in
-                         self?.userName.text = user.name
-                         DispatchQueue.main.async {
-                             self?.logined()
-                         }
-                     }
-                 }
+   
     }
     
     
