@@ -5,7 +5,7 @@ target 'Homework1-3' do
   use_frameworks!
 
   # Pods for Homework1-3
-        pod 'Firebase/Core'
+        pod 'FirebaseCore'
 	pod 'Firebase/Auth'
         pod 'SnapKit', '~> 5.0.0'
 
