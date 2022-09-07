@@ -22,10 +22,56 @@ enum AppError: Error {
  }
 
 //пост массив
-let constPostArray = [Posts(author: "Gendale", description: "Местный сторож", image: "gend", likes: 11098, views: 2997645),
-                      Posts(author: "Голум)))", description: "Моя прелесть", image: "gend1", likes:23343, views: 4646),
-                      Posts(author: "Моя братва", description: "Все в сборе", image: "gend2", likes: 556577, views: 4546565),
-                      Posts(author: "Левый чел", description: "Какой то левый чел", image: "gend3", likes: 666, views: 777)]
+
+
+let constPosts = [FeedPost(id: 1,
+                           title: "пост 1",
+                           author: "гендаль",
+                           description: "https://jsonplaceholder.typicode.com/todos/" + String(Int.random(in: 1...20)),
+                           image: "gend",
+                           likes: 547857,
+                           views: 45455,
+                           postType: .webDescription),
+                  FeedPost(id: 2,
+                           title: "пост 2",
+                           author: "доби",
+                           description: "https://swapi.dev/api/planets/1",
+                           image: "gend1",
+                           likes: 333,
+                           views: 45666,
+                           postType: .planet),
+                  FeedPost(id: 3,
+                           title: "моя братва",
+                           author: "GENDALE",
+                           description: "четкий кадр",
+                           image: "фото3",
+                           likes: 8899,
+                           views: 33434,
+                           postType: .post),
+                  FeedPost(id: 4,
+                           title: "на задании",
+                           author: "GENDALE",
+                           description: "рабочие моменты",
+                           image: "фото1",
+                           likes: 3434,
+                           views: 3445677,
+                           postType: .post),
+                  FeedPost(id: 5,
+                           title: "опять мы",
+                           author: "GENDALE",
+                           description: "корпоратив))",
+                           image: "фото2",
+                           likes: 777,
+                           views: 777,
+                           postType: .post),
+                  FeedPost(id: 6,
+                           title: "какой то левый чел",
+                           author: "GENDALE",
+                           description: "лайк поставь!",
+                           image: "фото4",
+                           likes: 1000029,
+                           views: 39899,
+                           postType: .post)]
 
 //массив фото
 let photosGaleryArray = [UIImage(named:"фото1")!, UIImage(named:"фото2")!, UIImage(named:"фото3")!, UIImage(named:"фото4")!, UIImage(named:"фото5")!, UIImage(named:"фото6")!, UIImage(named:"фото8")!, UIImage(named:"фото9")!, UIImage(named:"фото10")!,UIImage(named:"фото11")!, UIImage(named:"фото12")!, UIImage(named:"фото13")!]
@@ -41,6 +87,8 @@ struct Const {
     static let size: CGFloat = 50
     static let bigSize: CGFloat = 100
     static let bigIndent: CGFloat = 120
+    static let postSizeWidth: CGFloat = UIScreen.main.bounds.width - 32
+    static let postSizeHeight: CGFloat = UIScreen.main.bounds.width + 100
     
 }
 

@@ -21,7 +21,7 @@ class ProfileCoordinator: VCCoordinator {
         self.callback = callback
     }
     
-    func Start() throws -> UINavigationController? {
+    func Start(dbCoordinator: DatabaseCoordinatable? = nil) throws -> UINavigationController? {
 
         let factory = RootFactory(state: .profile)
         if let unRapUserService = userService, let unRapName = name {
@@ -33,7 +33,15 @@ class ProfileCoordinator: VCCoordinator {
     }
     
     func DissmisApp() {
+        self.callback()
+    }
     
+    func showPost(_ post: FeedPost) {
+        navigationController?.pushViewController(PostViewController(coordinator: self, post: post), animated: true)
+    }
+    
+    func showInfo(_ title: String, people: [String]? = nil) {
+        navigationController?.present(InfoViewController(title: title, residentUrl: people), animated: true)
     }
     
 }

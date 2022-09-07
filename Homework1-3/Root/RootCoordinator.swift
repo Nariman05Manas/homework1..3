@@ -14,7 +14,7 @@ protocol RootCoordinator {
 
 protocol VCCoordinator {
     var navigationController: UINavigationController? { get set }
-    func Start() throws -> UINavigationController?
+    func Start(dbCoordinator: DatabaseCoordinatable?) throws -> UINavigationController?
 }
 
 class UITabBarCoordinator: RootCoordinator {
@@ -29,6 +29,4 @@ class UITabBarCoordinator: RootCoordinator {
         tabBar.tabBar.backgroundColor = .white
         return tabBar
     }
-
 }
-

@@ -8,7 +8,7 @@
 import UIKit
 
 class PhotosCollectionViewCell: UICollectionViewCell {
-    
+
     static let identifire = "PhotosCollectionViewCell"
     
     let photo: UIImageView = {
@@ -21,26 +21,23 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         super.init(frame: .zero)
         contentView.addSubview(photo)
         
-        initialLayout()
-        
-    }
-    
-    func initialLayout() {
-        NSLayoutConstraint.activate([
-            photo.topAnchor.constraint(equalTo: contentView.topAnchor),
-            photo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            photo.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            photo.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
+        useConstraint()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initialImages(_ image: UIImage) {
-        photo.image = image
-        
+    func useConstraint() {
+        NSLayoutConstraint.activate([photo.topAnchor.constraint(equalTo: contentView.topAnchor),
+                                     photo.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                                     photo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                                     photo.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+                                    ])
     }
+    
+    func setupImage(_ image: UIImage) {
+        photo.image = image
+    }
+    
 }
-

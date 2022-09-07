@@ -5,7 +5,6 @@
 //  Created by qwerty on 01.07.2022.
 //
 
-import Foundation
 import UIKit
 
 class InfoViewController: UIViewController {
@@ -38,7 +37,7 @@ class InfoViewController: UIViewController {
         return table
     }()
     
-    init(title: String, residentUrl: [String]?) {
+    init(title: String, residentUrl: [String]? = nil) {
         super.init(nibName: nil, bundle: nil)
         textLabel.text = title
         self.residentUrl = residentUrl
@@ -64,7 +63,7 @@ class InfoViewController: UIViewController {
         
         if let residentUrl = residentUrl {
             residentUrl.forEach { url in
-                NetworkService.urlSessionDataTask(postInfo: url, type: .resident) { title, people in
+                NetworkService.URLSessionDataTask(postInfo: url, type: .resident) { title, people in
                     self.residents.append(title)
                     DispatchQueue.main.async {
                         self.residentsTable.reloadData()
@@ -90,7 +89,7 @@ class InfoViewController: UIViewController {
         residentsTable.reloadData()
         residentsTable.refreshControl?.endRefreshing()
     }
-    
+        
 }
 
 extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
@@ -98,7 +97,7 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         residents.count
-        
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -110,4 +109,5 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
         cell.specifyFields(name: residents[indexPath.row])
         return cell
     }
+    
 }

@@ -15,6 +15,9 @@
 		4B448D0A283EE39F00530DA4 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B448D09283EE39F00530DA4 /* RootCoordinator.swift */; };
 		4B448D0C283EE3E200530DA4 /* RootFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B448D0B283EE3E200530DA4 /* RootFactory.swift */; };
 		4B448D0E283EE41700530DA4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B448D0D283EE41700530DA4 /* TabBarController.swift */; };
+		4B4CDD9428C7AA5600AE26FA /* FeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4CDD9328C7AA5600AE26FA /* FeedPost.swift */; };
+		4B4CDD9628C7ACE900AE26FA /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4CDD9528C7ACE900AE26FA /* PostView.swift */; };
+		4B4CDD9828C7AD2F00AE26FA /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4CDD9728C7AD2F00AE26FA /* PostViewController.swift */; };
 		4B6681F82873CEB60088EE94 /* LoginCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6681F72873CEB60088EE94 /* LoginCheck.swift */; };
 		4B6681FA2873CF800088EE94 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6681F92873CF7F0088EE94 /* Factory.swift */; };
 		4B6681FC2873CFC70088EE94 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6681FB2873CFC70088EE94 /* LoginInspector.swift */; };
@@ -27,7 +30,6 @@
 		4B8C5E7F286F3825005C7AB1 /* infoTableVievCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C5E7E286F3825005C7AB1 /* infoTableVievCell.swift */; };
 		4B8C5E81286F3953005C7AB1 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C5E80286F3953005C7AB1 /* PostCollectionViewCell.swift */; };
 		4B8C5E83286F3C3B005C7AB1 /* InfoVievController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C5E82286F3C3B005C7AB1 /* InfoVievController.swift */; };
-		4B8C5E87286F3F10005C7AB1 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C5E86286F3F10005C7AB1 /* PostViewController.swift */; };
 		4B9111D32860BAFB001AB088 /* music1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4B9111D22860BAFB001AB088 /* music1.mp3 */; };
 		4B9111D72860BB06001AB088 /* music2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4B9111D62860BB06001AB088 /* music2.mp3 */; };
 		4B9111D92860BB0C001AB088 /* music3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4B9111D82860BB0C001AB088 /* music3.mp3 */; };
@@ -46,7 +48,6 @@
 		4BA2BF142812958C00D2C055 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA2BF132812958C00D2C055 /* User.swift */; };
 		4BA53B932808D5430057F954 /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 4BA53B922808D5430057F954 /* StorageService.docc */; };
 		4BA53B942808D5430057F954 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BA53B912808D5430057F954 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4BA53B9E2808D5BB0057F954 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA53B9D2808D5BB0057F954 /* Posts.swift */; };
 		4BADD22B27B6FF4400977420 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD22A27B6FF4400977420 /* AppDelegate.swift */; };
 		4BADD23427B6FF4500977420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23327B6FF4500977420 /* Assets.xcassets */; };
 		4BADD23727B6FF4500977420 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */; };
@@ -88,6 +89,9 @@
 		4B448D09283EE39F00530DA4 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		4B448D0B283EE3E200530DA4 /* RootFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFactory.swift; sourceTree = "<group>"; };
 		4B448D0D283EE41700530DA4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4B4CDD9328C7AA5600AE26FA /* FeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPost.swift; sourceTree = "<group>"; usesTabs = 0; };
+		4B4CDD9528C7ACE900AE26FA /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		4B4CDD9728C7AD2F00AE26FA /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4B6681F72873CEB60088EE94 /* LoginCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheck.swift; sourceTree = "<group>"; };
 		4B6681F92873CF7F0088EE94 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		4B6681FB2873CFC70088EE94 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
@@ -101,7 +105,6 @@
 		4B8C5E7E286F3825005C7AB1 /* infoTableVievCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoTableVievCell.swift; sourceTree = "<group>"; };
 		4B8C5E80286F3953005C7AB1 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B8C5E82286F3C3B005C7AB1 /* InfoVievController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVievController.swift; sourceTree = "<group>"; };
-		4B8C5E86286F3F10005C7AB1 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4B9111D22860BAFB001AB088 /* music1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music1.mp3; sourceTree = "<group>"; };
 		4B9111D62860BB06001AB088 /* music2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music2.mp3; sourceTree = "<group>"; };
 		4B9111D82860BB0C001AB088 /* music3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music3.mp3; sourceTree = "<group>"; };
@@ -120,7 +123,6 @@
 		4BA2BF132812958C00D2C055 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4BA53B912808D5430057F954 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		4BA53B922808D5430057F954 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
-		4BA53B9D2808D5BB0057F954 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		4BADD22A27B6FF4400977420 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BADD23327B6FF4500977420 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BADD23627B6FF4500977420 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -182,6 +184,18 @@
 				4B448D0B283EE3E200530DA4 /* RootFactory.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		4B4CDD9228C7AA3B00AE26FA /* FeedPost */ = {
+			isa = PBXGroup;
+			children = (
+				4B8C5E7E286F3825005C7AB1 /* infoTableVievCell.swift */,
+				4B4CDD9328C7AA5600AE26FA /* FeedPost.swift */,
+				4B8C5E82286F3C3B005C7AB1 /* InfoVievController.swift */,
+				4B4CDD9528C7ACE900AE26FA /* PostView.swift */,
+				4B4CDD9728C7AD2F00AE26FA /* PostViewController.swift */,
+			);
+			path = FeedPost;
 			sourceTree = "<group>";
 		};
 		4B8EE5682808C64B0001A666 /* Main */ = {
@@ -260,7 +274,6 @@
 			children = (
 				4B8653F627DA4F920092D46D /* PostTableViewCell.swift */,
 				4B8C5E80286F3953005C7AB1 /* PostCollectionViewCell.swift */,
-				4B8C5E86286F3F10005C7AB1 /* PostViewController.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -268,7 +281,6 @@
 		4BA53B902808D5430057F954 /* StorageService */ = {
 			isa = PBXGroup;
 			children = (
-				4BA53B9D2808D5BB0057F954 /* Posts.swift */,
 				4BA53B912808D5430057F954 /* StorageService.h */,
 				4BA53B922808D5430057F954 /* StorageService.docc */,
 			);
@@ -290,9 +302,10 @@
 		4BADD22927B6FF4400977420 /* Homework1-3 */ = {
 			isa = PBXGroup;
 			children = (
-				4B9BDCA82896BA3400CE7484 /* Post */,
-				4B9BDC9B2896A0D300CE7484 /* Favorite */,
 				4B9BDC9628969FC700CE7484 /* CoreData */,
+				4B9BDC9B2896A0D300CE7484 /* Favorite */,
+				4B4CDD9228C7AA3B00AE26FA /* FeedPost */,
+				4B9BDCA82896BA3400CE7484 /* Post */,
 				4BF5C27928624794003F7AEA /* Network */,
 				4B9111E32860D5E5001AB088 /* AudioMediaContent */,
 				4B97D9FB284662EC006C5550 /* Login */,
@@ -315,8 +328,6 @@
 				4BADD23E27B7046500977420 /* FeedViewController.swift */,
 				4B448D03283EDAC600530DA4 /* FeedCoordinator.swift */,
 				4B448D05283EDB1900530DA4 /* FeedModel.swift */,
-				4B8C5E7E286F3825005C7AB1 /* infoTableVievCell.swift */,
-				4B8C5E82286F3C3B005C7AB1 /* InfoVievController.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -379,7 +390,7 @@
 				4BADD22427B6FF4400977420 /* Frameworks */,
 				4BADD22527B6FF4400977420 /* Resources */,
 				4BA4CEFC2808712200B11ACE /* Embed Frameworks */,
-				06596D111C1772311A9D84FE /* [CP] Embed Pods Frameworks */,
+				22750F3BECAE79F3A3394E0B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -460,7 +471,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		06596D111C1772311A9D84FE /* [CP] Embed Pods Frameworks */ = {
+		22750F3BECAE79F3A3394E0B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -507,7 +518,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BA53B932808D5430057F954 /* StorageService.docc in Sources */,
-				4BA53B9E2808D5BB0057F954 /* Posts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,9 +525,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B4CDD9828C7AD2F00AE26FA /* PostViewController.swift in Sources */,
 				4B9BDCA72896B80A00CE7484 /* PostCoreDataModel.xcdatamodeld in Sources */,
 				4BA2BF142812958C00D2C055 /* User.swift in Sources */,
-				4B8C5E87286F3F10005C7AB1 /* PostViewController.swift in Sources */,
 				4B448D06283EDB1900530DA4 /* FeedModel.swift in Sources */,
 				4B9111DE2860BBB3001AB088 /* MusicPlayer.swift in Sources */,
 				4B8653F727DA4F920092D46D /* PostTableViewCell.swift in Sources */,
@@ -543,6 +553,8 @@
 				4B9BDC9F2896A13400CE7484 /* FavoriteCoordinator.swift in Sources */,
 				4B9BDC9A2896A06B00CE7484 /* DataBaseCoordinator.swift in Sources */,
 				4B8C5E81286F3953005C7AB1 /* PostCollectionViewCell.swift in Sources */,
+				4B4CDD9428C7AA5600AE26FA /* FeedPost.swift in Sources */,
+				4B4CDD9628C7ACE900AE26FA /* PostView.swift in Sources */,
 				4B9111E02860BC1F001AB088 /* MusicPlayerCoordinator.swift in Sources */,
 				4B8C5E7F286F3825005C7AB1 /* infoTableVievCell.swift in Sources */,
 				4B448D0E283EE41700530DA4 /* TabBarController.swift in Sources */,
@@ -860,8 +872,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
 			requirement = {
-				kind = exactVersion;
-				version = 3.2.3;
+				branch = imagepublisher;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -884,6 +896,7 @@
 			path = PostCoreDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
+			wrapsLines = 1;
 		};
 /* End XCVersionGroup section */
 	};

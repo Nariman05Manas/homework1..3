@@ -1,7 +1,7 @@
 
 import UIKit
 import AVFAudio
-import FirebaseCore
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

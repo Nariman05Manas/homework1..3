@@ -7,6 +7,7 @@
 import Foundation
 import UIKit
 
+
 final class RootFactory {
     
     enum State {
@@ -22,7 +23,9 @@ final class RootFactory {
         self.state = state
     }
     
-    func startModule(coordinator: VCCoordinator, data: (userService: UserService, name: String)?) -> UINavigationController? {
+    func startModule(coordinator: VCCoordinator,
+                     data: (userService: UserService, name: String)?,
+                     dbCoordinator: DatabaseCoordinatable? = nil) -> UINavigationController? {
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -30,9 +33,8 @@ final class RootFactory {
         
         switch state {
         case .feed:
-            let dataBaseCoordinator = CreateDataBase()
             let viewModel = FeedModel(coordinator: coordinator as! FeedCoordinator)
-            let feedViewController = FeedViewController(coordinator: coordinator as! FeedCoordinator, model: viewModel, dbCoordinator: dataBaseCoordinator)
+            let feedViewController = FeedViewController(coordinator: coordinator as! FeedCoordinator, model: viewModel, dbCoordinator: dbCoordinator!)
             feedViewController.view.backgroundColor = UIColor.white
             let feedNavigationController = UINavigationController(rootViewController: feedViewController)
             
@@ -73,12 +75,11 @@ final class RootFactory {
             
         case .favorite:
             
-            let dataBaseCoordinator = CreateDataBase()
-            let favoriteViewController = Favorite(coordinator: coordinator as! FavoriteCoordinator, dbCoordinator: dataBaseCoordinator)
+            let favoriteViewController = Favorite(coordinator: coordinator as! FavoriteCoordinator, dbCoordinator: dbCoordinator!)
             favoriteViewController.view.backgroundColor = UIColor.white
             let favoriteNavigationController = UINavigationController(rootViewController: favoriteViewController)
             
-            favoriteNavigationController.tabBarItem = UITabBarItem(title: "Избранное", image: UIImage(named: "heart.circle"), selectedImage: UIImage(named: "SelectedFeed"))
+            favoriteNavigationController.tabBarItem = UITabBarItem(title: "Избранное", image: UIImage(named: "Feed"), selectedImage: UIImage(named: "SelectedFeed"))
             favoriteNavigationController.navigationBar.titleTextAttributes = [ .foregroundColor: UIColor.black]
             favoriteNavigationController.navigationBar.barTintColor = UIColor.white
             favoriteNavigationController.navigationBar.standardAppearance = appearance;
@@ -90,22 +91,4 @@ final class RootFactory {
         
     }
     
-    private func CreateDataBase() -> DatabaseCoordinatable {
-        let bundle = Bundle.main
-        guard let url = bundle.url(forResource: "PostCoreDataModel", withExtension: "momd") else {
-            fatalError("Can't find DatabaseDemo.xcdatamodelId in main Bundle")
-        }
-        
-        switch CoreDataCoordinator.create(url: url) {
-        case .success(let database):
-            return database
-        case .failure:
-            switch CoreDataCoordinator.create(url: url) {
-            case .success(let database):
-                return database
-            case .failure(let error):
-                fatalError("Unable to create CoreData Database. Error - \(error.localizedDescription)")
-            }
-        }
-    }
 }
