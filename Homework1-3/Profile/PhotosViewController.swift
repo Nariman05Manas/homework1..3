@@ -9,26 +9,25 @@ import UIKit
 import iOSIntPackage
 
 class PhotosViewController: UIViewController {
-    
+
     let imagePublisherFacade = ImagePublisherFacade()
     
     lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         layout.scrollDirection = .vertical
-        layout.collectionView?.toAutoLayout()
         return layout
     }()
     
     lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero , collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.toAutoLayout()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.toAutoLayout()
         return collectionView
     }()
     
-    var contentPhotoDataArray: [UIImage] = []
+    var contentPhotoData: [UIImage] = []
     var timerCount = 0.0
     var timer: Timer? = nil
     
@@ -40,37 +39,32 @@ class PhotosViewController: UIViewController {
         collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: PhotosCollectionViewCell.identifire)
         useConstraint()
         
-        
-        
         let imageProcessor = ImageProcessor()
-        imageProcessor.processImagesOnThread(sourceImages: photosGaleryArray, filter: .sepia(intensity: 0.5), qos: .utility) {cgImages in
+        imageProcessor.processImagesOnThread(sourceImages: photosGaleryArray, filter: .chrome, qos: .utility) {cgImages in
             let images = cgImages.map({UIImage(cgImage: $0!)})
-            self.contentPhotoDataArray.removeAll()
-            images.forEach({self.contentPhotoDataArray.append($0)})
+            self.contentPhotoData.removeAll()
+            images.forEach({self.contentPhotoData.append($0)})
             DispatchQueue.main.async{
                 self.collectionView.reloadData()
             }
         }
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
-        
+        /*--------------------------------
+         .default - 31.93 сек
+         .background - 150.13 сек
+         .userInitiated - 35.14 сек
+         .userInteractive - 30.01 сек
+         .utility - 36.36 сек
+         .
+        -----------------------------------*/
     }
-    //Фукц вычесления времени
+    
     @objc func updateTimer() {
         timerCount += 0.01
-        if contentPhotoDataArray.count > 0 {
-            print("\(self.timerCount) секунд")
+        if contentPhotoData.count > 0 {
+            print("Потрачено \(self.timerCount) секунд")
             timer!.invalidate()
-            
-            /*----------------------------------------------------------------------------------------------
-             время исполнения для каждого вызова метода processImagesOnThread с разной комбинацией параметров
-             .userInteractive - 1.17 сек
-             .utility - 0.92 сек
-             .background - 1.33 сек
-             .userInitiated - 0.8 сек
-             .default - 0.9
-             ------------------------------------------------------------------------------------------------
-             */
         }
     }
     
@@ -89,9 +83,9 @@ class PhotosViewController: UIViewController {
 }
 
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+   
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        contentPhotoDataArray.count
+        contentPhotoData.count
     }
     
     
@@ -99,10 +93,9 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.identifire, for: indexPath) as? PhotosCollectionViewCell
         else {
-            preconditionFailure("Ошибка загрузки профиля!")
-            return UICollectionViewCell()
+            preconditionFailure("Произошла ошибка загрузки новостной ленты!")
         }
-        cell.initialImages(contentPhotoDataArray[indexPath.item])
+        cell.setupImage(contentPhotoData[indexPath.item])
         return cell
         
     }
@@ -110,6 +103,5 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: (collectionView.frame.width - 40) / 3, height: (collectionView.frame.width - 40) / 3)
     }
+    
 }
-
-

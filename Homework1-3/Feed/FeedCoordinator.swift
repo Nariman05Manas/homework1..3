@@ -12,25 +12,17 @@ class FeedCoordinator: VCCoordinator {
     
     var navigationController: UINavigationController?
     
-    func Start() throws -> UINavigationController? {
+    func Start(dbCoordinator: DatabaseCoordinatable?) throws -> UINavigationController? {
         let factory = RootFactory(state: .feed)
-        navigationController = factory.startModule(coordinator: self, data: nil)
+        navigationController = factory.startModule(coordinator: self, data: nil, dbCoordinator: dbCoordinator)
         return navigationController
     }
     
-    func pushPost(post: PostMain) {
-        let postViewController = PostViewController(coordinator: self, post: post)
-        self.navigationController?.pushViewController(postViewController, animated: true)
+    func showPost(_ post: FeedPost) {
+        navigationController?.pushViewController(PostViewController(coordinator: self, post: post), animated: true)
     }
     
-    func showInfoPost(info: String) {
-        let infoViewController = InfoViewController(title: info)
-        navigationController!.present(infoViewController, animated: true, completion: nil)
+    func showInfo(_ title: String, people: [String]? = nil) {
+        navigationController?.present(InfoViewController(title: title, residentUrl: people), animated: true)
     }
-    
-    func showBuyVersion() {
-        let subscription = BuyFullVersion()
-        navigationController?.present(subscription, animated: true)
-    }
-    
 }

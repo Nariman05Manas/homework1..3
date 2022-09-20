@@ -5,11 +5,27 @@
 //  Created by qwerty on 26.05.2022.
 //
 
-import Foundation
+import UIKit
+
+struct TestStruct: Codable {
+    var title: String
+}
+
+struct Planet: Codable {
+    var orbitalPeriod: String
+    var residents: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case orbitalPeriod = "orbital_period"
+        case residents
+    }
+}
+
+struct Resident: Codable {
+    var name: String
+}
 
 class FeedModel {
-    
-    var infoArray = ["знакомьтесь это моя банда","моя прелесть!"]
     
     weak var coordinator: FeedCoordinator?
     
@@ -17,11 +33,8 @@ class FeedModel {
         self.coordinator = coordinator
     }
     
-    func check(word: String) -> Bool {
-            return word == "Зеленый"
+    func getPost() -> [FeedPost] {
+        return constPosts
     }
-    func getPost(sender: CustomButton) {
-        let post = PostMain(title: sender.title(for: .normal)!, image: sender.image(for: .normal)!, info: infoArray[sender.tag])
-        coordinator!.pushPost(post: post)
-     }
-    }
+    
+}

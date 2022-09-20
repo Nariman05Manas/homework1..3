@@ -6,17 +6,45 @@
 //
 
 import UIKit
+import RealmSwift
 
-class User {
-    let name: String
-    let avatar: UIImage?
-    let status: String
+class User: Object {
     
-    init(name: String, avatar: UIImage?, status: String) {
-        self.name = name
-        self.avatar = avatar
-        self.status = status
+    @objc dynamic var name: String?
+    @objc dynamic var password: String?
+    @objc dynamic var status: String?
+    @objc dynamic var avatarName: String?
+    @objc dynamic var avatar: UIImage? {
+        get {
+            if let avatarName = avatarName {
+                return UIImage(named: avatarName)
+            } else {
+                return nil
+            }
+        }
     }
+    
+    var keyedValues: [String: Any] {
+        return [
+            "name": self.name ?? "",
+            "password": self.password ?? "",
+            "status": self.status ?? "",
+            "avatarName": self.avatarName ?? ""
+        ]
+    }
+    
+    override static func primaryKey() -> String? {
+           return "name"
+       }
+       
+       convenience init(name: String, password: String, status: String, avatarName: String) {
+           self.init()
+           self.name = name
+           self.password = password
+           self.status = status
+           self.avatarName = avatarName
+
+       }
 }
 
 protocol UserService {
@@ -25,15 +53,17 @@ protocol UserService {
 
 class CurrentUserService: UserService {
     
-    private let user: User? = nil
+    private let user: User
+    
+    init(name: String, avatar: String, status: String) {
+        self.user = User(name: name, password: "", status: status, avatarName: avatar)
+    }
     
     func getUser(name: String) -> User? {
-        if let activeUser = user {
-            if name == activeUser.name {
-                return user
-            }
+        if name == user.name {
+            return user
         }
-        return nil
+       return nil
     }
     
 }
@@ -42,8 +72,8 @@ class TestUserService: UserService {
     
     private let user: User
     
-    init() {
-        self.user = User(name: "Голум", avatar: UIImage(named: "gend"), status: "моя прелесть")
+    init(name: String, avatar: String, status: String) {
+        self.user = User(name: name, password: "", status: status, avatarName: avatar)
     }
     
     func getUser(name: String) -> User? {

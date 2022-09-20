@@ -4,9 +4,9 @@
 //
 //  Created by qwerty on 26.05.2022.
 //
-
 import Foundation
 import UIKit
+
 
 final class RootFactory {
     
@@ -14,7 +14,7 @@ final class RootFactory {
         case feed
         case profile
         case player
-        case video
+        case favorite
     }
     
     var state: State
@@ -23,7 +23,9 @@ final class RootFactory {
         self.state = state
     }
     
-    func startModule(coordinator: VCCoordinator, data: (userService: UserService, name: String)?) -> UINavigationController? {
+    func startModule(coordinator: VCCoordinator,
+                     data: (userService: UserService, name: String)?,
+                     dbCoordinator: DatabaseCoordinatable? = nil) -> UINavigationController? {
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -32,11 +34,11 @@ final class RootFactory {
         switch state {
         case .feed:
             let viewModel = FeedModel(coordinator: coordinator as! FeedCoordinator)
-            let feedViewController = FeedViewController(coordinator: coordinator as! FeedCoordinator, model: viewModel)
+            let feedViewController = FeedViewController(coordinator: coordinator as! FeedCoordinator, model: viewModel, dbCoordinator: dbCoordinator!)
             feedViewController.view.backgroundColor = UIColor.white
             let feedNavigationController = UINavigationController(rootViewController: feedViewController)
             
-            feedNavigationController.tabBarItem = UITabBarItem(title: "ЛЕНТА", image: UIImage(named: "news"), selectedImage: UIImage(named: ""))
+            feedNavigationController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(named: "Feed"), selectedImage: UIImage(named: "SelectedFeed"))
             feedNavigationController.navigationBar.titleTextAttributes = [ .foregroundColor: UIColor.black]
             feedNavigationController.navigationBar.barTintColor = UIColor.white
             feedNavigationController.navigationBar.standardAppearance = appearance;
@@ -46,10 +48,10 @@ final class RootFactory {
         case .profile:
             
             if let userData = data {
-                let profileViewController = ProfileViewController(coordinator: coordinator, userService: userData.userService, name: userData.name)
+                let profileViewController = ProfileViewController(coordinator: coordinator as! ProfileCoordinator, userService: userData.userService, name: userData.name)
                 let profileNavigationController = UINavigationController(rootViewController: profileViewController)
                 
-                profileNavigationController.tabBarItem = UITabBarItem(title: "ПРОФИЛЬ", image: UIImage(named: "profile"), selectedImage: UIImage(named: ""))
+                profileNavigationController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(named: "Profile"), selectedImage: UIImage(named: "SelectedProfile"))
                 profileNavigationController.navigationBar.titleTextAttributes = [ .foregroundColor: UIColor.black]
                 profileNavigationController.navigationBar.barTintColor = UIColor.white
                 profileNavigationController.navigationBar.standardAppearance = appearance;
@@ -57,6 +59,7 @@ final class RootFactory {
                 
                 return profileNavigationController
             }
+            
         case .player:
             
             let playerViewController = MusicPlayer(coordinator: coordinator as! AudioPlayerCordinator)
@@ -70,21 +73,22 @@ final class RootFactory {
             
             return playerNavigationController
             
-        case .video:
+        case .favorite:
             
-            let videoPlayerViewController = VideoPlayer(coordinator: coordinator as! VideoPlayerCoordinator)
-            let videoPlayerNavigationController = UINavigationController(rootViewController: videoPlayerViewController)
+            let favoriteViewController = Favorite(coordinator: coordinator as! FavoriteCoordinator, dbCoordinator: dbCoordinator!)
+            favoriteViewController.view.backgroundColor = UIColor.white
+            let favoriteNavigationController = UINavigationController(rootViewController: favoriteViewController)
             
-            videoPlayerNavigationController.tabBarItem = UITabBarItem(title: "Видео", image: UIImage(named: "music"), selectedImage: UIImage(named: "SelectedMusic"))
-            videoPlayerNavigationController.navigationBar.titleTextAttributes = [ .foregroundColor: UIColor.black]
-            videoPlayerNavigationController.navigationBar.barTintColor = UIColor.white
-            videoPlayerNavigationController.navigationBar.standardAppearance = appearance;
-            videoPlayerNavigationController.navigationBar.scrollEdgeAppearance = videoPlayerNavigationController.navigationBar.standardAppearance
-            
-            return videoPlayerNavigationController
-            
-            
+            favoriteNavigationController.tabBarItem = UITabBarItem(title: "Избранное", image: UIImage(named: "Feed"), selectedImage: UIImage(named: "SelectedFeed"))
+            favoriteNavigationController.navigationBar.titleTextAttributes = [ .foregroundColor: UIColor.black]
+            favoriteNavigationController.navigationBar.barTintColor = UIColor.white
+            favoriteNavigationController.navigationBar.standardAppearance = appearance;
+            favoriteNavigationController.navigationBar.scrollEdgeAppearance = favoriteNavigationController.navigationBar.standardAppearance
+            return favoriteNavigationController
         }
+        
         return nil
+        
     }
+    
 }

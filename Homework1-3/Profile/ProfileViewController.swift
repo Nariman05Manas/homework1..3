@@ -1,6 +1,7 @@
 
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
         
@@ -16,15 +17,16 @@ class ProfileViewController: UIViewController {
         return postTable
     }()
     
-    var posts = constPostArray
+    var posts = [FeedPost]()
     private let userService: UserService
     private let userName: String
-    let coordinator: VCCoordinator
+    let coordinator: ProfileCoordinator
     
-    init(coordinator: VCCoordinator,userService: UserService, name: String){
+    init(coordinator: ProfileCoordinator, userService: UserService, name: String){
         self.userService = userService
         self.userName = name
         self.coordinator = coordinator
+        self.posts = constPosts.filter({ $0.author == "GENDALE" })
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -36,6 +38,9 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Профиль"
+        
+        let exitBarButton = UIBarButtonItem(title: "Выйти", style: .plain, target: self, action: #selector(exitToProfile))
+        self.navigationItem.rightBarButtonItem  = exitBarButton
         
 #if release
         view.backgroundColor = .lightGray
@@ -73,6 +78,32 @@ class ProfileViewController: UIViewController {
     @objc func updatePostArray() {
         postTable.reloadData()
         postTable.refreshControl?.endRefreshing()
+        showHeader()
+    }
+    
+    func showHeader() {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        DispatchQueue.global().async {
+            sleep(3)
+            DispatchQueue.main.async {
+                self.dismisHeader()
+            }
+        }
+    }
+    
+    func dismisHeader() {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    @objc func exitToProfile() {
+        
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            coordinator.DissmisApp()
+        } catch let signOutError as NSError {
+            print("Error!", signOutError)
+        }
     }
     
 }
