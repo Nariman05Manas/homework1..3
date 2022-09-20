@@ -16,7 +16,7 @@ enum AppConfiguration: String {
 
 struct NetworkService {
     
-    static func urlSessionDataTask(postInfo: String, type: PostType, callback: @escaping (_ title: String, _ people: [String]?)->Void) {
+    static func URLSessionDataTask(postInfo: String, type: PostType, callback: @escaping (_ title: String, _ people: [String]?)->Void) {
         
         if let url = URL(string: postInfo) {
             let urlRequest = URLRequest(url: url)
@@ -35,19 +35,21 @@ struct NetworkService {
         let decoder = JSONDecoder()
         do {
             switch type {
-            case .testStruct:
+            case .webDescription:
                 let decodeData = try JSONSerialization.jsonObject(with: data, options: []) as! Dictionary<String, Any>
                 callback(decodeData["title"] as! String, nil)
             case .planet:
                 let decodeData = try decoder.decode(Planet.self, from: data )
-                callback("Подсчет периода вращения пленеты вокруг своей оси: " + decodeData.orbitalPeriod, decodeData.residents)
+                callback("Период вращения планеты: " + decodeData.orbitalPeriod, decodeData.residents)
             case .resident:
                 let decodeData = try decoder.decode(Resident.self, from: data)
                 callback(decodeData.name, nil)
+            default:
+                callback("", nil)
             }
         }
         catch {
-            print("критическая ошибка Json \(String(describing: String(data: data, encoding: .utf8)))")
+            print("Ошибка чтения json \(String(describing: String(data: data, encoding: .utf8)))")
         }
     }
     

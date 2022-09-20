@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
         return postTable
     }()
     
-    var posts = constPostArray
+    var posts = [FeedPost]()
     private let userService: UserService
     private let userName: String
     let coordinator: ProfileCoordinator
@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController {
         self.userService = userService
         self.userName = name
         self.coordinator = coordinator
+        self.posts = constPosts.filter({ $0.author == "GENDALE" })
         super.init(nibName: nil, bundle: nil)
     }
     

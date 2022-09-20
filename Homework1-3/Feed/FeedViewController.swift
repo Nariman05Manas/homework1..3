@@ -51,7 +51,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "News"
+        title = "Новости"
             
         view.addSubview(collectionView)
         collectionView.register(PostCollectionViewCell.self, forCellWithReuseIdentifier: PostCollectionViewCell.identifire)
@@ -76,7 +76,7 @@ class FeedViewController: UIViewController {
                 self.favoritePostId = FavoriteFeedPost.map{ Int($0.id) }
                 self.collectionView.reloadData()
             case .failure(let error):
-                print("An error occurred while opening the profile!!!")
+                print("Ошибка загрузки из БД \(error)")
             }
         }
     }
@@ -88,10 +88,10 @@ class FeedViewController: UIViewController {
             switch result {
             case .success(let post):
                 self.favoritePostId.append(Int(post[0].id))
-                NotificationCenter.default.post(name: .wasLikedPost, object: nil, userInfo: ["post" : FeedPost(PostCoreDataModel: post[0])])
+                NotificationCenter.default.post(name: .wasLikedPost, object: nil, userInfo: ["post" : FeedPost(postCoreDataModel: post[0])])
                 self.collectionView.reloadData()
             case .failure(let error):
-                print("An error occurred while opening the profile!!!")
+                print("Ошибка записи из бд \(error)")
             }
         }
     }
@@ -111,14 +111,13 @@ class FeedViewController: UIViewController {
         
         NotificationCenter.default.post(name: .didRemovePostFromFavorites, object: nil, userInfo: ["id" : post.id])
        
-        self.dbCoordinator.delete(FavoriteFeedPost.self, predicate: predicate) { [weak self] result in
-            guard let self = self else { return }
-            
+        self.dbCoordinator.delete(FavoriteFeedPost.self, predicate: predicate) { result in
+       
             switch result {
-            case .success(let post):
-                print("Delete")
+            case .success(_):
+                print("Объект удален из бд")
             case .failure(let error):
-                print("error Delete base \(error )")
+                print("Ошибка удаления из бд \(error )")
             }
         }
     }
@@ -130,8 +129,7 @@ extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifire, for: indexPath) as? PostCollectionViewCell
         else {
-            preconditionFailure("Error open base!")
-            return UICollectionViewCell()
+            preconditionFailure("Произошло какое то говно при открытии вашего профиля")
         }
         cell.setupPost(contentPostData[indexPath.item], isFavorite: favoritePostId.contains(contentPostData[indexPath.item].id))
         cell.delegate = self
@@ -144,11 +142,7 @@ extension FeedViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: (collectionView.frame.width - 40), height: (collectionView.frame.width - 40))
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        CGSize(width: Const.postSizeWidth, height: Const.postSizeHeight)
     }
     
 }

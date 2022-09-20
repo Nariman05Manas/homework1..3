@@ -8,6 +8,6 @@ target 'Homework1-3' do
         pod 'FirebaseCore'
 	pod 'Firebase/Auth'
         pod 'SnapKit', '~> 5.0.0'
-
+        
 
 end
