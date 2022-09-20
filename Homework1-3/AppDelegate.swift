@@ -1,7 +1,7 @@
 
 import UIKit
 import AVFAudio
-import Firebase
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         catch {
             print("error AVplayer")
         }
-        // NetworkSetng
-        //let appConfiguration = NetworkConfiguration.allCases.randomElement()
         
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()

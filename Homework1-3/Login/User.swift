@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import RealmSwift
 
-struct User {
+class User: Object {
     
-    var name: String?
-    var password: String?
-    var status: String?
-    var avatarName: String?
-    var avatar: UIImage? {
+    @objc dynamic var name: String?
+    @objc dynamic var password: String?
+    @objc dynamic var status: String?
+    @objc dynamic var avatarName: String?
+    @objc dynamic var avatar: UIImage? {
         get {
             if let avatarName = avatarName {
                 return UIImage(named: avatarName)
@@ -31,6 +32,19 @@ struct User {
             "avatarName": self.avatarName ?? ""
         ]
     }
+    
+    override static func primaryKey() -> String? {
+           return "name"
+       }
+       
+       convenience init(name: String, password: String, status: String, avatarName: String) {
+           self.init()
+           self.name = name
+           self.password = password
+           self.status = status
+           self.avatarName = avatarName
+
+       }
 }
 
 protocol UserService {
@@ -38,8 +52,6 @@ protocol UserService {
 }
 
 class CurrentUserService: UserService {
-    
-   
     
     private let user: User
     
