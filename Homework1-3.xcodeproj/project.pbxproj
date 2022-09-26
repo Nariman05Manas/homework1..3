@@ -18,6 +18,7 @@
 		4B4CDD9428C7AA5600AE26FA /* FeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4CDD9328C7AA5600AE26FA /* FeedPost.swift */; };
 		4B4CDD9628C7ACE900AE26FA /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4CDD9528C7ACE900AE26FA /* PostView.swift */; };
 		4B4CDD9828C7AD2F00AE26FA /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4CDD9728C7AD2F00AE26FA /* PostViewController.swift */; };
+		4B6355F328DA77CD00762125 /* MapsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6355F228DA77CD00762125 /* MapsCoordinator.swift */; };
 		4B6681F82873CEB60088EE94 /* LoginCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6681F72873CEB60088EE94 /* LoginCheck.swift */; };
 		4B6681FA2873CF800088EE94 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6681F92873CF7F0088EE94 /* Factory.swift */; };
 		4B6681FC2873CFC70088EE94 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6681FB2873CFC70088EE94 /* LoginInspector.swift */; };
@@ -56,6 +57,7 @@
 		4BADD23427B6FF4500977420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23327B6FF4500977420 /* Assets.xcassets */; };
 		4BADD23727B6FF4500977420 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */; };
 		4BADD23F27B7046500977420 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADD23E27B7046500977420 /* FeedViewController.swift */; };
+		4BEDF9C828DA79660085957E /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEDF9C728DA79660085957E /* MapsViewController.swift */; };
 		4BF1194B27D8E173008237B9 /* Sourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1194A27D8E173008237B9 /* Sourse.swift */; };
 		4BF5C27B286247C1003F7AEA /* NetworkConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5C27A286247C1003F7AEA /* NetworkConnect.swift */; };
 		A3B98BEBC7C8A281662725C1 /* Pods_Homework1_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DE4EE9FC6C8171786E6128 /* Pods_Homework1_3.framework */; };
@@ -96,6 +98,7 @@
 		4B4CDD9328C7AA5600AE26FA /* FeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPost.swift; sourceTree = "<group>"; usesTabs = 0; };
 		4B4CDD9528C7ACE900AE26FA /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		4B4CDD9728C7AD2F00AE26FA /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		4B6355F228DA77CD00762125 /* MapsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsCoordinator.swift; sourceTree = "<group>"; };
 		4B6681F72873CEB60088EE94 /* LoginCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheck.swift; sourceTree = "<group>"; };
 		4B6681F92873CF7F0088EE94 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		4B6681FB2873CFC70088EE94 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
@@ -134,6 +137,7 @@
 		4BADD23627B6FF4500977420 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BADD23827B6FF4500977420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BADD23E27B7046500977420 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		4BEDF9C728DA79660085957E /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		4BF1194A27D8E173008237B9 /* Sourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sourse.swift; sourceTree = "<group>"; };
 		4BF5C27A286247C1003F7AEA /* NetworkConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnect.swift; sourceTree = "<group>"; };
 		52B740EF22A1FC2880670751 /* Pods-Homework1-3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework1-3.debug.xcconfig"; path = "Target Support Files/Pods-Homework1-3/Pods-Homework1-3.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +208,15 @@
 				4B4CDD9728C7AD2F00AE26FA /* PostViewController.swift */,
 			);
 			path = FeedPost;
+			sourceTree = "<group>";
+		};
+		4B6355F128DA77A500762125 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4B6355F228DA77CD00762125 /* MapsCoordinator.swift */,
+				4BEDF9C728DA79660085957E /* MapsViewController.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		4B8EE5682808C64B0001A666 /* Main */ = {
@@ -319,6 +332,7 @@
 		4BADD22927B6FF4400977420 /* Homework1-3 */ = {
 			isa = PBXGroup;
 			children = (
+				4B6355F128DA77A500762125 /* Navigation */,
 				4B91974228DA6B360097538B /* Realm */,
 				4B9BDC9628969FC700CE7484 /* CoreData */,
 				4B9BDC9B2896A0D300CE7484 /* Favorite */,
@@ -548,6 +562,7 @@
 			files = (
 				4B4CDD9828C7AD2F00AE26FA /* PostViewController.swift in Sources */,
 				4B9BDCA72896B80A00CE7484 /* PostCoreDataModel.xcdatamodeld in Sources */,
+				4B6355F328DA77CD00762125 /* MapsCoordinator.swift in Sources */,
 				4BA2BF142812958C00D2C055 /* User.swift in Sources */,
 				4B448D06283EDB1900530DA4 /* FeedModel.swift in Sources */,
 				4B9111DE2860BBB3001AB088 /* MusicPlayer.swift in Sources */,
@@ -580,6 +595,7 @@
 				4B4CDD9628C7ACE900AE26FA /* PostView.swift in Sources */,
 				4B9111E02860BC1F001AB088 /* MusicPlayerCoordinator.swift in Sources */,
 				4B8C5E7F286F3825005C7AB1 /* infoTableVievCell.swift in Sources */,
+				4BEDF9C828DA79660085957E /* MapsViewController.swift in Sources */,
 				4B448D0E283EE41700530DA4 /* TabBarController.swift in Sources */,
 				4B9BDC9D2896A0FF00CE7484 /* Favorite.swift in Sources */,
 				4B147CA627C141FD00C6F8E5 /* ProfileHeaderView.swift in Sources */,
