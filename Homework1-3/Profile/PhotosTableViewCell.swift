@@ -18,7 +18,7 @@ class PhotosTableViewCell: UITableViewCell {
     
     let title: UILabel = {
         let title = UILabel()
-        title.text = "Моя галерея"
+        title.text = LocalizableService.getText(key: .photos)
         title.textColor = .black
         title.font = .systemFont(ofSize: 24, weight: .bold)
         title.toAutoLayout()

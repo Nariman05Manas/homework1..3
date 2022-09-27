@@ -64,11 +64,11 @@ class PostView: UIView {
         image.image = post.image
         descriptionView.text = post.description
         if let isFavorite = isFavorite {
-            likesView.text = "Лайки: \(String(post.likes + (isFavorite ? 1: 0))) \(isFavorite ? "❤️": "🖤")" //Костяем :D
+            likesView.text = LocalizableService.getText(key: .like, numeric: post.likes + (isFavorite ? 1: 0)) + (isFavorite ? "❤️": "🖤")
         } else {
-            likesView.text = "Лайки: \(String(post.likes))"
+            likesView.text = LocalizableService.getText(key: .like, numeric: post.likes)
         }
-        viewsView.text = "Просмотры: \(String(post.views))"
+        viewsView.text = LocalizableService.getText(key: .views, numeric: post.views)
     }
     
     func postToFullScreen() {
@@ -91,7 +91,7 @@ class PostView: UIView {
                                      descriptionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Const.leadingMargin),
                                      descriptionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: Const.trailingMargin),
                                      descriptionView.topAnchor.constraint(equalTo: image.bottomAnchor, constant: Const.indent),
-                                     //descriptionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -48),
+                                     
                                      descriptionView.heightAnchor.constraint(equalToConstant: 20),
                                      likesView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Const.leadingMargin),
                                      likesView.topAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: Const.indent),

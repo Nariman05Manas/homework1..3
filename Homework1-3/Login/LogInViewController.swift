@@ -42,7 +42,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
         userName.autocapitalizationType = .none
         userName.layer.borderColor = UIColor.lightGray.cgColor
         userName.layer.borderWidth = 0.25
-        userName.placeholder = "Email или телефон"
+        userName.placeholder = LocalizableService.getText(key: .emailOrPhone)
         userName.keyboardType = .emailAddress
         userName.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: userName.frame.height))
         userName.leftViewMode = .always
@@ -63,7 +63,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
         password.isSecureTextEntry = true
         password.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: password.frame.height))
         password.leftViewMode = .always
-        password.placeholder = "Пароль"
+        password.placeholder = LocalizableService.getText(key: .password)
         password.returnKeyType = UIReturnKeyType.default
         password.addTarget(self, action: #selector(editingEnded), for: .editingChanged)
         return password
@@ -74,7 +74,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
         logIn.toAutoLayout()
         logIn.layer.cornerRadius = 10
         logIn.clipsToBounds = true
-        logIn.setTitle("Вход", for: .normal)
+        logIn.setTitle(LocalizableService.getText(key: .enter), for: .normal)
         logIn.titleLabel?.textColor = .white
         logIn.layer.shadowColor = UIColor.black.cgColor
         logIn.layer.shadowOffset = CGSize(width: 4, height: 4)
@@ -98,7 +98,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
         regIn.toAutoLayout()
         regIn.layer.cornerRadius = 10
         regIn.clipsToBounds = true
-        regIn.setTitle("Регистрация", for: .normal)
+        regIn.setTitle(LocalizableService.getText(key: .registration), for: .normal)
         regIn.titleLabel?.textColor = .white
         regIn.layer.shadowColor = UIColor.black.cgColor
         regIn.layer.shadowOffset = CGSize(width: 4, height: 4)
@@ -276,7 +276,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
                     case .success(false):
                         DispatchQueue.main.async {
                             let alertController = UIAlertController(title: "Ошибка авторизации", message: message, preferredStyle: .alert)
-                            let action = UIAlertAction(title: "ок", style: .default, handler: nil)
+                            let action = UIAlertAction(title: LocalizableService.getText(key: .agree), style: .default, handler: nil)
                             alertController.addAction(action)
                             self.present(alertController, animated: true, completion: nil)
                         }
@@ -284,14 +284,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
                     case .failure(.unauthorized):
                         DispatchQueue.main.async {
                             let alertController = UIAlertController(title: "Ошибка авторизации", message: message, preferredStyle: .alert)
-                            let action = UIAlertAction(title: "ок", style: .default, handler: nil)
+                            let action = UIAlertAction(title: LocalizableService.getText(key: .agree), style: .default, handler: nil)
                             alertController.addAction(action)
                             self.present(alertController, animated: true, completion: nil)
                         }
                     default:
                         DispatchQueue.main.async {
                             let alertController = UIAlertController(title: "Ошибка авторизации", message: "Критическая ошибка ,возможно поможет перезагрузка", preferredStyle: .alert)
-                            let action = UIAlertAction(title: "ок", style: .default, handler: nil)
+                            let action = UIAlertAction(title: LocalizableService.getText(key: .agree), style: .default, handler: nil)
                             alertController.addAction(action)
                             self.present(alertController, animated: true) { fatalError() }
                             
@@ -318,7 +318,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
                     case .success(false):
                         DispatchQueue.main.async {
                             let alertController = UIAlertController(title: "произошла ошибка при авторизации", message: message, preferredStyle: .alert)
-                            let action = UIAlertAction(title: "ок", style: .default, handler: nil)
+                            let action = UIAlertAction(title: LocalizableService.getText(key: .agree), style: .default, handler: nil)
                             alertController.addAction(action)
                             self.present(alertController, animated: true, completion: nil)
                         }
@@ -326,7 +326,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate  {
                     case .failure(.unauthorized):
                         DispatchQueue.main.async {
                             let alertController = UIAlertController(title: "Упс при авторизации что то пошло не так", message: message, preferredStyle: .alert)
-                            let action = UIAlertAction(title: "ок", style: .default, handler: nil)
+                            let action = UIAlertAction(title: LocalizableService.getText(key: .agree), style: .default, handler: nil)
                             alertController.addAction(action)
                             self.present(alertController, animated: true, completion: nil)
                         }
