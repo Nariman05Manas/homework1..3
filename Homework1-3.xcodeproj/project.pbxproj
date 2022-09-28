@@ -42,6 +42,9 @@
 		4B91974128DA6B000097538B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4B91974028DA6B000097538B /* RealmSwift */; };
 		4B91974428DA6B590097538B /* RealmCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91974328DA6B580097538B /* RealmCoordinator.swift */; };
 		4B91974628DA6BB70097538B /* RealmDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91974528DA6BB70097538B /* RealmDatabase.swift */; };
+		4B983DE228E3B5B300A233E6 /* LocalizableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B983DE128E3B5B300A233E6 /* LocalizableService.swift */; };
+		4B983DEB28E3B63700A233E6 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 4B983DED28E3B63700A233E6 /* Localizable.stringsdict */; };
+		4B983DF028E3B8B100A233E6 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 4B983DF228E3B8B100A233E6 /* Localizable.stringsdict */; };
 		4B9B9DA7283280E8004D0882 /* ButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9B9DA6283280E8004D0882 /* ButtonElement.swift */; };
 		4B9BDC982896A00300CE7484 /* CoreDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BDC972896A00300CE7484 /* CoreDataCoordinator.swift */; };
 		4B9BDC9A2896A06B00CE7484 /* DataBaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BDC992896A06B00CE7484 /* DataBaseCoordinator.swift */; };
@@ -121,6 +124,9 @@
 		4B9111E12860D383001AB088 /* music5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music5.mp3; sourceTree = "<group>"; };
 		4B91974328DA6B580097538B /* RealmCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCoordinator.swift; sourceTree = "<group>"; };
 		4B91974528DA6BB70097538B /* RealmDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabase.swift; sourceTree = "<group>"; };
+		4B983DE128E3B5B300A233E6 /* LocalizableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableService.swift; sourceTree = "<group>"; };
+		4B983DEC28E3B63700A233E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		4B983DF128E3B8B100A233E6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		4B9B9DA6283280E8004D0882 /* ButtonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonElement.swift; sourceTree = "<group>"; };
 		4B9BDC972896A00300CE7484 /* CoreDataCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCoordinator.swift; sourceTree = "<group>"; };
 		4B9BDC992896A06B00CE7484 /* DataBaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseCoordinator.swift; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 		4B9BDC9E2896A13400CE7484 /* FavoriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinator.swift; sourceTree = "<group>"; };
 		4B9BDCA02896A16800CE7484 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		4B9BDCA62896B80A00CE7484 /* PostCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PostCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		4B9E76C028E39D7400F9B770 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4BA0798D27D8A883008B4B24 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4BA2BF132812958C00D2C055 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4BA53B912808D5430057F954 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
@@ -173,6 +180,16 @@
 				A4DE4EE9FC6C8171786E6128 /* Pods_Homework1_3.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B13C29B28E3B46E00C8456B /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				4B983DE128E3B5B300A233E6 /* LocalizableService.swift */,
+				4B983DED28E3B63700A233E6 /* Localizable.stringsdict */,
+				4B983DF228E3B8B100A233E6 /* Localizable.stringsdict */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		4B147CA427C141CB00C6F8E5 /* Profile */ = {
@@ -332,6 +349,7 @@
 		4BADD22927B6FF4400977420 /* Homework1-3 */ = {
 			isa = PBXGroup;
 			children = (
+				4B13C29B28E3B46E00C8456B /* Localization */,
 				4B6355F128DA77A500762125 /* Navigation */,
 				4B91974228DA6B360097538B /* Realm */,
 				4B9BDC9628969FC700CE7484 /* CoreData */,
@@ -464,6 +482,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 4BADD21E27B6FF4400977420;
 			packageReferences = (
@@ -494,6 +513,8 @@
 			files = (
 				4B9111D92860BB0C001AB088 /* music3.mp3 in Resources */,
 				4B7A4ABD2874D78A004B8FA2 /* GoogleService-Info.plist in Resources */,
+				4B983DEB28E3B63700A233E6 /* Localizable.stringsdict in Resources */,
+				4B983DF028E3B8B100A233E6 /* Localizable.stringsdict in Resources */,
 				4BADD23727B6FF4500977420 /* LaunchScreen.storyboard in Resources */,
 				4B9111D32860BAFB001AB088 /* music1.mp3 in Resources */,
 				4BADD23427B6FF4500977420 /* Assets.xcassets in Resources */,
@@ -571,6 +592,7 @@
 				4B9B9DA7283280E8004D0882 /* ButtonElement.swift in Sources */,
 				4BA0798E27D8A883008B4B24 /* LogInViewController.swift in Sources */,
 				4B85745D27EA464200F339DA /* PhotosCollectionViewCell.swift in Sources */,
+				4B983DE228E3B5B300A233E6 /* LocalizableService.swift in Sources */,
 				4B6681FC2873CFC70088EE94 /* LoginInspector.swift in Sources */,
 				4B448D04283EDAC600530DA4 /* FeedCoordinator.swift in Sources */,
 				4BADD23F27B7046500977420 /* FeedViewController.swift in Sources */,
@@ -614,10 +636,27 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4B983DED28E3B63700A233E6 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B983DEC28E3B63700A233E6 /* en */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
+		4B983DF228E3B8B100A233E6 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B983DF128E3B8B100A233E6 /* ru */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
 		4BADD23527B6FF4500977420 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4BADD23627B6FF4500977420 /* Base */,
+				4B9E76C028E39D7400F9B770 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -694,6 +733,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -757,6 +797,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
