@@ -32,8 +32,8 @@ class Favorite: UIViewController {
         button.toAutoLayout()
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
-        button.setTitle(LocalizableService.getText(key: .found), for: .normal)
-        button.titleLabel?.textColor = .white
+        button.setTitle("found".localized, for: .normal)
+        button.titleLabel?.textColor = UIColor.createColor(lightMode: .white, darkMode: .black)
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowOpacity = 0.7
@@ -55,8 +55,8 @@ class Favorite: UIViewController {
         button.toAutoLayout()
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
-        button.setTitle(LocalizableService.getText(key: .clear), for: .normal)
-        button.titleLabel?.textColor = .white
+        button.setTitle("clear".localized, for: .normal)
+        button.titleLabel?.textColor = UIColor.createColor(lightMode: .white, darkMode: .black)
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowOpacity = 0.7
@@ -78,7 +78,7 @@ class Favorite: UIViewController {
         label.toAutoLayout()
         label.text = ""
         label.textAlignment = .natural
-        label.textColor = .black
+        label.textColor = UIColor.createColor(lightMode: .black, darkMode: .white)
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
     }()
@@ -105,7 +105,7 @@ class Favorite: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = LocalizableService.getText(key: .favorites)
+        title = "favorites".localized
         
         view.addSubviews(postTable, searchButton, clearSearchButton, searchNameLabel)
         postTable.dataSource = self
@@ -169,15 +169,15 @@ class Favorite: UIViewController {
     }
     
     @objc func SearchPost() {
-        let alertController = UIAlertController(title: LocalizableService.getText(key: .foundAuthor),
-                                                message: LocalizableService.getText(key: .foundAuthorText),
+        let alertController = UIAlertController(title: "foundAuthor".localized,
+                                                message: "foundAuthorText".localized,
                                                 preferredStyle: .alert)
         
         alertController.addTextField( configurationHandler: {(textField: UITextField!) in
             textField.placeholder = "Gendale"
         })
         
-        let action = UIAlertAction(title: LocalizableService.getText(key: .agree),
+        let action = UIAlertAction(title: "agree".localized,
                                    style: UIAlertAction.Style.default) {[weak self] (paramAction:UIAlertAction!) in
             if let textFields = alertController.textFields {
                 let theTextFields = textFields as [UITextField]
@@ -247,7 +247,7 @@ extension Favorite: UITableViewDelegate, UITableViewDataSource {
        
         let post = contentPostData[indexPath.row]
         
-        let deleteAction = UIContextualAction(style: .destructive, title: LocalizableService.getText(key: .delete)) { (_ , _, completionHandler) in
+        let deleteAction = UIContextualAction(style: .destructive, title: "delete".localized) { (_ , _, completionHandler) in
             
             let predicate = NSPredicate(format: "id == %ld", post.id)
             

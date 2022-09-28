@@ -9,55 +9,56 @@ import UIKit
 import iOSIntPackage
 
 class PhotosTableViewCell: UITableViewCell {
-    
+
     static let identifire = "PhotosTableViewCell"
     
-    
-    let imageProcessorMain = ImageProcessor()
-    
-    
-    let title: UILabel = {
-        let title = UILabel()
-        title.text = LocalizableService.getText(key: .photos)
-        title.textColor = .black
-        title.font = .systemFont(ofSize: 24, weight: .bold)
-        title.toAutoLayout()
-        return title
-    }()
-    
-    let nextButtonImage: UIImageView = {
-        let nextButtonImage = UIImageView()
-        nextButtonImage.toAutoLayout()
-        nextButtonImage.image = UIImage(systemName: "arrow.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))?.withTintColor(.black, renderingMode: .alwaysOriginal)
-        return nextButtonImage
-    }()
+    let imageProcessor  = ImageProcessor()
     
     let stackView: UIStackView = {
+        
         let stackView = UIStackView()
         stackView.toAutoLayout()
-        stackView.spacing = 8
         stackView.axis = .horizontal
+        stackView.spacing = 8
         stackView.alignment = .leading
         stackView.distribution = .fillEqually
+        stackView.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .darkGray)
+        
         return stackView
+        
     }()
+    
+    let titleLabel: UILabel = {
+           let photosLabel = UILabel()
+        photosLabel.text = "photos".localized
+           photosLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+           photosLabel.textColor = UIColor.createColor(lightMode: .black, darkMode: .white)
+           photosLabel.toAutoLayout()
+           return photosLabel
+       }()
+
+       let titleButton: UIImageView = {
+           let arrowImage = UIImageView()
+           arrowImage.image = UIImage(systemName: "arrow.right",
+                                      withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))?.withTintColor(UIColor.createColor(lightMode: .black, darkMode: .white), renderingMode: .alwaysOriginal)
+           arrowImage.toAutoLayout()
+           return arrowImage
+       }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubviews(title, nextButtonImage, stackView)
         
-        
+        contentView.addSubviews(titleLabel, titleButton, stackView)
         
         for i in 0...3 {
             
-            let myPhotos = UIImageView(image: photosGaleryArray[i])
-            myPhotos.toAutoLayout()
-            myPhotos.layer.cornerRadius = 6
-            myPhotos.clipsToBounds = true
-            stackView.addArrangedSubview(myPhotos)
+            let photo = UIImageView(image: photosGaleryArray[i])
+            photo.toAutoLayout()
+            photo.layer.cornerRadius = 6
+            photo.clipsToBounds = true
+            stackView.addArrangedSubview(photo)
         }
-        
-        initialLayout()
+        useConstraint()
         
     }
     
@@ -65,33 +66,33 @@ class PhotosTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initialLayout(){
+    func useConstraint() {
         
-        NSLayoutConstraint.activate([title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-                                     title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+        NSLayoutConstraint.activate([titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+                                     titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
                                      
-                                     nextButtonImage.centerYAnchor.constraint(equalTo: title.centerYAnchor),
-                                     nextButtonImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-                                     nextButtonImage.heightAnchor.constraint(equalToConstant: 30),
-                                     nextButtonImage.widthAnchor.constraint(equalToConstant: 30),
+                                     titleButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+                                     titleButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+                                     titleButton.heightAnchor.constraint(equalToConstant: 30),
+                                     titleButton.widthAnchor.constraint(equalToConstant: 30),
                                      
-                                     stackView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 12),
+                                     stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
                                      stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
                                      stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-                                     stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 12),
+                                     stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
+                                     
                                     ])
         
         stackView.arrangedSubviews.forEach(
             {
                 [$0.widthAnchor.constraint(greaterThanOrEqualToConstant: (stackView.frame.width - 16) / 4),
                  $0.heightAnchor.constraint(equalTo: $0.widthAnchor)].forEach({$0.isActive = true})
+                
             })
     }
-    
-    
     
     override func prepareForReuse() {
         super.prepareForReuse()
     }
-    
+
 }

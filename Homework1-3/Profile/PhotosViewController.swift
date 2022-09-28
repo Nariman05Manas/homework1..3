@@ -22,6 +22,7 @@ class PhotosViewController: UIViewController {
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.toAutoLayout()
+        collectionView.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .darkGray)
         collectionView.dataSource = self
         collectionView.delegate = self
         return collectionView
@@ -33,31 +34,22 @@ class PhotosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = LocalizableService.getText(key: .photoGalery)
-        view.backgroundColor = .white
+        title = "photoGalery".localized
+        view.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .darkGray)
         view.addSubview(collectionView)
         collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: PhotosCollectionViewCell.identifire)
         useConstraint()
         
-        let imageProcessor = ImageProcessor()
-        imageProcessor.processImagesOnThread(sourceImages: photosGaleryArray, filter: .chrome, qos: .utility) {cgImages in
-            let images = cgImages.map({UIImage(cgImage: $0!)})
-            self.contentPhotoData.removeAll()
-            images.forEach({self.contentPhotoData.append($0)})
-            DispatchQueue.main.async{
-                self.collectionView.reloadData()
-            }
-        }
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        contentPhotoData = photosGaleryArray
         
-        /*--------------------------------
-         .default - 31.93 сек
-         .background - 150.13 сек
-         .userInitiated - 35.14 сек
-         .userInteractive - 30.01 сек
-         .utility - 36.36 сек
+        /*
+         .default - 35.93 сек
+         .background - 177.13 сек
+         .userInitiated - 34.14 сек
+         .userInteractive - 18.01 сек
+         .utility - 14.36 сек
          .
-        -----------------------------------*/
+        */
     }
     
     @objc func updateTimer() {
@@ -93,7 +85,7 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.identifire, for: indexPath) as? PhotosCollectionViewCell
         else {
-            preconditionFailure("Произошла ошибка загрузки новостной ленты!")
+            preconditionFailure("Произошла ошибка загрузги новостной ленты!")
         }
         cell.setupImage(contentPhotoData[indexPath.item])
         return cell
