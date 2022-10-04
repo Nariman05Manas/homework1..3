@@ -42,7 +42,6 @@
 		4B91974128DA6B000097538B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4B91974028DA6B000097538B /* RealmSwift */; };
 		4B91974428DA6B590097538B /* RealmCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91974328DA6B580097538B /* RealmCoordinator.swift */; };
 		4B91974628DA6BB70097538B /* RealmDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91974528DA6BB70097538B /* RealmDatabase.swift */; };
-		4B983DE228E3B5B300A233E6 /* LocalizableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B983DE128E3B5B300A233E6 /* LocalizableService.swift */; };
 		4B983DEB28E3B63700A233E6 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 4B983DED28E3B63700A233E6 /* Localizable.stringsdict */; };
 		4B983DF028E3B8B100A233E6 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 4B983DF228E3B8B100A233E6 /* Localizable.stringsdict */; };
 		4B9B9DA7283280E8004D0882 /* ButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9B9DA6283280E8004D0882 /* ButtonElement.swift */; };
@@ -124,7 +123,6 @@
 		4B9111E12860D383001AB088 /* music5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music5.mp3; sourceTree = "<group>"; };
 		4B91974328DA6B580097538B /* RealmCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCoordinator.swift; sourceTree = "<group>"; };
 		4B91974528DA6BB70097538B /* RealmDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabase.swift; sourceTree = "<group>"; };
-		4B983DE128E3B5B300A233E6 /* LocalizableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableService.swift; sourceTree = "<group>"; };
 		4B983DEC28E3B63700A233E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		4B983DF128E3B8B100A233E6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		4B9B9DA6283280E8004D0882 /* ButtonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonElement.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 		4B13C29B28E3B46E00C8456B /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				4B983DE128E3B5B300A233E6 /* LocalizableService.swift */,
 				4B983DED28E3B63700A233E6 /* Localizable.stringsdict */,
 				4B983DF228E3B8B100A233E6 /* Localizable.stringsdict */,
 			);
@@ -221,8 +218,6 @@
 				4B8C5E7E286F3825005C7AB1 /* infoTableVievCell.swift */,
 				4B4CDD9328C7AA5600AE26FA /* FeedPost.swift */,
 				4B8C5E82286F3C3B005C7AB1 /* InfoVievController.swift */,
-				4B4CDD9528C7ACE900AE26FA /* PostView.swift */,
-				4B4CDD9728C7AD2F00AE26FA /* PostViewController.swift */,
 			);
 			path = FeedPost;
 			sourceTree = "<group>";
@@ -319,6 +314,8 @@
 		4B9BDCA82896BA3400CE7484 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				4B4CDD9728C7AD2F00AE26FA /* PostViewController.swift */,
+				4B4CDD9528C7ACE900AE26FA /* PostView.swift */,
 				4B8653F627DA4F920092D46D /* PostTableViewCell.swift */,
 				4B8C5E80286F3953005C7AB1 /* PostCollectionViewCell.swift */,
 			);
@@ -592,7 +589,6 @@
 				4B9B9DA7283280E8004D0882 /* ButtonElement.swift in Sources */,
 				4BA0798E27D8A883008B4B24 /* LogInViewController.swift in Sources */,
 				4B85745D27EA464200F339DA /* PhotosCollectionViewCell.swift in Sources */,
-				4B983DE228E3B5B300A233E6 /* LocalizableService.swift in Sources */,
 				4B6681FC2873CFC70088EE94 /* LoginInspector.swift in Sources */,
 				4B448D04283EDAC600530DA4 /* FeedCoordinator.swift in Sources */,
 				4BADD23F27B7046500977420 /* FeedViewController.swift in Sources */,
