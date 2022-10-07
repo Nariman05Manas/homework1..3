@@ -61,6 +61,9 @@ struct FeedPost {
     }
     
 }
+extension FeedPost: Equatable{
+    
+}
 
 enum PostType: Int {
     case post = 0

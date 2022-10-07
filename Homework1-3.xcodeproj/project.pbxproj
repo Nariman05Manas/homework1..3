@@ -42,6 +42,8 @@
 		4B91974128DA6B000097538B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4B91974028DA6B000097538B /* RealmSwift */; };
 		4B91974428DA6B590097538B /* RealmCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91974328DA6B580097538B /* RealmCoordinator.swift */; };
 		4B91974628DA6BB70097538B /* RealmDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91974528DA6BB70097538B /* RealmDatabase.swift */; };
+		4B979AEF28F0D621001769DC /* LoginInspektorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B979AEE28F0D621001769DC /* LoginInspektorTests.swift */; };
+		4B979AF328F0D9CE001769DC /* PostCollectionViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B979AF228F0D9CE001769DC /* PostCollectionViewCellTests.swift */; };
 		4B983DEB28E3B63700A233E6 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 4B983DED28E3B63700A233E6 /* Localizable.stringsdict */; };
 		4B983DF028E3B8B100A233E6 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 4B983DF228E3B8B100A233E6 /* Localizable.stringsdict */; };
 		4B9B9DA7283280E8004D0882 /* ButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9B9DA6283280E8004D0882 /* ButtonElement.swift */; };
@@ -66,6 +68,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4B979AE928F0D267001769DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BADD21F27B6FF4400977420 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BADD22627B6FF4400977420;
+			remoteInfo = "Homework1-3";
+		};
 		4BA53B952808D5430057F954 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4BADD21F27B6FF4400977420 /* Project object */;
@@ -123,6 +132,9 @@
 		4B9111E12860D383001AB088 /* music5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music5.mp3; sourceTree = "<group>"; };
 		4B91974328DA6B580097538B /* RealmCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCoordinator.swift; sourceTree = "<group>"; };
 		4B91974528DA6BB70097538B /* RealmDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabase.swift; sourceTree = "<group>"; };
+		4B979AE528F0D267001769DC /* Homework1-3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Homework1-3Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B979AEE28F0D621001769DC /* LoginInspektorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspektorTests.swift; sourceTree = "<group>"; };
+		4B979AF228F0D9CE001769DC /* PostCollectionViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCellTests.swift; sourceTree = "<group>"; };
 		4B983DEC28E3B63700A233E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		4B983DF128E3B8B100A233E6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		4B9B9DA6283280E8004D0882 /* ButtonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonElement.swift; sourceTree = "<group>"; };
@@ -151,6 +163,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4B979AE228F0D267001769DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BA53B8C2808D5430057F954 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,6 +298,15 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		4B979AE628F0D267001769DC /* Homework1-3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				4B979AEE28F0D621001769DC /* LoginInspektorTests.swift */,
+				4B979AF228F0D9CE001769DC /* PostCollectionViewCellTests.swift */,
+			);
+			path = "Homework1-3Tests";
+			sourceTree = "<group>";
+		};
 		4B97D9FB284662EC006C5550 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,9 +365,11 @@
 				4BADD22927B6FF4400977420 /* Homework1-3 */,
 				4BA53B902808D5430057F954 /* StorageService */,
 				D5A0E14DF59264C8097B8089 /* Pods */,
+				4B979AE628F0D267001769DC /* Homework1-3Tests */,
 				18CD5D1AE9867BD4C3BF6F39 /* Frameworks */,
 				4B88F608280D9F01009350C1 /* Homework1-3.app */,
 				4B88F609280D9F01009350C1 /* StorageService.framework */,
+				4B979AE528F0D267001769DC /* Homework1-3Tests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -410,6 +440,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		4B979AE428F0D267001769DC /* Homework1-3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B979AED28F0D267001769DC /* Build configuration list for PBXNativeTarget "Homework1-3Tests" */;
+			buildPhases = (
+				4B979AE128F0D267001769DC /* Sources */,
+				4B979AE228F0D267001769DC /* Frameworks */,
+				4B979AE328F0D267001769DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B979AEA28F0D267001769DC /* PBXTargetDependency */,
+			);
+			name = "Homework1-3Tests";
+			productName = "Homework1-3Tests";
+			productReference = 4B979AE528F0D267001769DC /* Homework1-3Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4BA53B8E2808D5430057F954 /* StorageService */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BA53B9A2808D5430057F954 /* Build configuration list for PBXNativeTarget "StorageService" */;
@@ -464,6 +512,11 @@
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
+					4B979AE428F0D267001769DC = {
+						CreatedOnToolsVersion = 13.3.1;
+						LastSwiftMigration = 1330;
+						TestTargetID = 4BADD22627B6FF4400977420;
+					};
 					4BA53B8E2808D5430057F954 = {
 						CreatedOnToolsVersion = 13.3;
 					};
@@ -492,11 +545,19 @@
 			targets = (
 				4BADD22627B6FF4400977420 /* Homework1-3 */,
 				4BA53B8E2808D5430057F954 /* StorageService */,
+				4B979AE428F0D267001769DC /* Homework1-3Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4B979AE328F0D267001769DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BA53B8D2808D5430057F954 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -566,6 +627,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4B979AE128F0D267001769DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B979AF328F0D9CE001769DC /* PostCollectionViewCellTests.swift in Sources */,
+				4B979AEF28F0D621001769DC /* LoginInspektorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BA53B8B2808D5430057F954 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -624,6 +694,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4B979AEA28F0D267001769DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BADD22627B6FF4400977420 /* Homework1-3 */;
+			targetProxy = 4B979AE928F0D267001769DC /* PBXContainerItemProxy */;
+		};
 		4BA53B962808D5430057F954 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4BA53B8E2808D5430057F954 /* StorageService */;
@@ -660,6 +735,57 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4B979AEB28F0D267001769DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YYBC2YP9HG;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ios-18Nariman.Homework1-3Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Homework1-3.app/Homework1-3";
+			};
+			name = Debug;
+		};
+		4B979AEC28F0D267001769DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YYBC2YP9HG;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ios-18Nariman.Homework1-3Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Homework1-3.app/Homework1-3";
+			};
+			name = Release;
+		};
 		4BA53B9B2808D5430057F954 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -914,6 +1040,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4B979AED28F0D267001769DC /* Build configuration list for PBXNativeTarget "Homework1-3Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B979AEB28F0D267001769DC /* Debug */,
+				4B979AEC28F0D267001769DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4BA53B9A2808D5430057F954 /* Build configuration list for PBXNativeTarget "StorageService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
