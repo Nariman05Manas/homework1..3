@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
         
-        //NetworkService.startNetwork(url: appConfiguration?.rawValue ?? "Error cases!Сheck the data!")
         
         return true
     }

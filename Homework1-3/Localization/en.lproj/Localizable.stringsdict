@@ -26,6 +26,10 @@
 			<string>%d View&apos;s</string>
 		</dict>
 	</dict>
+	<key>faceID</key>
+	<string>Face ID</string>
+	<key>touchID</key>
+	<string>Touch ID</string>
 	<key>photoGalery</key>
 	<string>Photo gallery</string>
 	<key>info</key>
