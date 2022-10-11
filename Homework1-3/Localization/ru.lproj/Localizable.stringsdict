@@ -28,6 +28,10 @@
 	</dict>
 	<key>profile</key>
 	<string>Profile</string>
+	<key>touchID</key>
+	<string>Touch ID</string>
+	<key>faceID</key>
+	<string>Face ID</string>
 	<key>info</key>
 	<string>Инфо</string>
 	<key>setStatus</key>
